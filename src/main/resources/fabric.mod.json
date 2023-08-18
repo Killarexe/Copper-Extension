@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "copper_extension",
+	"version": "${version}",
+	"name": "Copper Extension",
+	"description": "A Simple Mod witch adds a few new features to the copper set...",
+	"authors": [
+		"Killar.exe"
+	],
+	"contact": {
+		"homepage": "https://github.com/Killarexe/Copper-Extension",
+		"sources": "https://github.com/Killarexe/Copper-Extension"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/modid/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"github.killarexe.CopperExtension"
+		],
+		"client": [
+			"github.killarexe.client.CopperExtensionClient"
+		]
+	},
+	"mixins": [
+		"copper_extension.mixins.json",
+		{
+			"config": "copper_extension.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
