@@ -1,3 +1,5 @@
+package github.killarexe.copper_extension;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
