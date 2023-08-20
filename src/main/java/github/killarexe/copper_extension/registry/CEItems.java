@@ -1,7 +1,7 @@
 package github.killarexe.copper_extension.registry;
 
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.common.item.ChangeOverTimeItem;
+import github.killarexe.copper_extension.common.item.RustedCopperIngot;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,11 +15,11 @@ public class CEItems {
 		() -> new Item(new Item.Properties())
 	);
 	public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_INGOT = ITEMS.register(
-		"weathered_copper_ingot",
+		"waxed_weathered_copper_ingot",
 		() -> new Item(new Item.Properties())
 	);
 	public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_INGOT = ITEMS.register(
-		"exposed_copper_ingot",
+		"waxed_exposed_copper_ingot",
 		() -> new Item(new Item.Properties())
 	);
 	
@@ -27,12 +27,12 @@ public class CEItems {
 		"oxidized_copper_ingot",
 		() -> new Item(new Item.Properties())
 	);
-	public static final RegistryObject<ChangeOverTimeItem> WEATHERED_COPPER_INGOT = ITEMS.register(
+	public static final RegistryObject<RustedCopperIngot> WEATHERED_COPPER_INGOT = ITEMS.register(
 		"weathered_copper_ingot",
-		() -> new ChangeOverTimeItem(new Item.Properties(), OXIDIZED_COPPER_INGOT.get(), WAXED_WEATHERED_COPPER_INGOT.get())
+		() -> new RustedCopperIngot(new Item.Properties(), OXIDIZED_COPPER_INGOT.get(), WAXED_WEATHERED_COPPER_INGOT.get())
 	);
-	public static final RegistryObject<ChangeOverTimeItem> EXPOSED_COPPER_INGOT = ITEMS.register(
+	public static final RegistryObject<RustedCopperIngot> EXPOSED_COPPER_INGOT = ITEMS.register(
 		"exposed_copper_ingot",
-		() -> new ChangeOverTimeItem(new Item.Properties(), WEATHERED_COPPER_INGOT.get(), WAXED_EXPOSED_COPPER_INGOT.get())
+		() -> new RustedCopperIngot(new Item.Properties(), WEATHERED_COPPER_INGOT.get(), WAXED_EXPOSED_COPPER_INGOT.get())
 	);
 }

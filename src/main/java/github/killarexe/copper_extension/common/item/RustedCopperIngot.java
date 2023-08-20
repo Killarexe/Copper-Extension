@@ -1,6 +1,8 @@
 package github.killarexe.copper_extension.common.item;
 
-import net.minecraft.core.BlockPos;
+import java.text.NumberFormat;
+
+import github.killarexe.copper_extension.CEMod;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -11,12 +13,13 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-public class ChangeOverTimeItem extends Item{
+public class RustedCopperIngot extends Item{
 
 	private final Item nextItem, waxedItem;
 	
-	public ChangeOverTimeItem(Properties pProperties, Item nextItem, Item waxedItem) {
+	public RustedCopperIngot(Properties pProperties, Item nextItem, Item waxedItem) {
 		super(pProperties);
 		this.nextItem = nextItem;
 		this.waxedItem = waxedItem;
@@ -28,8 +31,11 @@ public class ChangeOverTimeItem extends Item{
 		if(state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
 			int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
 			if(currentValue >= 1) {
-				waxStack(pContext, state, currentValue);
-				return InteractionResult.CONSUME;
+				Vec3 playerPos = pContext.getPlayer().position();
+				ItemStack stack = pContext.getItemInHand();
+				Level level = pContext.getLevel();
+				convertStack(waxedItem, level, stack, state, playerPos, pContext.getPlayer().isShiftKeyDown() ? currentValue : 1);
+				return InteractionResult.SUCCESS;
 			}
 		}
 		return InteractionResult.PASS;
@@ -47,25 +53,21 @@ public class ChangeOverTimeItem extends Item{
 	
 	private boolean updateStack(ItemStack stack, RandomSource random) {
 		int count = stack.getCount(); 
-		if (random.nextFloat() < 0.05688889F / count) {
+		CEMod.LOGGER.info("Updating");
+		if (random.nextFloat() < 0.1366666F / count) {
+			CEMod.LOGGER.info("Updated!");
 			stack = new ItemStack(nextItem, count);
 			return true;
 		}
 		return false;
 	}
 	
-	private void waxStack(UseOnContext pContext, BlockState state, int currentValue) {
-		BlockPos playerPos = pContext.getPlayer().blockPosition();
-		ItemStack stack = pContext.getItemInHand();
-		Level level = pContext.getLevel();
-		if(pContext.getPlayer().isShiftKeyDown()) {
-			stack.shrink(currentValue);
-			state.setValue(BeehiveBlock.HONEY_LEVEL, 0);
-			level.addFreshEntity(new ItemEntity(level, playerPos.getX(), playerPos.getY(), playerPos.getX(), new ItemStack(waxedItem, currentValue)));
-		}else{
-			stack.shrink(1);
-			state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - 1);
-			level.addFreshEntity(new ItemEntity(level, playerPos.getX(), playerPos.getY(), playerPos.getX(), new ItemStack(waxedItem)));
-		}
+	public static void convertStack(Item waxedItem, Level level, ItemStack stack, BlockState state, Vec3 playerPos, int count) {
+		int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
+		int amount = Math.min(Math.min(count, stack.getCount()), currentValue);
+		stack.shrink(amount);
+		state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount);
+		CEMod.LOGGER.info(playerPos.toVector3f().toString(NumberFormat.getIntegerInstance()));
+		level.addFreshEntity(new ItemEntity(level, playerPos.x(), playerPos.y(), playerPos.x(), new ItemStack(waxedItem, amount)));
 	}
 }

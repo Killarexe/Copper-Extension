@@ -2,6 +2,7 @@ package github.killarexe.copper_extension;
 
 import org.apache.logging.log4j.Logger;
 
+import github.killarexe.copper_extension.common.event.CEEvents;
 import github.killarexe.copper_extension.registry.CERegistries;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +20,7 @@ public class CEMod{
 	public CEMod(){
 		IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 		CERegistries.register(modBus);
+		CEEvents.registerEvents(modBus, MinecraftForge.EVENT_BUS);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 }
