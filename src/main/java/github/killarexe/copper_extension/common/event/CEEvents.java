@@ -3,6 +3,8 @@ package github.killarexe.copper_extension.common.event;
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.common.item.RustedCopperIngot;
 import github.killarexe.copper_extension.registry.CEItems;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -11,6 +13,7 @@ import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -18,6 +21,7 @@ public class CEEvents {
 	public static void registerEvents(IEventBus modBus, IEventBus forgeBus) {
 		CEMod.LOGGER.debug("Initiliazing Copper Extension Events...");
 		forgeBus.addListener(CEEvents::onRightClickEvent);
+		forgeBus.addListener(CEEvents::onTickPlayerInventoryEvent);
 		modBus.addListener(CEEvents::addItemsToCreativeTabsEvent);
 		CEMod.LOGGER.debug("Copper Extension Events Initiliazed!");
 	}
@@ -29,13 +33,26 @@ public class CEEvents {
 		if(event.getItemStack().is(Items.COPPER_BLOCK) && state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
 			int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
 			if(currentValue >= 1) {
-				Vec3 playerPos = event.getEntity().position();
-				RustedCopperIngot.convertStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, event.getEntity().isShiftKeyDown() ? currentValue : 1);
+				int amount = event.getEntity().isShiftKeyDown() ? currentValue : 1;
+				Vec3 playerPos = event.getEntity().blockPosition().getCenter();
+				RustedCopperIngot.convertStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, amount);
+				state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount);
+				level.setBlockAndUpdate(event.getPos(), state);
 			}
 		}
 	}
 	
-	//private static void onTickPlayerInventory(Item);
+	private static void onTickPlayerInventoryEvent(PlayerTickEvent event) {
+		Player player = event.player;
+		Inventory inventory = player.getInventory();
+		for(int slot = 0; slot < inventory.getContainerSize(); slot++) {
+			ItemStack stack = inventory.getItem(slot);
+			int count = stack.getCount();
+			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < RustedCopperIngot.CHANCE / count && !player.level().isClientSide) {
+				inventory.setItem(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT.get(), count));
+			}
+		}
+	}
 	
 	private static void addItemsToCreativeTabsEvent(BuildCreativeModeTabContentsEvent event) {
 		if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
