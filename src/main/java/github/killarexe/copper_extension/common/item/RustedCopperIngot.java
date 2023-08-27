@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BeehiveBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -38,8 +39,7 @@ public class RustedCopperIngot extends Item{
 				Level level = pContext.getLevel();
 				int amount = pContext.getPlayer().isShiftKeyDown() ? currentValue : 1;
 				convertStack(waxedItem, level, stack, state, playerPos, amount);
-				state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount);
-				pContext.getLevel().setBlockAndUpdate(pContext.getClickedPos(), state);
+				level.setBlock(pContext.getClickedPos(), state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
 				return InteractionResult.SUCCESS;
 			}
 		}

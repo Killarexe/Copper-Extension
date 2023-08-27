@@ -28,7 +28,7 @@ public class CERecipeGenerator extends RecipeProvider implements IConditionBuild
 			.unlockedBy("has_material", has(Items.COPPER_INGOT))
 			.save(writer);
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CEItems.WAXED_WEATHERED_COPPER_INGOT.get())
-			.requires(CEItems.WAXED_WEATHERED_COPPER_INGOT.get())
+			.requires(CEItems.WEATHERED_COPPER_INGOT.get())
 			.requires(Items.HONEYCOMB)
 			.unlockedBy("has_material", has(CEItems.WAXED_COPPER_INGOT.get()))
 			.save(writer);

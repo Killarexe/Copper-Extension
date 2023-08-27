@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BeehiveBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -30,14 +31,13 @@ public class CEEvents {
 		Level level = event.getLevel();
 		ItemStack stack = event.getItemStack();
 		BlockState state = level.getBlockState(event.getPos());
-		if(event.getItemStack().is(Items.COPPER_BLOCK) && state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
+		if(event.getItemStack().is(Items.COPPER_INGOT) && state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
 			int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
 			if(currentValue >= 1) {
 				int amount = event.getEntity().isShiftKeyDown() ? currentValue : 1;
 				Vec3 playerPos = event.getEntity().blockPosition().getCenter();
 				RustedCopperIngot.convertStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, amount);
-				state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount);
-				level.setBlockAndUpdate(event.getPos(), state);
+				level.setBlock(event.getPos(), state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount) ,Block.UPDATE_ALL_IMMEDIATE);
 			}
 		}
 	}
