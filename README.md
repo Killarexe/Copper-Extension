@@ -1,5 +1,7 @@
 # Coppper Extension
 
+![](https://i.imgur.com/7O7v6WU.png)
+
 [![Github Repo Size](https://img.shields.io/github/repo-size/Killarexe/Copper-Extension)]()
 [![Github Repo Issues](https://img.shields.io/github/issues/Killarexe/Copper-Extension)]()
 [![Github Repo Stars](https://img.shields.io/github/stars/Killarexe/Copper-Extension)]()
