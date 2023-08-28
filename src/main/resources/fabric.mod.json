@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"github.killarexe.CopperExtension"
+			"github.killarexe.copper_extension.CEMod"
 		],
 		"client": [
-			"github.killarexe.client.CopperExtensionClient"
+			"github.killarexe.copper_extension.client.CEModClient"
 		]
 	},
 	"mixins": [
