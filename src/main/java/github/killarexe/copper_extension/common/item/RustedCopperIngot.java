@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class RustedCopperIngot extends Item{
 	
-	public static final float CHANCE = 0.0136666F;
+	public static final float CHANCE = 0.0006666F;
 	
 	private final Item nextItem, waxedItem;
 
@@ -43,6 +43,7 @@ public class RustedCopperIngot extends Item{
 				int amount = player.isSneaking() ? currentValue : 1;
 				convertStack(waxedItem, world, stack, playerPos, amount);
 				world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.field_31022);
+				return ActionResult.SUCCESS;
 			}
 		}
 		return ActionResult.PASS;
@@ -56,13 +57,13 @@ public class RustedCopperIngot extends Item{
 		super.inventoryTick(stack, world, entity, slot, selected);
 	}
 	
-	private void updateEntityStack(ItemStack stack, World world, ItemEntity entity, Random random) {
+	public static void updateEntityStack(Item nextItem, ItemStack stack, World world, ItemEntity entity, Random random) {
 		int count = stack.getCount();
 		if(random.nextFloat() < CHANCE / count) {
-			int age = entity.getItemAge();
 			Vec3d pos = entity.getPos();
-			entity.remove(RemovalReason.KILLED);
 			ItemEntity newItemEntity = new ItemEntity(world, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
+			newItemEntity.copyPositionAndRotation(entity);
+			entity.remove(RemovalReason.KILLED);
 			world.spawnEntity(newItemEntity);
 		}
 	}
@@ -80,5 +81,9 @@ public class RustedCopperIngot extends Item{
 			ItemEntity entity = new ItemEntity(serverWorld, playerPos.x, playerPos.y, playerPos.z, new ItemStack(waxedItem, amount));
 			serverWorld.spawnEntity(entity);
 		}
+	}
+	
+	public Item getNextItem() {
+		return nextItem;
 	}
 }
