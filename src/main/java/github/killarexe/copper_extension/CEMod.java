@@ -7,6 +7,7 @@ import github.killarexe.copper_extension.registry.CERegistries;
 
 import org.apache.logging.log4j.LogManager;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -22,5 +23,9 @@ public class CEMod{
 		CERegistries.register(modBus);
 		CEEvents.registerEvents(modBus, MinecraftForge.EVENT_BUS);
 		MinecraftForge.EVENT_BUS.register(this);
+	}
+	
+	public static ResourceLocation res(String loc) {
+		return new ResourceLocation(MOD_ID, loc);
 	}
 }

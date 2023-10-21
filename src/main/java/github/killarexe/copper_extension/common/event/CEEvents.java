@@ -1,7 +1,8 @@
 package github.killarexe.copper_extension.common.event;
 
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.common.item.RustedCopperIngot;
+import github.killarexe.copper_extension.common.item.RustableItem;
+import github.killarexe.copper_extension.common.item.WaxableItem;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public class CEEvents {
 			if(currentValue >= 1) {
 				int amount = event.getEntity().isShiftKeyDown() ? currentValue : 1;
 				Vec3 playerPos = event.getEntity().blockPosition().getCenter();
-				RustedCopperIngot.convertStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, amount);
+				WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, amount);
 				level.setBlock(event.getPos(), state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount) ,Block.UPDATE_ALL_IMMEDIATE);
 			}
 		}
@@ -48,7 +49,7 @@ public class CEEvents {
 		for(int slot = 0; slot < inventory.getContainerSize(); slot++) {
 			ItemStack stack = inventory.getItem(slot);
 			int count = stack.getCount();
-			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < RustedCopperIngot.CHANCE / count && !player.level().isClientSide) {
+			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < RustableItem.CHANCE / count && !player.level().isClientSide) {
 				inventory.setItem(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT.get(), count));
 			}
 		}
