@@ -23,12 +23,12 @@ public class CEItems {
 	
 	public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_INGOT = ITEMS.register(
 		"waxed_exposed_copper_ingot",
-		() -> new ScrapableItem(new Item.Properties(), new ResourceLocation("minecraft", "exposed_copper_ingot"))
+		() -> new ScrapableItem(new Item.Properties(), CEMod.res("exposed_copper_ingot"))
 	);
 	
 	public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_INGOT = ITEMS.register(
 		"waxed_weathered_copper_ingot",
-		() -> new ScrapableItem(new Item.Properties(), new ResourceLocation("minecraft", "weathered_copper_ingot"))
+		() -> new ScrapableItem(new Item.Properties(), CEMod.res("weathered_copper_ingot"))
 	);
 	
 	public static final RegistryObject<RustableItem> EXPOSED_COPPER_INGOT = ITEMS.register(

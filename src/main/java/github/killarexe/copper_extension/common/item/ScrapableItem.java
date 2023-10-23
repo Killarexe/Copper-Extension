@@ -29,7 +29,7 @@ public class ScrapableItem extends Item{
 		ItemStack currentHandStack = pPlayer.getItemInHand(pUsedHand);
 		ItemStack otherHandStack = pPlayer.getOffhandItem();
 		
-		if(otherHandStack.is(ItemTags.AXES) && pPlayer instanceof ServerPlayer player) {
+		if(otherHandStack.is(ItemTags.AXES) && pPlayer instanceof ServerPlayer player && !pPlayer.getCooldowns().isOnCooldown(otherHandStack.getItem())) {
 			if(pPlayer.isCrouching()) {
 				scrap(currentHandStack, otherHandStack, player, currentHandStack.getCount());
 			}else {
@@ -52,6 +52,7 @@ public class ScrapableItem extends Item{
 			ItemEntity itemEntity = new ItemEntity(level, position.x(), position.y(), position.z(), result);
 			player.level().addFreshEntity(itemEntity);
 		}
+		player.getCooldowns().addCooldown(otherStack.getItem(), amount * 8);
 	}
 	
 	public ResourceLocation getScrappedItemId() {
