@@ -1,6 +1,7 @@
 package github.killarexe.copper_extension;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,5 +15,9 @@ public class CEMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		CERegistries.register();
+	}
+	
+	public static Identifier id(String id) {
+		return new Identifier(MOD_ID, id);
 	}
 }

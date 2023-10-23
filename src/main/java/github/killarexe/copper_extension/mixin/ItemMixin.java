@@ -6,7 +6,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import github.killarexe.copper_extension.common.item.RustedCopperIngot;
+import github.killarexe.copper_extension.common.item.RustableItem;
+import github.killarexe.copper_extension.common.item.WaxableItem;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BeehiveBlock;
@@ -32,7 +33,7 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo){
 		if(entity instanceof PlayerEntity player && stack.getItem() == Items.COPPER_INGOT) {
 			int count = stack.getCount();
-			if(player.getRandom().nextFloat() < RustedCopperIngot.CHANCE / count) {
+			if(player.getRandom().nextFloat() < RustableItem.CHANCE / count) {
 				player.getInventory().setStack(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT, count));
 			}
 		}
@@ -51,7 +52,7 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
 					Vec3d playerPos = player.getPos();
 					ItemStack stack = context.getStack();
 					int amount = player.isSneaking() ? currentValue : 1;
-					RustedCopperIngot.convertStack(CEItems.WAXED_COPPER_INGOT, world, stack, playerPos, amount);
+					WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT, world, stack, playerPos, amount);
 					world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.field_31022);
 					callbackInfoReturnable.setReturnValue(ActionResult.SUCCESS);
 				}

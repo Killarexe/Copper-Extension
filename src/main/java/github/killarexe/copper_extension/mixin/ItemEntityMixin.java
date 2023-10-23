@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import github.killarexe.copper_extension.common.item.RustedCopperIngot;
+import github.killarexe.copper_extension.common.item.RustableItem;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -27,9 +27,9 @@ public abstract class ItemEntityMixin extends Entity implements Ownable{
 		ItemEntity itemEntity = ItemEntity.class.cast(this);
 		Item item = itemEntity.getStack().getItem();
 		if(item == Items.COPPER_INGOT) {
-			RustedCopperIngot.updateEntityStack(CEItems.EXPOSED_COPPER_INGOT, itemEntity.getStack(), getEntityWorld(), itemEntity, random);
-		}else if(item instanceof RustedCopperIngot rustedCopperIngot) {
-			RustedCopperIngot.updateEntityStack(rustedCopperIngot.getNextItem(), itemEntity.getStack(), getEntityWorld(), itemEntity, random);
+			RustableItem.rustEntityStack(CEItems.EXPOSED_COPPER_INGOT, itemEntity.getStack(), getEntityWorld(), itemEntity, random);
+		}else if(item instanceof RustableItem rustableItem) {
+			RustableItem.rustEntityStack(CEItems.getItem(rustableItem.getRustItemId()), itemEntity.getStack(), getEntityWorld(), itemEntity, random);
 		}
 	}
 }
