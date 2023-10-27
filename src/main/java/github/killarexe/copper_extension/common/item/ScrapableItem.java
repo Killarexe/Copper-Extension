@@ -11,7 +11,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ScrapableItem extends Item{
@@ -28,7 +27,7 @@ public class ScrapableItem extends Item{
 		ItemStack currentHandStack = user.getStackInHand(hand);
 		ItemStack otherHandStack = user.getOffHandStack();
 		
-		if(otherHandStack.isIn(ItemTags.AXES) && user instanceof ServerPlayerEntity player && player.getItemCooldownManager().isCoolingDown(otherHandStack.getItem())) {
+		if(otherHandStack.isIn(ItemTags.AXES) && user instanceof ServerPlayerEntity player && !player.getItemCooldownManager().isCoolingDown(otherHandStack.getItem())) {
 			scrap(currentHandStack, otherHandStack, player, player.isSneaking() ? currentHandStack.getCount() : 1);
 			return TypedActionResult.success(currentHandStack);
 		}
@@ -38,15 +37,15 @@ public class ScrapableItem extends Item{
 	private void scrap(ItemStack currentStack, ItemStack otherStack, ServerPlayerEntity player, int count) {
 		int damage = otherStack.getMaxDamage() - otherStack.getDamage();
 		int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
+
 		currentStack.decrement(amount);
 		otherStack.damage(amount, player.getRandom(), player);
-		ItemStack result = new ItemStack(CEItems.getItem(scrappedItemId));
-		if(!player.getInventory().insertStack(result)) {
-			ServerWorld world = player.getServerWorld();
-			Vec3d position = player.getPos();
-			ItemEntity itemEntity = new ItemEntity(world, position.x, position.y, position.z, result);
-			world.spawnEntity(itemEntity);
-		}
+		
+		ServerWorld world = player.getServerWorld();
+		ItemStack result = new ItemStack(CEItems.getItem(scrappedItemId), amount);
+		ItemEntity itemEntity = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), result);
+		
+		world.spawnEntity(itemEntity);
 		player.getItemCooldownManager().set(otherStack.getItem(), amount * 8);
 	}
 	
