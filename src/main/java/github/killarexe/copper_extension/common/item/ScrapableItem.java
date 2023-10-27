@@ -15,8 +15,6 @@ import net.minecraft.world.phys.Vec3;
 
 public class ScrapableItem extends Item{
 
-	public static final float CHANCE = 0.0013666F;
-
 	private ResourceLocation scrappedItemId;
 	
 	public ScrapableItem(Properties pProperties, ResourceLocation scrappedItemId) {

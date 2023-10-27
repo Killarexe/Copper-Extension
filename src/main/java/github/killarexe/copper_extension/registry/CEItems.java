@@ -34,21 +34,21 @@ public class CEItems {
 	public static final RegistryObject<RustableItem> EXPOSED_COPPER_INGOT = ITEMS.register(
 		"exposed_copper_ingot",
 		() -> new RustableItem(
-				new Item.Properties(),
-				new ResourceLocation("minecraft", "copper_ingot"),
-				CEMod.res("waxed_exposed_copper_ingot"),
-				CEMod.res("weathered_copper_ingot")
+			new Item.Properties(),
+			new ResourceLocation("minecraft", "copper_ingot"),
+			CEMod.res("waxed_exposed_copper_ingot"),
+			CEMod.res("weathered_copper_ingot")
 		)
 	);
 	
 	public static final RegistryObject<RustableItem> WEATHERED_COPPER_INGOT = ITEMS.register(
 		"weathered_copper_ingot",
 		() -> new RustableItem(
-				new Item.Properties(),
-				CEMod.res("exposed_copper_ingot"),
-				CEMod.res("waxed_weathered_copper_ingot"),
-				CEMod.res("oxidized_copper_ingot")
-			)
+			new Item.Properties(),
+			CEMod.res("exposed_copper_ingot"),
+			CEMod.res("waxed_weathered_copper_ingot"),
+			CEMod.res("oxidized_copper_ingot")
+		)
 	);
 	
 	public static final RegistryObject<Item> OXIDIZED_COPPER_INGOT = ITEMS.register(

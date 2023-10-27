@@ -11,6 +11,8 @@ import net.minecraft.world.level.Level;
 
 public class RustableItem extends WaxableItem{
 
+	public static final float CHANCE = 0.0013666F;
+
 	private final ResourceLocation rustItemId;
 	
 	public RustableItem(Properties pProperties, ResourceLocation scrappedItemId, ResourceLocation waxedItemId, ResourceLocation rustItemId) {
@@ -20,13 +22,15 @@ public class RustableItem extends WaxableItem{
 
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
-		updateEntityStack(stack, entity, entity.level().getRandom());
+		if(!entity.level().isClientSide()) {
+			updateEntityStack(stack, entity, entity.level().getRandom());
+		}
 		return super.onEntityItemUpdate(stack, entity);
 	}
 
 	@Override
 	public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-		if(pEntity instanceof Player player) {
+		if(pEntity instanceof Player player && !pLevel.isClientSide()) {
 			updateStack(pStack, pLevel.random, player, pSlotId);
 		}
 	}
