@@ -9,8 +9,12 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/Killarexe/Copper-Extension",
+		"issues": "https://github.com/Killarexe/Copper-Extension/issues",
 		"sources": "https://github.com/Killarexe/Copper-Extension"
 	},
+	"contributors": [
+		"junshengxie"
+	],
 	"license": "CC0-1.0",
 	"icon": "assets/modid/icon.png",
 	"environment": "*",
