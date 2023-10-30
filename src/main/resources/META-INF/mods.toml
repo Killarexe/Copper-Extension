@@ -10,6 +10,7 @@ updateJSONURL="https://raw.githubusercontent.com/Killarexe/Copper-Extension/forg
 displayURL="https://github.com/Killarexe/Copper-Extension" #optional
 logoFile="logo.png" #optional
 authors="${mod_authors}" #optional
+credits="${mod_credits}"
 description='''${mod_description}'''
 [[dependencies.${mod_id}]] #optional
     modId="forge" #mandatory

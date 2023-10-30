@@ -21,6 +21,8 @@ public class CEDataGenerator {
 		
 		CEMod.LOGGER.debug("Generating Copper Extension 'en_us' Lang File...");
 		generator.addProvider(event.includeClient(), new CELangEnUsGenerator(output));
+		CEMod.LOGGER.debug("Generating Copper Extension 'fr_fr' Lang File...");
+		generator.addProvider(event.includeClient(), new CELangFrFrGenerator(output));
 		CEMod.LOGGER.debug("Generating Copper Extension Items Models...");
 		generator.addProvider(event.includeClient(), new CEItemModelGenerator(output, helper));
 		CEMod.LOGGER.debug("Generating Copper Extension Recipes...");

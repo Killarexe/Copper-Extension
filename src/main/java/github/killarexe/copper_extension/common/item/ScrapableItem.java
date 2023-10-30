@@ -44,12 +44,10 @@ public class ScrapableItem extends Item{
 		currentStack.shrink(amount);
 		otherStack.hurt(amount, player.getRandom(), player);
 		ItemStack result = new ItemStack(CEItems.getItemFromId(scrappedItemId), amount);
-		if(!player.getInventory().add(result)){
-			Level level = player.level();
-			Vec3 position = player.position(); 
-			ItemEntity itemEntity = new ItemEntity(level, position.x(), position.y(), position.z(), result);
-			player.level().addFreshEntity(itemEntity);
-		}
+		Level level = player.level();
+		Vec3 position = player.position(); 
+		ItemEntity itemEntity = new ItemEntity(level, position.x(), position.y(), position.z(), result);
+		player.level().addFreshEntity(itemEntity);
 		player.getCooldowns().addCooldown(otherStack.getItem(), amount * 8);
 	}
 	
