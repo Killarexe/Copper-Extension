@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -42,7 +43,7 @@ public class ScrapableItem extends Item{
 		int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
 		int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
 		currentStack.shrink(amount);
-		otherStack.hurt(amount, player.getRandom(), player);
+		otherStack.hurtAndBreak(amount, player, (event) -> event.broadcastBreakEvent(EquipmentSlot.OFFHAND));
 		ItemStack result = new ItemStack(CEItems.getItemFromId(scrappedItemId), amount);
 		Level level = player.level();
 		Vec3 position = player.position(); 
