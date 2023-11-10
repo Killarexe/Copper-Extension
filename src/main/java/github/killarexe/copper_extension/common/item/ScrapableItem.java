@@ -1,6 +1,7 @@
 package github.killarexe.copper_extension.common.item;
 
 import github.killarexe.copper_extension.registry.CEItems;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -39,7 +40,7 @@ public class ScrapableItem extends Item{
 		int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
 
 		currentStack.decrement(amount);
-		otherStack.damage(amount, player.getRandom(), player);
+		otherStack.damage(amount, player, (event) -> event.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
 		
 		ServerWorld world = player.getServerWorld();
 		ItemStack result = new ItemStack(CEItems.getItem(scrappedItemId), amount);
