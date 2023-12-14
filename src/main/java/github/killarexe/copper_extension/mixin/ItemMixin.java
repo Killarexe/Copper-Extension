@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import github.killarexe.copper_extension.common.item.RustableItem;
 import github.killarexe.copper_extension.common.item.WaxableItem;
+import github.killarexe.copper_extension.registry.CEGameRules;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BeehiveBlock;
@@ -33,7 +34,7 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo){
 		if(entity instanceof PlayerEntity player && stack.getItem() == Items.COPPER_INGOT) {
 			int count = stack.getCount();
-			if(player.getRandom().nextFloat() < RustableItem.CHANCE / count) {
+			if(player.getRandom().nextFloat() < world.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * RustableItem.BASE_CHANCE / count) {
 				player.getInventory().setStack(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT, count));
 			}
 		}
@@ -53,7 +54,7 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
 					ItemStack stack = context.getStack();
 					int amount = player.isSneaking() ? currentValue : 1;
 					WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT, world, stack, playerPos, amount);
-					world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.field_31022);
+					world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.NOTIFY_ALL_AND_REDRAW);
 					callbackInfoReturnable.setReturnValue(ActionResult.SUCCESS);
 				}
 			}

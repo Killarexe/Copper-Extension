@@ -1,5 +1,7 @@
 package github.killarexe.copper_extension.common.item;
 
+import github.killarexe.copper_extension.registry.CEGameRules;
+import github.killarexe.copper_extension.registry.CEItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.Entity.RemovalReason;
 import net.minecraft.entity.ItemEntity;
@@ -13,7 +15,7 @@ import net.minecraft.world.World;
 
 public class RustableItem extends WaxableItem{
 	
-	public static final float CHANCE = 0.0013666F;
+	public static final float BASE_CHANCE = 0.0013666F;
 	
 	private final Identifier rustItemId;
 	
@@ -24,14 +26,14 @@ public class RustableItem extends WaxableItem{
 	
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if(entity instanceof PlayerEntity player) {
-			rustStack(stack, world.random, player, slot);
+		if(entity instanceof PlayerEntity player && !world.isClient()) {
+			rustStack(stack, world, player, slot);
 		}
 	}
 	
 	public static void rustEntityStack(Item nextItem, ItemStack stack, World world, ItemEntity entity, Random random) {
 		int count = stack.getCount();
-		if(random.nextFloat() < CHANCE / count) {
+		if(random.nextFloat() < world.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * BASE_CHANCE / count) {
 			Vec3d pos = entity.getPos();
 			ItemEntity newItemEntity = new ItemEntity(world, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
 			newItemEntity.copyPositionAndRotation(entity);
@@ -40,8 +42,11 @@ public class RustableItem extends WaxableItem{
 		}
 	}
 	
-	private void rustStack(ItemStack stack, Random random, PlayerEntity player, int slot) {
-		
+	private void rustStack(ItemStack stack, World world, PlayerEntity player, int slot) {
+		int count = stack.getCount();
+		if(world.random.nextFloat() < world.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * BASE_CHANCE / count) {
+			player.getInventory().setStack(slot, new ItemStack(CEItems.getItem(rustItemId), count));
+		}
 	}
 
 	public Identifier getRustItemId() {

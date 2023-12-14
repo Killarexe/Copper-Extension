@@ -38,7 +38,7 @@ public class WaxableItem extends ScrapableItem{
 				ItemStack stack = context.getStack();
 				int amount = player.isSneaking() ? currentValue : 1;
 				waxStack(CEItems.getItem(waxedItemId), world, stack, playerPos, amount);
-				world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.field_31022);
+				world.setBlockState(pos, state.with(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.NOTIFY_ALL_AND_REDRAW);
 				return ActionResult.SUCCESS;
 			}
 		}
