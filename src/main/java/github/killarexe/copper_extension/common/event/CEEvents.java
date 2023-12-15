@@ -3,6 +3,7 @@ package github.killarexe.copper_extension.common.event;
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.common.item.RustableItem;
 import github.killarexe.copper_extension.common.item.WaxableItem;
+import github.killarexe.copper_extension.registry.CEGameRules;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -49,7 +50,8 @@ public class CEEvents {
 		for(int slot = 0; slot < inventory.getContainerSize(); slot++) {
 			ItemStack stack = inventory.getItem(slot);
 			int count = stack.getCount();
-			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < RustableItem.CHANCE / count && !player.level().isClientSide) {
+			int chance = player.level().getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE);
+			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < chance * RustableItem.BASE_CHANCE / count && !player.level().isClientSide) {
 				inventory.setItem(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT.get(), count));
 			}
 		}

@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 public class CERegistries{
 	public static void register(IEventBus modBus) {
 		CEMod.LOGGER.debug("Initializing Copper Extension Items...");
+		CEGameRules.register();
 		CEItems.ITEMS.register(modBus);
 		CEMod.LOGGER.debug("Copper Extension Items Initialized!");
 	}

@@ -1,5 +1,6 @@
 package github.killarexe.copper_extension.common.item;
 
+import github.killarexe.copper_extension.registry.CEGameRules;
 import github.killarexe.copper_extension.registry.CEItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -11,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class RustableItem extends WaxableItem{
 
-	public static final float CHANCE = 0.0013666F;
+	public static final float BASE_CHANCE = 0.0013666F;
 
 	private final ResourceLocation rustItemId;
 	
@@ -23,7 +24,7 @@ public class RustableItem extends WaxableItem{
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
 		if(!entity.level().isClientSide()) {
-			updateEntityStack(stack, entity, entity.level().getRandom());
+			updateEntityStack(stack, entity, entity.level());
 		}
 		return super.onEntityItemUpdate(stack, entity);
 	}
@@ -35,16 +36,18 @@ public class RustableItem extends WaxableItem{
 		}
 	}
 	
-	private void updateEntityStack(ItemStack stack, ItemEntity entity, RandomSource random) {
-		int count = stack.getCount(); 
-		if (random.nextFloat() < CHANCE / count) {
+	private void updateEntityStack(ItemStack stack, ItemEntity entity, Level level) {
+		int count = stack.getCount();
+		int chance = level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE);
+		if (level.random.nextFloat() < chance * BASE_CHANCE / count) {
 			entity.setItem(new ItemStack(CEItems.getItemFromId(rustItemId), count));
 		}
 	}
 
 	private void updateStack(ItemStack stack, RandomSource random, Player player, int slot) {
-		int count = stack.getCount(); 
-		if (random.nextFloat() < CHANCE / count) {
+		int count = stack.getCount();
+		int chance = player.level().getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE);
+		if (random.nextFloat() < chance * BASE_CHANCE / count) {
 			player.getInventory().setItem(slot, new ItemStack(CEItems.getItemFromId(rustItemId), count));
 		}
 	}

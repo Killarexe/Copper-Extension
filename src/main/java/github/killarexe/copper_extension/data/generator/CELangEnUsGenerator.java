@@ -20,5 +20,7 @@ public class CELangEnUsGenerator extends LanguageProvider {
 		add(CEItems.WAXED_COPPER_INGOT.get(), "Waxed Copper Ingot");
 		add(CEItems.WAXED_EXPOSED_COPPER_INGOT.get(), "Waxed Exposed Copper Ingot");
 		add(CEItems.WAXED_WEATHERED_COPPER_INGOT.get(), "Waxed Weathered Copper Ingot");
+		
+		add("gamerule.copperOxidationChance", "Copper oxidation chance");
 	}
 }

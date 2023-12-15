@@ -20,5 +20,7 @@ public class CELangFrFrGenerator extends LanguageProvider {
 		add(CEItems.WAXED_COPPER_INGOT.get(), "Lingot de cuivre ciré");
 		add(CEItems.WAXED_EXPOSED_COPPER_INGOT.get(), "Lingot de cuivre exposé et ciré");
 		add(CEItems.WAXED_WEATHERED_COPPER_INGOT.get(), "Lingot de cuivre érodé et ciré");
+		
+		add("gamerule.copperOxidationChance", "Chance d'érosion du cuivre");
 	}
 }
