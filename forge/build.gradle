@@ -27,17 +27,30 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+    // modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {
-    inputs.property "version", project.version
+    inputs.property "version", project.mod_version
 
     filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
+        expand "loader_version_range": project.forge_loader_version_range
+        expand "mod_licence": project.mod_licence
+        expand "mod_issues_url": project.mod_issues_url
+        expand "mod_id": project.mod_id
+        expand "mod_version": project.mod_version
+        expand "mod_name": project.mod_name
+        expand "mod_update_json_url": project.forge_update_json_url
+        expand "mod_homepage_url": project.mod_homepage_url
+        expand "mod_logo": project.mod_logo
+        expand "mod_authors": project.mod_authors
+        expand "mod_credits": project.forge_mod_credits
+        expand "mod_description": project.mod_description
+        expand "forge_version_range": project.forge_version_range
+        expand "minecraft_version_range": project.minecraft_version_range
     }
 }
 

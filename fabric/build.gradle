@@ -23,17 +23,27 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+    // modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 }
 
 processResources {
-    inputs.property "version", project.version
+    inputs.property "version", project.mod_version
 
     filesMatching("fabric.mod.json") {
-        expand "version": project.version
+        expand "mod_id": project.mod_id
+        expand "mod_version": project.mod_version
+        expand "mod_name": project.mod_name
+        expand "mod_description": project.mod_description
+        expand "mod_authors": project.mod_authors
+        expand "mod_homepage": project.mod_homepage
+        expand "mod_issues": project.mod_issues_url
+        expand "mod_license": project.mod_license
+        expand "mod_icon": project.mod_icon
+        expand "mod_main_class": project.fabric_mod_main
+        expand "minecraft_version": project.minecraft_version
     }
 }
 
