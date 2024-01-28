@@ -45,7 +45,7 @@ processResources {
         expand "mod_name": project.mod_name
         expand "mod_update_json_url": project.forge_update_json_url
         expand "mod_homepage_url": project.mod_homepage_url
-        expand "mod_logo": project.mod_logo
+        expand "mod_logo": project.mod_icon
         expand "mod_authors": project.mod_authors
         expand "mod_credits": project.forge_mod_credits
         expand "mod_description": project.mod_description

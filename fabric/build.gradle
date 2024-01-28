@@ -38,7 +38,7 @@ processResources {
         expand "mod_name": project.mod_name
         expand "mod_description": project.mod_description
         expand "mod_authors": project.mod_authors
-        expand "mod_homepage": project.mod_homepage
+        expand "mod_homepage": project.mod_homepage_url
         expand "mod_issues": project.mod_issues_url
         expand "mod_license": project.mod_license
         expand "mod_icon": project.mod_icon
