@@ -38,7 +38,7 @@ processResources {
 
     filesMatching("META-INF/mods.toml") {
         expand "loader_version_range": project.forge_loader_version_range
-        expand "mod_licence": project.mod_licence
+        expand "mod_license": project.mod_license
         expand "mod_issues_url": project.mod_issues_url
         expand "mod_id": project.mod_id
         expand "mod_version": project.mod_version
@@ -50,7 +50,7 @@ processResources {
         expand "mod_credits": project.forge_mod_credits
         expand "mod_description": project.mod_description
         expand "forge_version_range": project.forge_version_range
-        expand "minecraft_version_range": project.minecraft_version_range
+        expand "minecraft_version_range": project.forge_minecraft_version_range
     }
 }
 
