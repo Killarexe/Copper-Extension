@@ -42,7 +42,7 @@ processResources {
         "mod_issues": project.mod_issues_url,
         "mod_license": project.mod_license,
         "mod_icon": project.mod_icon,
-	"mod_sources": project.fabric_mod_sources,
+        "mod_sources": project.fabric_mod_sources,
         "mod_main_class": project.fabric_mod_main,
         "minecraft_version": project.minecraft_version
     }
