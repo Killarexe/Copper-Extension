@@ -37,20 +37,20 @@ processResources {
     inputs.property "version", project.mod_version
 
     filesMatching("META-INF/mods.toml") {
-        expand "loader_version_range": project.forge_loader_version_range
-        expand "mod_license": project.mod_license
-        expand "mod_issues_url": project.mod_issues_url
-        expand "mod_id": project.mod_id
-        expand "mod_version": project.mod_version
-        expand "mod_name": project.mod_name
-        expand "mod_update_json_url": project.forge_update_json_url
-        expand "mod_homepage_url": project.mod_homepage_url
-        expand "mod_logo": project.mod_icon
-        expand "mod_authors": project.mod_authors
-        expand "mod_credits": project.forge_mod_credits
-        expand "mod_description": project.mod_description
-        expand "forge_version_range": project.forge_version_range
-        expand "minecraft_version_range": project.forge_minecraft_version_range
+        expand "loader_version_range": project.forge_loader_version_range,
+        "mod_license": project.mod_license,
+        "mod_issues_url": project.mod_issues_url,
+        "mod_id": project.mod_id,
+        "mod_version": project.mod_version,
+        "mod_name": project.mod_name,
+        "mod_update_json_url": project.forge_update_json_url,
+        "mod_homepage_url": project.mod_homepage_url,
+        "mod_logo": project.mod_icon,
+        "mod_authors": project.mod_authors,
+        "mod_credits": project.forge_mod_credits,
+        "mod_description": project.mod_description,
+        "forge_version_range": project.forge_version_range,
+        "minecraft_version_range": project.forge_minecraft_version_range
     }
 }
 
