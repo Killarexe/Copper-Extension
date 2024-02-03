@@ -1,8 +1,7 @@
 package github.killarexe.copper_extension.item;
 
-import java.util.Random;
-
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +29,7 @@ public abstract class RustableItem extends WaxableItem {
     }
   }
 
-  public static void rustEntityStack(Item nextItem, ItemStack stack, Level level, ItemEntity entity, Random random) {
+  public static <T extends Item> void rustEntityStack(T nextItem, ItemStack stack, Level level, ItemEntity entity, RandomSource random) {
     int count = stack.getCount();
     if(level.random.nextFloat() < level.getGameRules().getInt(null) * BASE_CHANCE / count) {
       Vec3 pos = entity.position();
