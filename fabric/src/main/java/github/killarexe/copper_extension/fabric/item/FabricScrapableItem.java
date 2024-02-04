@@ -12,7 +12,7 @@ public class FabricScrapableItem extends ScrapableItem {
   }
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItem(getScrappedItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItem(itemId);
   }
 }

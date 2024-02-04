@@ -53,7 +53,9 @@ public abstract class WaxableItem extends ScrapableItem {
     }
   }
 
-  public abstract Item getWaxedItem();
+  public Item getWaxedItem() {
+    return getItemFromId(waxedItemId);
+  }
 
   public ResourceLocation getWaxedItemId() {
     return waxedItemId;

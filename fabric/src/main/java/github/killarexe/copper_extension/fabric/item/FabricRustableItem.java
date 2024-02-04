@@ -15,18 +15,8 @@ public class FabricRustableItem extends RustableItem{
   }
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItem(getScrappedItemId());
-  }
-
-  @Override
-  public Item getWaxedItem() {
-    return CEItems.getItem(getWaxedItemId());
-  }
-
-  @Override
-  public Item getRustItem() {
-    return CEItems.getItem(getRustItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItem(itemId);
   }
 
   @Override

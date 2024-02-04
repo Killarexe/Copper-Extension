@@ -12,12 +12,7 @@ public class ForgeWaxableItem extends WaxableItem {
 	}
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItemFromId(getScrappedItemId());
-  }
-
-  @Override
-  public Item getWaxedItem() {
-    return CEItems.getItemFromId(getScrappedItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItemFromId(itemId);
   }
 }

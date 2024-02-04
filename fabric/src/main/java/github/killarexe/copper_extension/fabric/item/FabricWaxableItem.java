@@ -12,12 +12,7 @@ public class FabricWaxableItem extends WaxableItem {
   }
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItem(getScrappedItemId());
-  }
-
-  @Override
-  public Item getWaxedItem() {
-    return CEItems.getItem(getWaxedItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItem(itemId);
   }
 }

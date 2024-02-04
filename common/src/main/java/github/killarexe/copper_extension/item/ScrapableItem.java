@@ -1,5 +1,6 @@
 package github.killarexe.copper_extension.item;
 
+import github.killarexe.copper_extension.ItemManagerAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,7 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public abstract class ScrapableItem extends Item {
+public abstract class ScrapableItem extends Item implements ItemManagerAccessor {
 
   private final ResourceLocation scrappedItemId;
 
@@ -50,7 +51,9 @@ public abstract class ScrapableItem extends Item {
     serverPlayer.getCooldowns().addCooldown(otherStack.getItem(), amount * 8);
   }
 
-  public abstract Item getScrappedItem();
+  public Item getScrappedItem() {
+    return getItemFromId(scrappedItemId);
+  }
 
   public ResourceLocation getScrappedItemId() {
     return scrappedItemId;

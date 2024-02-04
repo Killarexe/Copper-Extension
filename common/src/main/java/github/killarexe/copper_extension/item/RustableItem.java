@@ -46,7 +46,9 @@ public abstract class RustableItem extends WaxableItem {
     }
   }
 
-  public abstract Item getRustItem();
+  public Item getRustItem() {
+    return getItemFromId(rustItemId);
+  }
 
   public abstract GameRules.Key<GameRules.IntegerValue> getOxidationChanceGameRule();
 

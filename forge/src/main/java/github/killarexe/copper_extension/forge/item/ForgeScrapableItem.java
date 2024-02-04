@@ -12,8 +12,7 @@ public class ForgeScrapableItem extends ScrapableItem{
 	}
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItemFromId(getScrappedItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItemFromId(itemId);
   }
-
 }

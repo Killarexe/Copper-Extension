@@ -15,18 +15,8 @@ public class ForgeRustableItem extends RustableItem {
 	}
 
   @Override
-  public Item getScrappedItem() {
-    return CEItems.getItemFromId(getScrappedItemId());
-  }
-
-  @Override
-  public Item getWaxedItem() {
-    return CEItems.getItemFromId(getWaxedItemId());
-  }
-
-  @Override
-  public Item getRustItem() {
-    return CEItems.getItemFromId(getRustItemId());
+  public Item getItemFromId(ResourceLocation itemId) {
+    return CEItems.getItemFromId(itemId);
   }
 
   @Override
