@@ -1,9 +1,13 @@
 package github.killarexe.copper_extension.forge.registry;
 
+import java.util.Optional;
+
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.forge.item.*;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

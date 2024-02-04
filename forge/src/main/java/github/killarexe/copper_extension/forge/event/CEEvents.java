@@ -38,7 +38,7 @@ public class CEEvents {
 			if(currentValue >= 1) {
 				int amount = event.getEntity().isShiftKeyDown() ? currentValue : 1;
 				Vec3 playerPos = event.getEntity().blockPosition().getCenter();
-				WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, state, playerPos, amount);
+				WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, playerPos, amount);
 				level.setBlock(event.getPos(), state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount) ,Block.UPDATE_ALL_IMMEDIATE);
 			}
 		}

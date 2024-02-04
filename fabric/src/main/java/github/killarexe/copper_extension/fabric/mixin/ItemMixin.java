@@ -30,7 +30,7 @@ import net.minecraft.world.phys.Vec3;
 @Mixin(Item.class)
 public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem {
 
-  @Inject(method = "inventoryTick(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V", at = @At("HEAD"))
+  @Inject(method = "inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V", at = @At("HEAD"))
   public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo) {
     if(entity instanceof Player player && stack.getItem() == Items.COPPER_INGOT) {
       int count = stack.getCount();
@@ -40,7 +40,7 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
     }
   }
 
-  @Inject(method = "useOn(Lnet/minecraft/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
+  @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
   public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
     if(context.getItemInHand().getItem() == Items.COPPER_INGOT) {
       Level level = context.getLevel();

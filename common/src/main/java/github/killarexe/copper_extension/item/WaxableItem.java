@@ -45,7 +45,7 @@ public abstract class WaxableItem extends ScrapableItem {
     return InteractionResult.PASS;
   }
 
-  public static void waxStack(Item waxedItem, Level level, ItemStack stack, Vec3 playerPos, int amount) {
+  public static <T extends Item> void waxStack(T waxedItem, Level level, ItemStack stack, Vec3 playerPos, int amount) {
     stack.shrink(amount);
     if(level instanceof ServerLevel serverLevel) {
       ItemEntity entity = new ItemEntity(serverLevel, playerPos.x, playerPos.y, playerPos.z, new ItemStack(waxedItem, amount));
