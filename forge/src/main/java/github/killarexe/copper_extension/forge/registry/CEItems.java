@@ -29,6 +29,11 @@ public class CEItems {
 		"waxed_weathered_copper_ingot",
 		() -> new ForgeScrapableItem(new Item.Properties(), CEMod.id("weathered_copper_ingot"))
 	);
+
+  public static final RegistryObject<ForgeScrapableItem> WAXED_OXIDIZED_COPPER_INGOT = ITEMS.register(
+    "waxed_oxidized_copper_ingot",
+    () -> new ForgeScrapableItem(new Item.Properties(), CEMod.id("oxidized_copper_ingot"))
+  );
 	
 	public static final RegistryObject<ForgeRustableItem> EXPOSED_COPPER_INGOT = ITEMS.register(
 		"exposed_copper_ingot",
