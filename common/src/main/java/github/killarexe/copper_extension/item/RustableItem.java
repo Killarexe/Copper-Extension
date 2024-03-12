@@ -29,9 +29,12 @@ public abstract class RustableItem extends WaxableItem {
     }
   }
 
-  public static <T extends Item> void rustEntityStack(T nextItem, ItemStack stack, Level level, ItemEntity entity, RandomSource random) {
+  public static <T extends Item> void rustEntityStack(
+          T nextItem, ItemStack stack, Level level,
+          ItemEntity entity, GameRules.Key<GameRules.IntegerValue> oxidationGameRule, RandomSource random)
+  {
     int count = stack.getCount();
-    if(level.random.nextFloat() < level.getGameRules().getInt(null) * BASE_CHANCE / count) {
+    if(level.random.nextFloat() < level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE / count) {
       Vec3 pos = entity.position();
       ItemEntity newItemEntity = new ItemEntity(level, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
       newItemEntity.copyPosition(entity);

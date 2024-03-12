@@ -13,14 +13,12 @@ public class ForgeRustableItem extends RustableItem {
 	public ForgeRustableItem(Properties properties, ResourceLocation scrappedItemId, ResourceLocation waxedItemId, ResourceLocation rustItemId) {
 		super(properties, scrappedItemId, waxedItemId, rustItemId);
 	}
-
-  @Override
-  public Item getItemFromId(ResourceLocation itemId) {
-    return CEItems.getItemFromId(itemId);
-  }
-
-  @Override
-  public Key<IntegerValue> getOxidationChanceGameRule() {
-    return CEGameRules.COPPER_OXIDATION_CHANCE;
-  }
+    @Override
+    public Item getItemFromId(ResourceLocation itemId) {
+        return CEItems.getItemFromId(itemId);
+    }
+    @Override
+    public Key<IntegerValue> getOxidationChanceGameRule() {
+        return CEGameRules.COPPER_OXIDATION_CHANCE;
+    }
 }
