@@ -15,21 +15,21 @@ import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class CEEvents {
-	public static void registerEvents(IEventBus modBus, IEventBus forgeBus) {
+	public static void registerEvents(IEventBus bus) {
 		CEForge.LOGGER.debug("Initiliazing Copper Extension Events...");
-		forgeBus.addListener(CEEvents::onRightClickEvent);
-		forgeBus.addListener(CEEvents::onTickPlayerInventoryEvent);
-		modBus.addListener(CEEvents::addItemsToCreativeTabsEvent);
+		bus.addListener(CEEvents::onRightClickEvent);
+		bus.addListener(CEEvents::onTickPlayerInventoryEvent);
+		bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
 		CEForge.LOGGER.debug("Copper Extension Events Initiliazed!");
 	}
 	
-	private static void onRightClickEvent(RightClickBlock event) {
+	private static void onRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
 		Level level = event.getLevel();
 		ItemStack stack = event.getItemStack();
 		BlockState state = level.getBlockState(event.getPos());
@@ -45,7 +45,7 @@ public class CEEvents {
 	}
 	
 	private static void onTickPlayerInventoryEvent(PlayerTickEvent event) {
-		Player player = event.player;
+		Player player = event.getEntity();
 		Inventory inventory = player.getInventory();
 		for(int slot = 0; slot < inventory.getContainerSize(); slot++) {
 			ItemStack stack = inventory.getItem(slot);

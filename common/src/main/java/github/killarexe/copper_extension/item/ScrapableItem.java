@@ -41,7 +41,7 @@ public abstract class ScrapableItem extends Item implements ItemManagerAccessor 
     int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
 
     currentStack.shrink(damage);
-    otherStack.hurtAndBreak(amount, serverPlayer, (event) -> event.broadcastBreakEvent(EquipmentSlot.OFFHAND));
+    otherStack.hurtAndBreak(amount, serverPlayer, EquipmentSlot.OFFHAND);
 
     ServerLevel level = serverPlayer.serverLevel();
     ItemStack result = new ItemStack(getScrappedItem(), amount);
