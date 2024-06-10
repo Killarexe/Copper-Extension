@@ -12,7 +12,6 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:exposed_copper"
-  },
-  "show_notification": true
+    "id": "minecraft:exposed_copper"
+  }
 }

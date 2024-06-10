@@ -12,7 +12,6 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:waxed_exposed_copper"
-  },
-  "show_notification": true
+    "id": "minecraft:waxed_exposed_copper"
+  }
 }

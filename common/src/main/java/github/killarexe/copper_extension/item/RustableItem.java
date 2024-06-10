@@ -34,11 +34,12 @@ public abstract class RustableItem extends WaxableItem {
           ItemEntity entity, GameRules.Key<GameRules.IntegerValue> oxidationGameRule, RandomSource random)
   {
     int count = stack.getCount();
-    if(level.random.nextFloat() < level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE / count) {
+    if(random.nextFloat() < level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE / count) {
       Vec3 pos = entity.position();
       ItemEntity newItemEntity = new ItemEntity(level, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
       newItemEntity.copyPosition(entity);
       level.addFreshEntity(newItemEntity);
+      entity.kill();
     }
   }
 

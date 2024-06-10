@@ -22,5 +22,8 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=${minecraft_version}"
-  }
+  },
+  "mixins": [
+    "copper_extension.mixins.json"
+  ]
 }

@@ -12,7 +12,6 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:waxed_copper_block"
-  },
-  "show_notification": true
+    "id": "minecraft:waxed_copper_block"
+  }
 }
