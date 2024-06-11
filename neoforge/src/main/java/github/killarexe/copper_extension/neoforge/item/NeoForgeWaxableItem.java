@@ -1,13 +1,13 @@
-package github.killarexe.copper_extension.forge.item;
+package github.killarexe.copper_extension.neoforge.item;
 
-import github.killarexe.copper_extension.forge.registry.CEItems;
 import github.killarexe.copper_extension.item.WaxableItem;
+import github.killarexe.copper_extension.neoforge.registry.CEItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-public class ForgeWaxableItem extends WaxableItem {
+public class NeoForgeWaxableItem extends WaxableItem {
 
-	public ForgeWaxableItem(Properties properties, ResourceLocation scrappedItemId, ResourceLocation waxedItemId) {
+	public NeoForgeWaxableItem(Properties properties, ResourceLocation scrappedItemId, ResourceLocation waxedItemId) {
 		super(properties, scrappedItemId, waxedItemId);
 	}
 

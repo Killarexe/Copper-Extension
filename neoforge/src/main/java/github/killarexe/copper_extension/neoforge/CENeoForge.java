@@ -1,21 +1,22 @@
-package github.killarexe.copper_extension.forge;
+package github.killarexe.copper_extension.neoforge;
 
-import github.killarexe.copper_extension.forge.event.CEEvents;
+import github.killarexe.copper_extension.neoforge.event.CEEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.forge.registry.CERegistries;
+import github.killarexe.copper_extension.neoforge.registry.CERegistries;
 
 @Mod(CEMod.MOD_ID)
-public class CEForge {
+public class CENeoForge {
   public static final Logger LOGGER = LogManager.getLogger();
 
-  public CEForge(IEventBus bus, ModContainer container) {
+  public CENeoForge(IEventBus bus, ModContainer container) {
     CERegistries.register(bus);
     CEEvents.registerEvents(bus);
-  }
+ }
 }

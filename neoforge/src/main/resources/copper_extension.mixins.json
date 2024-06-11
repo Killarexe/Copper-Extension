@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "github.killarexe.copper_extension.fabric.mixin",
+  "package": "github.killarexe.copper_extension.neoforge.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [

@@ -1,12 +1,8 @@
-package github.killarexe.copper_extension.forge.event;
+package github.killarexe.copper_extension.neoforge.event;
 
-import github.killarexe.copper_extension.forge.CEForge;
-import github.killarexe.copper_extension.forge.registry.CEGameRules;
-import github.killarexe.copper_extension.forge.registry.CEItems;
-import github.killarexe.copper_extension.item.RustableItem;
+import github.killarexe.copper_extension.neoforge.CENeoForge;
+import github.killarexe.copper_extension.neoforge.registry.CEItems;
 import github.killarexe.copper_extension.item.WaxableItem;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,17 +12,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 public class CEEvents {
 	public static void registerEvents(IEventBus bus) {
-		CEForge.LOGGER.debug("Initiliazing Copper Extension Events...");
-		bus.addListener(CEEvents::onRightClickEvent);
-		bus.addListener(CEEvents::onTickPlayerInventoryEvent);
-		bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
-		CEForge.LOGGER.debug("Copper Extension Events Initiliazed!");
+		CENeoForge.LOGGER.debug("Initiliazing Copper Extension Events...");
+		NeoForge.EVENT_BUS.addListener(CEEvents::onRightClickEvent);
+    bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
+		CENeoForge.LOGGER.debug("Copper Extension Events Initiliazed!");
 	}
 	
 	private static void onRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
@@ -43,21 +38,8 @@ public class CEEvents {
 			}
 		}
 	}
-	
-	private static void onTickPlayerInventoryEvent(PlayerTickEvent event) {
-		Player player = event.getEntity();
-		Inventory inventory = player.getInventory();
-		for(int slot = 0; slot < inventory.getContainerSize(); slot++) {
-			ItemStack stack = inventory.getItem(slot);
-			int count = stack.getCount();
-			int chance = player.level().getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE);
-			if(stack.getItem() == Items.COPPER_INGOT && player.getRandom().nextFloat() < chance * RustableItem.BASE_CHANCE / count && !player.level().isClientSide) {
-				inventory.setItem(slot, new ItemStack(CEItems.EXPOSED_COPPER_INGOT.get(), count));
-			}
-		}
-	}
-	
-	private static void addItemsToCreativeTabsEvent(BuildCreativeModeTabContentsEvent event) {
+
+  private static void addItemsToCreativeTabsEvent(BuildCreativeModeTabContentsEvent event) {
 		if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			event.acceptAll(CEItems.ITEMS.getEntries().stream().map(item -> new ItemStack(item.get())).toList());
 		}

@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension.forge.registry;
+package github.killarexe.copper_extension.registry;
 
 import net.minecraft.world.level.GameRules;
 

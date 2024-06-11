@@ -15,6 +15,9 @@ credits="Thanks to junshengxie for translating!"
 displayTest="MATCH_VERSION"
 description='''${mod_description}'''
 
+[[mixins]]
+config="${mod_id}.mixins.json"
+
 [[dependencies.crystals]]
 modId="neoforge"
 type="required"
