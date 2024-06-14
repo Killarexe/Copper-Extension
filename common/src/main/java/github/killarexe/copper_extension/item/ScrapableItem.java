@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension.item;
 
-import github.killarexe.copper_extension.ItemManagerAccessor;
+import github.killarexe.copper_extension.ItemAccessor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public abstract class ScrapableItem extends Item implements ItemManagerAccessor {
+public abstract class ScrapableItem extends Item implements ItemAccessor {
 
   private final ResourceLocation scrappedItemId;
 
@@ -40,7 +40,7 @@ public abstract class ScrapableItem extends Item implements ItemManagerAccessor 
     int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
     int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
 
-    currentStack.shrink(damage);
+    currentStack.shrink(amount);
     otherStack.hurtAndBreak(amount, serverPlayer, EquipmentSlot.OFFHAND);
 
     ServerLevel level = serverPlayer.serverLevel();

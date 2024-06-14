@@ -1,12 +1,12 @@
 package github.killarexe.copper_extension.fabric.mixin;
 
+import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import github.killarexe.copper_extension.registry.CEGameRules;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import github.killarexe.copper_extension.item.RustableItem;
 import github.killarexe.copper_extension.item.WaxableItem;

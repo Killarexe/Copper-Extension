@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension.fabric.mixin;
 
-import github.killarexe.copper_extension.registry.CEGameRules;
+import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

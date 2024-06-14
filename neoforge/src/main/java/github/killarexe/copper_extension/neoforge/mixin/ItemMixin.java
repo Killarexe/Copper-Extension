@@ -1,5 +1,7 @@
 package github.killarexe.copper_extension.neoforge.mixin;
 
+import github.killarexe.copper_extension.neoforge.registry.CEGameRules;
+import net.neoforged.neoforge.common.extensions.IItemExtension;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -9,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import github.killarexe.copper_extension.item.RustableItem;
 import github.killarexe.copper_extension.item.WaxableItem;
 import github.killarexe.copper_extension.neoforge.registry.CEItems;
-import github.killarexe.copper_extension.registry.CEGameRules;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -27,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 @Mixin(Item.class)
-public abstract class ItemMixin implements FeatureElement, ItemLike {
+public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtension {
 
   @Inject(method = "inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V", at = @At("HEAD"))
   public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo) {

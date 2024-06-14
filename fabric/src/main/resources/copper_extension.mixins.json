@@ -8,7 +8,10 @@
     "ItemEntityMixin",
     "ItemMixin"
   ],
-  "server": [],
+  "server": [
+    "ItemEntityMixin",
+    "ItemMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

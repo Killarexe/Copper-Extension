@@ -19,24 +19,8 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 public class CEEvents {
 	public static void registerEvents(IEventBus bus) {
 		CENeoForge.LOGGER.debug("Initiliazing Copper Extension Events...");
-		NeoForge.EVENT_BUS.addListener(CEEvents::onRightClickEvent);
-    bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
+    	bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
 		CENeoForge.LOGGER.debug("Copper Extension Events Initiliazed!");
-	}
-	
-	private static void onRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
-		Level level = event.getLevel();
-		ItemStack stack = event.getItemStack();
-		BlockState state = level.getBlockState(event.getPos());
-		if(event.getItemStack().is(Items.COPPER_INGOT) && state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
-			int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
-			if(currentValue >= 1) {
-				int amount = event.getEntity().isShiftKeyDown() ? currentValue : 1;
-				Vec3 playerPos = event.getEntity().blockPosition().getCenter();
-				WaxableItem.waxStack(CEItems.WAXED_COPPER_INGOT.get(), level, stack, playerPos, amount);
-				level.setBlock(event.getPos(), state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount) ,Block.UPDATE_ALL_IMMEDIATE);
-			}
-		}
 	}
 
   private static void addItemsToCreativeTabsEvent(BuildCreativeModeTabContentsEvent event) {
