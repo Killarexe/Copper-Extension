@@ -6,6 +6,6 @@ public class CEMod {
   public static final String MOD_ID = "copper_extension";
 
   public static ResourceLocation id(String id) {
-    return new ResourceLocation(MOD_ID, id);
+    return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
   }
 }

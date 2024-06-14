@@ -18,7 +18,7 @@ public class CEItems {
 	
 	public static final FabricScrapableItem WAXED_COPPER_INGOT = createItem(
     "waxed_copper_ingot",
-    new FabricScrapableItem(new Item.Properties(), new ResourceLocation("minecraft", "copper_ingot"))
+    new FabricScrapableItem(new Item.Properties(), ResourceLocation.withDefaultNamespace("copper_ingot"))
   );
 	
   public static final FabricScrapableItem WAXED_EXPOSED_COPPER_INGOT = createItem(
@@ -38,7 +38,7 @@ public class CEItems {
 	
 	public static final FabricRustableItem EXPOSED_COPPER_INGOT = createItem("exposed_copper_ingot", new FabricRustableItem(
 			new Item.Properties(),
-			new ResourceLocation("minecraft", "copper_ingot"),
+			ResourceLocation.withDefaultNamespace( "copper_ingot"),
 			CEMod.id("waxed_exposed_copper_ingot"),
 			CEMod.id("weathered_copper_ingot"))
 	);
@@ -54,7 +54,7 @@ public class CEItems {
 	
 	public static void register() {
 		ITEMS.forEach((id, item) -> {
-			Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(CEMod.MOD_ID, id), item);
+			Registry.register(BuiltInRegistries.ITEM, CEMod.id(id), item);
 			ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register((group) -> {
 				group.accept(item);
 			});

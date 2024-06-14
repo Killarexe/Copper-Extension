@@ -17,7 +17,7 @@ public class CEItems {
 
   public static final Supplier<NeoForgeScrapableItem> WAXED_COPPER_INGOT = ITEMS.register(
 		"waxed_copper_ingot",
-		() -> new NeoForgeScrapableItem(new Item.Properties(), new ResourceLocation( "copper_ingot"))
+		() -> new NeoForgeScrapableItem(new Item.Properties(), ResourceLocation.withDefaultNamespace( "copper_ingot"))
 	);
 	
 	public static final Supplier<NeoForgeScrapableItem> WAXED_EXPOSED_COPPER_INGOT = ITEMS.register(
@@ -39,7 +39,7 @@ public class CEItems {
 		"exposed_copper_ingot",
 		() -> new NeoForgeRustableItem(
 			new Item.Properties(),
-			new ResourceLocation("copper_ingot"),
+			ResourceLocation.withDefaultNamespace("copper_ingot"),
 			CEMod.id("waxed_exposed_copper_ingot"),
 			CEMod.id("weathered_copper_ingot")
 		)
