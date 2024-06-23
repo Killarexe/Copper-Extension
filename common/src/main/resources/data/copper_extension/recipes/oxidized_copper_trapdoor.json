@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "copper_extension:oxidized_copper_ingot"
+    }
+  },
+  "result": {
+    "id": "minecraft:oxidized_copper_trapdoor",
+    "count": 2
+  }
+}
