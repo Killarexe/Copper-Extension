@@ -17,23 +17,23 @@ public class CEItems {
 	private static final HashMap<String, Item> ITEMS = new HashMap<String, Item>();
 	
 	public static final FabricScrapableItem WAXED_COPPER_INGOT = createItem(
-    "waxed_copper_ingot",
-    new FabricScrapableItem(new Item.Properties(), ResourceLocation.withDefaultNamespace("copper_ingot"))
-  );
+			"waxed_copper_ingot",
+			new FabricScrapableItem(new Item.Properties(), ResourceLocation.withDefaultNamespace("copper_ingot"))
+	);
 	
   public static final FabricScrapableItem WAXED_EXPOSED_COPPER_INGOT = createItem(
-    "waxed_exposed_copper_ingot",
-    new FabricScrapableItem(new Item.Properties(), CEMod.id("exposed_copper_ingot"))
+		  "waxed_exposed_copper_ingot",
+		  new FabricScrapableItem(new Item.Properties(), CEMod.id("exposed_copper_ingot"))
   );
 	
   public static final FabricScrapableItem WAXED_WEATHERED_COPPER_INGOT = createItem(
-    "waxed_weathered_copper_ingot",
-    new FabricScrapableItem(new Item.Properties(), CEMod.id("weathered_copper_ingot"))
+		  "waxed_weathered_copper_ingot",
+		  new FabricScrapableItem(new Item.Properties(), CEMod.id("weathered_copper_ingot"))
   );
 
   public static final FabricScrapableItem WAXED_OXIDIZED_COPPER_INGOT = createItem(
-    "waxed_oxidized_copper_ingot",
-    new FabricScrapableItem(new Item.Properties(), CEMod.id("oxidized_copper_ingot"))
+		  "waxed_oxidized_copper_ingot",
+		  new FabricScrapableItem(new Item.Properties(), CEMod.id("oxidized_copper_ingot"))
   );
 	
 	public static final FabricRustableItem EXPOSED_COPPER_INGOT = createItem("exposed_copper_ingot", new FabricRustableItem(
@@ -50,7 +50,7 @@ public class CEItems {
 			CEMod.id("oxidized_copper_ingot")
 	));
   
-	public static final Item OXIDIZED_COPPER_INGOT = createItem("oxidized_copper_ingot", new FabricScrapableItem(new Item.Properties(), CEMod.id("weathered_copper_ingot")));
+	public static final FabricScrapableItem OXIDIZED_COPPER_INGOT = createItem("oxidized_copper_ingot", new FabricScrapableItem(new Item.Properties(), CEMod.id("weathered_copper_ingot")));
 	
 	public static void register() {
 		ITEMS.forEach((id, item) -> {
