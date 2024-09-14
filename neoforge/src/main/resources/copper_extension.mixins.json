@@ -6,11 +6,13 @@
   "mixins": [],
   "client": [
     "ItemEntityMixin",
-    "ItemMixin"
+    "ItemMixin",
+    "BlockItemMixin"
   ],
   "server": [
     "ItemEntityMixin",
-    "ItemMixin"
+    "ItemMixin",
+    "BlockItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

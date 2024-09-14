@@ -26,7 +26,7 @@ public class CEItems {
 	);
 
   public static final Supplier<Item> WAXED_OXIDIZED_COPPER_INGOT = ITEMS.register(
-    "waxed_oxidized_copper_ingot", () -> new Item(new Item.Properties())
+		"waxed_oxidized_copper_ingot", () -> new Item(new Item.Properties())
   );
 	
 	public static final Supplier<Item> EXPOSED_COPPER_INGOT = ITEMS.register(
@@ -38,7 +38,7 @@ public class CEItems {
 	);
 	
 	public static final Supplier<Item> OXIDIZED_COPPER_INGOT = ITEMS.register(
-			"oxidized_copper_ingot", () -> new Item(new Item.Properties())
+		"oxidized_copper_ingot", () -> new Item(new Item.Properties())
 	);
 
 	public static void register(IEventBus bus) {
@@ -46,5 +46,9 @@ public class CEItems {
 		CEMaps.OXIDATION_MAP_ITEMS.put(Items.COPPER_INGOT, EXPOSED_COPPER_INGOT.get());
 		CEMaps.OXIDATION_MAP_ITEMS.put(EXPOSED_COPPER_INGOT.get(), WEATHERED_COPPER_INGOT.get());
 		CEMaps.OXIDATION_MAP_ITEMS.put(WEATHERED_COPPER_INGOT.get(), OXIDIZED_COPPER_INGOT.get());
+		CEMaps.WAXING_MAP_ITEMS.put(Items.COPPER_INGOT, WAXED_COPPER_INGOT.get());
+		CEMaps.WAXING_MAP_ITEMS.put(EXPOSED_COPPER_INGOT.get(), WAXED_EXPOSED_COPPER_INGOT.get());
+		CEMaps.WAXING_MAP_ITEMS.put(WEATHERED_COPPER_INGOT.get(), WAXED_WEATHERED_COPPER_INGOT.get());
+		CEMaps.WAXING_MAP_ITEMS.put(OXIDIZED_COPPER_INGOT.get(), OXIDIZED_COPPER_INGOT.get());
 	}
 }

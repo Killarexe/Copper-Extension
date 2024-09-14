@@ -10,7 +10,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.neoforged.neoforge.common.extensions.IItemExtension;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -35,6 +37,8 @@ import java.util.Map;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtension {
+
+  @Shadow @Final protected boolean canRepair;
 
   @Inject(method = "inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V", at = @At("HEAD"))
   public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo) {
@@ -73,30 +77,6 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtens
 
   @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
   public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
-    Item item = context.getItemInHand().getItem();
-    if(CEMaps.WAXING_MAP_ITEMS.containsKey(item)) {
-      Level level = context.getLevel();
-      BlockPos pos = context.getClickedPos();
-      BlockState state = level.getBlockState(pos);
-      if(!state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
-        callbackInfoReturnable.cancel();
-      }
-      int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
-      if(currentValue <= 1 && level instanceof ServerLevel serverLevel) {
-        Player player = context.getPlayer();
-        Vec3 playerPos = player.position();
-        int amount = player.isShiftKeyDown() ? currentValue : 1;
-        context.getItemInHand().shrink(amount);
-        ItemEntity entity = new ItemEntity(
-                serverLevel,
-                playerPos.x, playerPos.y, playerPos.z,
-                new ItemStack(CEMaps.WAXING_MAP_ITEMS.get(item), amount)
-        );
-        serverLevel.addFreshEntity(entity);
-        serverLevel.setBlock(pos, state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
-        callbackInfoReturnable.setReturnValue(InteractionResult.SUCCESS);
-      }
-      callbackInfoReturnable.setReturnValue(InteractionResult.PASS);
-    }
+    CEActions.waxUseOn(context, callbackInfoReturnable);
   }
 }

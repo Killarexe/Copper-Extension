@@ -1,15 +1,23 @@
 package github.killarexe.copper_extension;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BeehiveBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 public class CEActions {
 
@@ -41,6 +49,34 @@ public class CEActions {
             newItemEntity.copyPosition(entity);
             level.addFreshEntity(newItemEntity);
             entity.kill();
+        }
+    }
+
+    public static void waxUseOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
+        Item item = context.getItemInHand().getItem();
+        if(CEMaps.WAXING_MAP_ITEMS.containsKey(item)) {
+            Level level = context.getLevel();
+            BlockPos pos = context.getClickedPos();
+            BlockState state = level.getBlockState(pos);
+            if(!state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
+                callbackInfoReturnable.cancel();
+            }
+            int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
+            if(currentValue <= 1 && level instanceof ServerLevel serverLevel) {
+                Player player = context.getPlayer();
+                Vec3 playerPos = player.position();
+                int amount = player.isShiftKeyDown() ? currentValue : 1;
+                context.getItemInHand().shrink(amount);
+                ItemEntity entity = new ItemEntity(
+                        serverLevel,
+                        playerPos.x, playerPos.y, playerPos.z,
+                        new ItemStack(CEMaps.WAXING_MAP_ITEMS.get(item), amount)
+                );
+                serverLevel.addFreshEntity(entity);
+                serverLevel.setBlock(pos, state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
+                callbackInfoReturnable.setReturnValue(InteractionResult.SUCCESS);
+            }
+            callbackInfoReturnable.setReturnValue(InteractionResult.PASS);
         }
     }
 }
