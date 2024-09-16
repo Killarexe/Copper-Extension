@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Optional;
+
 public class CEActions {
 
     public static final float BASE_CHANCE = 0.0013666F;
@@ -52,31 +54,34 @@ public class CEActions {
         }
     }
 
-    public static void waxUseOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
+    private static void waxItem(UseOnContext context, int currentValue, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        BlockState state = level.getBlockState(pos);
         Item item = context.getItemInHand().getItem();
+        if(currentValue >= 1 && level instanceof ServerLevel serverLevel) {
+            Player player = context.getPlayer();
+            Vec3 playerPos = player.position();
+            int amount = player.isShiftKeyDown() ? currentValue : 1;
+            context.getItemInHand().shrink(amount);
+            ItemEntity entity = new ItemEntity(
+                    serverLevel,
+                    playerPos.x, playerPos.y, playerPos.z,
+                    new ItemStack(CEMaps.WAXING_MAP_ITEMS.get(item), amount)
+            );
+            serverLevel.addFreshEntity(entity);
+            serverLevel.setBlock(pos, state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
+            callbackInfoReturnable.setReturnValue(InteractionResult.SUCCESS);
+        }
+        callbackInfoReturnable.setReturnValue(InteractionResult.PASS);
+    }
+
+    public static void waxUseOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
+        ItemStack stack = context.getItemInHand();
+        Item item = stack.getItem();
         if(CEMaps.WAXING_MAP_ITEMS.containsKey(item)) {
-            Level level = context.getLevel();
-            BlockPos pos = context.getClickedPos();
-            BlockState state = level.getBlockState(pos);
-            if(!state.hasProperty(BeehiveBlock.HONEY_LEVEL)) {
-                callbackInfoReturnable.cancel();
-            }
-            int currentValue = state.getValue(BeehiveBlock.HONEY_LEVEL);
-            if(currentValue <= 1 && level instanceof ServerLevel serverLevel) {
-                Player player = context.getPlayer();
-                Vec3 playerPos = player.position();
-                int amount = player.isShiftKeyDown() ? currentValue : 1;
-                context.getItemInHand().shrink(amount);
-                ItemEntity entity = new ItemEntity(
-                        serverLevel,
-                        playerPos.x, playerPos.y, playerPos.z,
-                        new ItemStack(CEMaps.WAXING_MAP_ITEMS.get(item), amount)
-                );
-                serverLevel.addFreshEntity(entity);
-                serverLevel.setBlock(pos, state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
-                callbackInfoReturnable.setReturnValue(InteractionResult.SUCCESS);
-            }
-            callbackInfoReturnable.setReturnValue(InteractionResult.PASS);
+            Optional<Integer> value = context.getLevel().getBlockState(context.getClickedPos()).getOptionalValue(BeehiveBlock.HONEY_LEVEL);
+            value.ifPresent(integer -> waxItem(context, integer, callbackInfoReturnable));
         }
     }
 }
