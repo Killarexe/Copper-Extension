@@ -28,17 +28,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BeehiveBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
-
-import java.util.Map;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtension {
-
-  @Shadow @Final protected boolean canRepair;
 
   @Inject(method = "inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V", at = @At("HEAD"))
   public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected, CallbackInfo callbackInfo) {
@@ -53,26 +45,7 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtens
 
   @Inject(method = "use", at = @At("HEAD"), cancellable = true)
   public void use(Level level, Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> callbackInfo) {
-    ItemStack currentHandStack = player.getItemInHand(interactionHand);
-    ItemStack otherHandStack = player.getOffhandItem();
-    if (CEMaps.OXIDATION_MAP_ITEMS.containsValue(currentHandStack.getItem()) && otherHandStack.is(ItemTags.AXES)) {
-      Item scrapItem = null;
-      for (Map.Entry<Item, Item> entry: CEMaps.OXIDATION_MAP_ITEMS.entrySet()) {
-        if (entry.getValue() == currentHandStack.getItem()) {
-          scrapItem = entry.getKey();
-          break;
-        }
-      }
-      if (scrapItem == null) {
-        callbackInfo.setReturnValue(InteractionResultHolder.fail(currentHandStack));
-      }
-      if (player instanceof ServerPlayer serverPlayer && !player.getCooldowns().isOnCooldown(otherHandStack.getItem())) {
-        CEActions.scrap(scrapItem, currentHandStack, otherHandStack, serverPlayer, serverPlayer.isShiftKeyDown() ? currentHandStack.getCount() : 1);
-        callbackInfo.setReturnValue(InteractionResultHolder.success(currentHandStack));
-      }
-
-      callbackInfo.setReturnValue(InteractionResultHolder.consume(currentHandStack));
-    }
+    CEActions.scrapUse(player, interactionHand, callbackInfo);
   }
 
   @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)

@@ -3,8 +3,11 @@ package github.killarexe.copper_extension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -19,13 +22,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class CEActions {
 
     public static final float BASE_CHANCE = 0.0013666F;
 
-    public static void scrap(Item scarpItem, ItemStack currentStack, ItemStack otherStack, ServerPlayer serverPlayer, int count) {
+    private static void scrap(Item scarpItem, ItemStack currentStack, ItemStack otherStack, ServerPlayer serverPlayer, int count) {
         int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
         int amount = Math.min(Math.min(count, currentStack.getCount()), damage);
 
@@ -38,6 +42,36 @@ public class CEActions {
 
         level.addFreshEntity(itemEntity);
         serverPlayer.getCooldowns().addCooldown(otherStack.getItem(), amount * 8);
+    }
+
+    private static Optional<Item> getScrapItem(Item item) {
+        for (Map.Entry<Item, Item> entry: CEMaps.OXIDATION_MAP_ITEMS.entrySet()) {
+            if (entry.getValue() == item) {
+                return Optional.of(entry.getKey());
+            }
+        }
+        for (Map.Entry<Item, Item> entry: CEMaps.WAXING_MAP_ITEMS.entrySet()) {
+            if (entry.getValue() == item) {
+                return Optional.of(entry.getKey());
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static void scrapUse(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> callbackInfo) {
+        ItemStack currentHandStack = player.getItemInHand(hand);
+        ItemStack otherHandStack = player.getOffhandItem();
+        if (CEMaps.OXIDATION_MAP_ITEMS.containsValue(currentHandStack.getItem()) && otherHandStack.is(ItemTags.AXES)) {
+            Optional<Item> scrapItem = getScrapItem(currentHandStack.getItem());
+            if (scrapItem.isEmpty()) {
+                callbackInfo.setReturnValue(InteractionResultHolder.fail(currentHandStack));
+            }
+            if (player instanceof ServerPlayer serverPlayer && !player.getCooldowns().isOnCooldown(otherHandStack.getItem())) {
+                scrap(scrapItem.get(), currentHandStack, otherHandStack, serverPlayer, serverPlayer.isShiftKeyDown() ? currentHandStack.getCount() : 1);
+                callbackInfo.setReturnValue(InteractionResultHolder.success(currentHandStack));
+            }
+            callbackInfo.setReturnValue(InteractionResultHolder.consume(currentHandStack));
+        }
     }
 
     public static <T extends Item> void rustEntityStack(
