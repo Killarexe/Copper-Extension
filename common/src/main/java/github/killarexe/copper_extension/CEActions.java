@@ -61,11 +61,8 @@ public class CEActions {
     public static void scrapUse(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> callbackInfo) {
         ItemStack currentHandStack = player.getItemInHand(hand);
         ItemStack otherHandStack = player.getOffhandItem();
-        if (CEMaps.OXIDATION_MAP_ITEMS.containsValue(currentHandStack.getItem()) && otherHandStack.is(ItemTags.AXES)) {
-            Optional<Item> scrapItem = getScrapItem(currentHandStack.getItem());
-            if (scrapItem.isEmpty()) {
-                callbackInfo.setReturnValue(InteractionResultHolder.fail(currentHandStack));
-            }
+        Optional<Item> scrapItem = getScrapItem(currentHandStack.getItem());
+        if (scrapItem.isPresent() && otherHandStack.is(ItemTags.AXES)) {
             if (player instanceof ServerPlayer serverPlayer && !player.getCooldowns().isOnCooldown(otherHandStack.getItem())) {
                 scrap(scrapItem.get(), currentHandStack, otherHandStack, serverPlayer, serverPlayer.isShiftKeyDown() ? currentHandStack.getCount() : 1);
                 callbackInfo.setReturnValue(InteractionResultHolder.success(currentHandStack));

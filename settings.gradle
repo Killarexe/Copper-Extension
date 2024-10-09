@@ -3,12 +3,13 @@ pluginManagement {
         maven { url "https://maven.fabricmc.net/" }
         maven { url "https://maven.architectury.dev/" }
         maven { url "https://maven.neoforged.net/" }
+        maven { url "https://files.minecraftforge.net/maven/" }
         gradlePluginPortal()
     }
 }
 
+rootProject.name = "copper-extension"
+
 include("common")
 include("fabric")
 include("neoforge")
-
-rootProject.name = "copper-extension"

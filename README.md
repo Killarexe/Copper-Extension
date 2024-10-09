@@ -20,4 +20,4 @@ The major feature is the rusty copper ingots. **Copper ingots can now be oxidixe
 [![Curseforge](http://cf.way2muchnoise.eu/full_907528_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/copper-extension)
 [![ModRinth](https://img.shields.io/modrinth/dt/11Hgyyey?logo=modrinth)](https://modrinth.com/mod/copper-extension)
 
-Copper Extension is available on Forge and Fabric*(soon)* for version 1.20.1 and further on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/copper-extension) and [Modrinth](https://modrinth.com/mod/copper-extension)
+Copper Extension is available on Forge and Fabric for version 1.20.1 and further on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/copper-extension) and [Modrinth](https://modrinth.com/mod/copper-extension)
