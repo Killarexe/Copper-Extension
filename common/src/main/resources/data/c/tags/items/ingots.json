@@ -1,0 +1,11 @@
+{
+  "values": [
+    "copper_extension:waxed_copper_ingot",
+    "copper_extension:waxed_exposed_copper_ingot",
+    "copper_extension:waxed_weathered_copper_ingot",
+    "copper_extension:waxed_oxidized_copper_ingot",
+    "copper_extension:exposed_copper_ingot",
+    "copper_extension:weathered_copper_ingot",
+    "copper_extension:oxidized_copper_ingot"
+  ]
+}
