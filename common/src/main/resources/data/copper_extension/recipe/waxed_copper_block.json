@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "copper_extension:waxed_copper_ingot"
-    }
+    "#": "copper_extension:waxed_copper_ingot"
   },
   "pattern": [
     "###",

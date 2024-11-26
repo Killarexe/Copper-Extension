@@ -6,9 +6,7 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "copper_extension:exposed_copper_ingot"
-    }
+    "#": "copper_extension:exposed_copper_ingot"
   },
   "result": {
     "id": "minecraft:exposed_copper_trapdoor",

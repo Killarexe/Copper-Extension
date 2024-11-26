@@ -6,9 +6,7 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "copper_extension:waxed_weathered_copper_ingot"
-    }
+    "#": "copper_extension:waxed_weathered_copper_ingot"
   },
   "result": {
     "id": "minecraft:waxed_weathered_copper_trapdoor",

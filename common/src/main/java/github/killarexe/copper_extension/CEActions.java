@@ -7,7 +7,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -41,7 +40,7 @@ public class CEActions {
         ItemEntity itemEntity = new ItemEntity(level, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), result);
 
         level.addFreshEntity(itemEntity);
-        serverPlayer.getCooldowns().addCooldown(otherStack.getItem(), amount * 8);
+        serverPlayer.getCooldowns().addCooldown(otherStack, amount * 8);
     }
 
     private static Optional<Item> getScrapItem(Item item) {
@@ -58,21 +57,21 @@ public class CEActions {
         return Optional.empty();
     }
 
-    public static void scrapUse(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> callbackInfo) {
+    public static void scrapUse(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> callbackInfo) {
         ItemStack currentHandStack = player.getItemInHand(hand);
         ItemStack otherHandStack = player.getOffhandItem();
         Optional<Item> scrapItem = getScrapItem(currentHandStack.getItem());
         if (scrapItem.isPresent() && otherHandStack.is(ItemTags.AXES)) {
-            if (player instanceof ServerPlayer serverPlayer && !player.getCooldowns().isOnCooldown(otherHandStack.getItem())) {
+            if (player instanceof ServerPlayer serverPlayer && !player.getCooldowns().isOnCooldown(otherHandStack)) {
                 scrap(scrapItem.get(), currentHandStack, otherHandStack, serverPlayer, serverPlayer.isShiftKeyDown() ? currentHandStack.getCount() : 1);
-                callbackInfo.setReturnValue(InteractionResultHolder.success(currentHandStack));
+                callbackInfo.setReturnValue(InteractionResult.SUCCESS.heldItemTransformedTo(currentHandStack));
             }
-            callbackInfo.setReturnValue(InteractionResultHolder.consume(currentHandStack));
+            callbackInfo.setReturnValue(InteractionResult.CONSUME.heldItemTransformedTo(currentHandStack));
         }
     }
 
     public static <T extends Item> void rustEntityStack(
-            T nextItem, ItemStack stack, Level level,
+            T nextItem, ItemStack stack, ServerLevel level,
             ItemEntity entity, GameRules.Key<GameRules.IntegerValue> oxidationGameRule, RandomSource random)
     {
         int count = stack.getCount();
@@ -81,7 +80,7 @@ public class CEActions {
             ItemEntity newItemEntity = new ItemEntity(level, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
             newItemEntity.copyPosition(entity);
             level.addFreshEntity(newItemEntity);
-            entity.kill();
+            entity.kill(level);
         }
     }
 

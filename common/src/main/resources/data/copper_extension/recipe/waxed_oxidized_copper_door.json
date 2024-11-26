@@ -7,9 +7,7 @@
     "##"
   ],
   "key": {
-    "#": {
-      "item": "copper_extension:waxed_oxidized_copper_ingot"
-    }
+    "#": "copper_extension:waxed_oxidized_copper_ingot"
   },
   "result": {
     "id": "minecraft:waxed_oxidized_copper_door",

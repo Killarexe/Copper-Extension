@@ -3,6 +3,7 @@ package github.killarexe.copper_extension.fabric.mixin;
 import github.killarexe.copper_extension.CEActions;
 import github.killarexe.copper_extension.CEMaps;
 import github.killarexe.copper_extension.fabric.registry.CEGameRules;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,8 +29,8 @@ public abstract class ItemEntityMixin extends Entity implements OwnableEntity{
     ItemEntity itemEntity = ItemEntity.class.cast(this);
     ItemStack stack = itemEntity.getItem();
     Item nextItem = CEMaps.OXIDATION_MAP_ITEMS.get(stack.getItem());
-    if (nextItem != null) {
-      CEActions.rustEntityStack(nextItem, stack, level(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
+    if (nextItem != null && level() instanceof ServerLevel level) {
+      CEActions.rustEntityStack(nextItem, stack, level, itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
     }
   }
 }
