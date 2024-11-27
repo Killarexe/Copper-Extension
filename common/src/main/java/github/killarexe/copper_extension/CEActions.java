@@ -26,7 +26,7 @@ import java.util.Optional;
 
 public class CEActions {
 
-    public static final float BASE_CHANCE = 0.0013666F;
+    public static final float BASE_CHANCE = 0.0001366F;
 
     private static void scrap(Item scarpItem, ItemStack currentStack, ItemStack otherStack, ServerPlayer serverPlayer, int count) {
         int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
