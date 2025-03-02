@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "copper_ingot",
+  "ingredients": [
+    "minecraft:waxed_weathered_copper"
+  ],
+  "result": {
+    "count": 9,
+    "id": "copper_extension:weathered_copper_ingot"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "copper_extension:item/exposed_copper_ingot"
+    "layer0": "copper_extension:item/waxed_exposed_copper_ingot"
   }
 }
