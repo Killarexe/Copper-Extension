@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
+  "key": {
+    "#": "copper_extension:waxed_copper_ingot"
+  },
   "pattern": [
     "###",
     "###"
   ],
-  "key": {
-    "#": "copper_extension:waxed_copper_ingot"
-  },
   "result": {
-    "id": "minecraft:waxed_copper_trapdoor",
-    "count": 2
+    "count": 2,
+    "id": "minecraft:waxed_copper_trapdoor"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_material": {
+    "has_exposed_copper_ingot": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:exposed_copper"
+        "recipe": "minecraft:exposed_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_material"
+      "has_exposed_copper_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "copper_extension:exposed_copper"
+      "minecraft:exposed_copper"
     ]
   }
 }

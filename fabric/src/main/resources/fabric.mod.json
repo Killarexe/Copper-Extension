@@ -15,6 +15,9 @@
   "icon": "assets/copper_extension/logo.png",
   "environment": "*",
   "entrypoints": {
+    "fabric-datagen": [
+      "github.killarexe.copper_extension.fabric.generation.data.CEDataGenerator"
+    ],
     "main": [
       "github.killarexe.copper_extension.fabric.CEFabric"
     ]

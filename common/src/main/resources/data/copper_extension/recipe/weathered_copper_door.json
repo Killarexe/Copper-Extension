@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
+  "key": {
+    "#": "copper_extension:weathered_copper_ingot"
+  },
   "pattern": [
     "##",
     "##",
     "##"
   ],
-  "key": {
-    "#": "copper_extension:weathered_copper_ingot"
-  },
   "result": {
-    "id": "minecraft:weathered_copper_door",
-    "count": 3
+    "count": 3,
+    "id": "minecraft:weathered_copper_door"
   }
 }

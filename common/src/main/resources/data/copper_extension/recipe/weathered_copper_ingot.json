@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "copper_ingot",
+  "group": "weathered_copper_ingot",
   "ingredients": [
     "minecraft:weathered_copper"
   ],

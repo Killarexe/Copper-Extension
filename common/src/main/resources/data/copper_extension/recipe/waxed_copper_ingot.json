@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "waxed_copper_ingot",
   "ingredients": [
-      "minecraft:copper_ingot",
-      "minecraft:honeycomb"
+    "minecraft:waxed_copper_block"
   ],
   "result": {
+    "count": 9,
     "id": "copper_extension:waxed_copper_ingot"
   }
 }
