@@ -14,6 +14,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
@@ -100,12 +101,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
         }
 
         private void copperSet(ItemLike ingot, ItemLike block, Optional<ItemLike> waxedBlock, ItemLike door, ItemLike trapdoor) {
-            this.nineBlockStorageRecipesRecipesWithCustomUnpacking(
+            this.nineBlockStorageRecipes(
                     RecipeCategory.MISC,
                     ingot,
                     RecipeCategory.BUILDING_BLOCKS,
                     block,
-                    getSimpleRecipeName(ingot),
+                    getNameWithId(block, CEMod.MOD_ID),
+                    null,
+                    getNameWithId(ingot, CEMod.MOD_ID),
                     getItemName(ingot)
             );
 
@@ -116,18 +119,23 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     ).requires(itemLike)
                     .group(getItemName(ingot))
                     .unlockedBy(getHasName(itemLike), this.has(itemLike))
-                    .save(this.output, getConversionRecipeName(ingot, itemLike)));
+                    .save(this.output, CEMod.MOD_ID + ":" + getConversionRecipeName(ingot, itemLike)));
 
             this.doorBuilder(
                             door,
                             Ingredient.of(ingot)
                     ).unlockedBy(getHasName(ingot), this.has(ingot))
-                    .save(this.output);
+                    .save(this.output, getNameWithId(door, CEMod.MOD_ID));
 
             this.trapdoorBuilder(
                     trapdoor,
                     Ingredient.of(ingot)
-            ).unlockedBy(getHasName(ingot), this.has(ingot)).save(this.output);
+            ).unlockedBy(getHasName(ingot), this.has(ingot)).save(this.output, getNameWithId(trapdoor, CEMod.MOD_ID));
+        }
+
+        private static String getNameWithId(ItemLike itemLike, String id) {
+            String base = getItemName(itemLike);
+            return id + ":" + base;
         }
     }
 }

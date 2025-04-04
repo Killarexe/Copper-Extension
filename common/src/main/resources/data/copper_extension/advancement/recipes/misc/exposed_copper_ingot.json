@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:exposed_copper_ingot"
+        "recipe": "copper_extension:exposed_copper_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:exposed_copper_ingot"
+      "copper_extension:exposed_copper_ingot"
     ]
   }
 }
