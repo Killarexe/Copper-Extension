@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  mod_version: 1.4.4
+  mod_version: 1.4.5
 
 jobs:
   build:
