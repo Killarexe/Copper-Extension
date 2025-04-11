@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -113,5 +114,15 @@ public class CEActions {
             Optional<Integer> value = context.getLevel().getBlockState(context.getClickedPos()).getOptionalValue(BeehiveBlock.HONEY_LEVEL);
             value.ifPresent(integer -> waxItem(context, integer, callbackInfoReturnable));
         }
+    }
+
+    public static Optional<Integer> findSlotFromStack(Inventory inventory, ItemStack stack) {
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            ItemStack slot = inventory.getItem(i);
+            if (!slot.isEmpty() && slot.getCount() == stack.getCount() && ItemStack.isSameItemSameComponents(slot, stack)) {
+                return Optional.of(i);
+            }
+        }
+        return Optional.empty();
     }
 }
