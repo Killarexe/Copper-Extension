@@ -36,7 +36,7 @@ public class CEActions {
         currentStack.shrink(amount);
         otherStack.hurtAndBreak(amount, serverPlayer, EquipmentSlot.OFFHAND);
 
-        ServerLevel level = serverPlayer.serverLevel();
+        ServerLevel level = serverPlayer.level();
         ItemStack result = new ItemStack(scarpItem, amount);
         ItemEntity itemEntity = new ItemEntity(level, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), result);
 
