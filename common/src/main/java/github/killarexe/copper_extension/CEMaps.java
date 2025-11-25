@@ -1,13 +1,18 @@
 package github.killarexe.copper_extension;
 
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import oshi.util.tuples.Pair;
 
 import java.util.HashMap;
 
 public class CEMaps {
     public static final HashMap<Item, Item> OXIDATION_MAP_ITEMS = new HashMap<>();
     public static final HashMap<Item, Item> WAXING_MAP_ITEMS = new HashMap<>();
+    public static final HashMap<Item, MobEffectInstance> ARMOR_EFFECTS = new HashMap<>();
 
     static {
         OXIDATION_MAP_ITEMS.put(Items.COPPER_BLOCK, Items.EXPOSED_COPPER);
@@ -49,6 +54,10 @@ public class CEMaps {
         OXIDATION_MAP_ITEMS.put(Items.COPPER_LANTERN.unaffected(), Items.COPPER_LANTERN.exposed());
         OXIDATION_MAP_ITEMS.put(Items.COPPER_LANTERN.exposed(), Items.COPPER_LANTERN.weathered());
         OXIDATION_MAP_ITEMS.put(Items.COPPER_LANTERN.weathered(), Items.COPPER_LANTERN.oxidized());
+
+        OXIDATION_MAP_ITEMS.put(Items.COPPER_CHEST, Items.EXPOSED_COPPER_CHEST);
+        OXIDATION_MAP_ITEMS.put(Items.EXPOSED_COPPER_CHEST, Items.WEATHERED_COPPER_CHEST);
+        OXIDATION_MAP_ITEMS.put(Items.WEATHERED_COPPER_CHEST, Items.OXIDIZED_COPPER_CHEST);
 
 
         WAXING_MAP_ITEMS.put(Items.COPPER_BLOCK, Items.WAXED_COPPER_BLOCK);
@@ -100,5 +109,15 @@ public class CEMaps {
         WAXING_MAP_ITEMS.put(Items.COPPER_LANTERN.exposed(), Items.COPPER_LANTERN.waxedExposed());
         WAXING_MAP_ITEMS.put(Items.COPPER_LANTERN.weathered(), Items.COPPER_LANTERN.waxedWeathered());
         WAXING_MAP_ITEMS.put(Items.COPPER_LANTERN.oxidized(), Items.COPPER_LANTERN.waxedOxidized());
+
+        WAXING_MAP_ITEMS.put(Items.COPPER_CHEST, Items.WAXED_COPPER_CHEST);
+        WAXING_MAP_ITEMS.put(Items.EXPOSED_COPPER_CHEST, Items.WAXED_EXPOSED_COPPER_CHEST);
+        WAXING_MAP_ITEMS.put(Items.WEATHERED_COPPER_CHEST, Items.WAXED_WEATHERED_COPPER_CHEST);
+        WAXING_MAP_ITEMS.put(Items.OXIDIZED_COPPER_CHEST, Items.WAXED_OXIDIZED_COPPER_CHEST);
+
+        ARMOR_EFFECTS.put(Items.COPPER_HELMET, new MobEffectInstance(MobEffects.HASTE, 600, 0));
+        ARMOR_EFFECTS.put(Items.COPPER_CHESTPLATE, new MobEffectInstance(MobEffects.HASTE, 600, 0));
+        ARMOR_EFFECTS.put(Items.COPPER_LEGGINGS, new MobEffectInstance(MobEffects.HASTE, 600, 0));
+        ARMOR_EFFECTS.put(Items.COPPER_BOOTS, new MobEffectInstance(MobEffects.HASTE, 600, 0));
     }
 }

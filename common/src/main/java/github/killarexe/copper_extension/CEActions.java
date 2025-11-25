@@ -7,6 +7,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -21,7 +23,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import oshi.util.tuples.Pair;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
@@ -77,11 +81,7 @@ public class CEActions {
     {
         int count = stack.getCount();
         if(random.nextFloat() < level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE / count) {
-            Vec3 pos = entity.position();
-            ItemEntity newItemEntity = new ItemEntity(level, pos.x, pos.y, pos.z, new ItemStack(nextItem, count));
-            newItemEntity.copyPosition(entity);
-            level.addFreshEntity(newItemEntity);
-            entity.kill(level);
+            entity.setItem(new ItemStack(nextItem, count));
         }
     }
 
@@ -124,5 +124,48 @@ public class CEActions {
             }
         }
         return Optional.empty();
+    }
+
+    private static void appendEffect(ArrayList<MobEffectInstance> list, MobEffectInstance effect) {
+      for (int i = 0; i < list.size(); i++) {
+        MobEffectInstance instance = list.get(i);
+        if (instance.is(effect.getEffect())) {
+          if (instance.getAmplifier() < effect.getAmplifier()) {
+            list.set(i, effect);
+            return;
+          }
+          if (instance.getAmplifier() > effect.getAmplifier()) {
+            return;
+          }
+          list.set(i, new MobEffectInstance(instance.getEffect(), instance.getDuration() + effect.getDuration(), instance.getAmplifier()));
+        }
+      }
+      list.add(effect);
+    }
+
+    public static ArrayList<MobEffectInstance> getEffectsFromArmor(ItemStack head, ItemStack chestplate, ItemStack leggings, ItemStack boots) {
+      ArrayList<MobEffectInstance> instances = new ArrayList<>();
+
+      CEMaps.ARMOR_EFFECTS.computeIfPresent(head.getItem(), (_a, effect) -> {
+        appendEffect(instances, effect);
+        return effect;
+      });
+
+      CEMaps.ARMOR_EFFECTS.computeIfPresent(chestplate.getItem(), (_a, effect) -> {
+        appendEffect(instances, effect);
+        return effect;
+      });
+
+      CEMaps.ARMOR_EFFECTS.computeIfPresent(leggings.getItem(), (_a, effect) -> {
+        appendEffect(instances, effect);
+        return effect;
+      });
+
+      CEMaps.ARMOR_EFFECTS.computeIfPresent(boots.getItem(), (_a, effect) -> {
+        appendEffect(instances, effect);
+        return effect;
+      });
+
+      return instances;
     }
 }

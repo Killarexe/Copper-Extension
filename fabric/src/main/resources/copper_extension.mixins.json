@@ -7,12 +7,14 @@
   "client": [
     "ItemEntityMixin",
     "ItemMixin",
-    "BlockItemMixin"
+    "BlockItemMixin",
+    "PlayerMixin"
   ],
   "server": [
     "ItemEntityMixin",
     "ItemMixin",
-    "BlockItemMixin"
+    "BlockItemMixin",
+    "PlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
