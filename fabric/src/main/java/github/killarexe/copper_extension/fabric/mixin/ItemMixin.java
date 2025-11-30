@@ -2,10 +2,12 @@ package github.killarexe.copper_extension.fabric.mixin;
 
 import github.killarexe.copper_extension.CEActions;
 import github.killarexe.copper_extension.CEMaps;
+import github.killarexe.copper_extension.fabric.CEFabric;
 import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,19 +32,20 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
   @Inject(method = "inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/EquipmentSlot;)V", at = @At("HEAD"))
   public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot, CallbackInfo ci) {
     Item item = stack.getItem();
-    if(entity instanceof Player player && CEMaps.OXIDATION_MAP_ITEMS.containsKey(item)) {
+    if(entity instanceof LivingEntity livingEntity && CEMaps.OXIDATION_MAP_ITEMS.containsKey(item)) {
       int count = stack.getCount();
-      float random = player.getRandom().nextFloat();
+      float random = livingEntity.getRandom().nextFloat();
       float chance = level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEActions.BASE_CHANCE / count;
       if(random < chance) {
-        int itemSlot;
-        Inventory inventory = player.getInventory();
         if (slot != null) {
-          itemSlot = slot.getIndex();
+          livingEntity.setItemSlot(slot, new ItemStack(CEMaps.OXIDATION_MAP_ITEMS.get(item), count));
+        } else if (entity instanceof Player player) {
+          Inventory inventory = player.getInventory();
+          int itemSlot = CEActions.findSlotFromStack(inventory, stack).orElse(-1);
+          inventory.setItem(itemSlot, new ItemStack(CEMaps.OXIDATION_MAP_ITEMS.get(item), count));
         } else {
-          itemSlot = CEActions.findSlotFromStack(inventory, stack).orElse(-1);
+          CEFabric.LOGGER.debug("Failed to rust item {} for entity: {}", stack, entity);
         }
-        player.getInventory().setItem(itemSlot, new ItemStack(CEMaps.OXIDATION_MAP_ITEMS.get(item), count));
       }
     }
   }

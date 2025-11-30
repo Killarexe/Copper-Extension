@@ -120,7 +120,7 @@ public class CEArmorMaterials {
           0.0f,
           0.02f,
           ItemTags.REPAIRS_COPPER_ARMOR,
-          EXPOSED_COPPER_ASSET
+          WEATHERED_COPPER_ASSET
   );
 
   public static final ArmorMaterial OXIDIZED_COPPER_ARMOR_MATERIAL = new ArmorMaterial(
@@ -137,6 +137,6 @@ public class CEArmorMaterials {
           0.0f,
           0.04f,
           ItemTags.REPAIRS_COPPER_ARMOR,
-          EXPOSED_COPPER_ASSET
+          OXIDIZED_COPPER_ASSET
   );
 }

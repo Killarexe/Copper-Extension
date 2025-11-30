@@ -43,62 +43,100 @@ public class CERecipeProvider extends FabricRecipeProvider {
         public void buildRecipes() {
             copperSet(
                     CEItems.EXPOSED_COPPER_INGOT,
+                    CEItems.EXPOSED_COPPER_NUGGET,
                     Blocks.EXPOSED_COPPER,
                     Optional.of(Blocks.WAXED_EXPOSED_COPPER),
                     Blocks.EXPOSED_COPPER_DOOR,
-                    Blocks.EXPOSED_COPPER_TRAPDOOR
+                    Blocks.EXPOSED_COPPER_TRAPDOOR,
+                    CEItems.EXPOSED_COPPER_HELMET,
+                    CEItems.EXPOSED_COPPER_CHESTPLATE,
+                    CEItems.EXPOSED_COPPER_LEGGINGS,
+                    CEItems.EXPOSED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.WEATHERED_COPPER_INGOT,
+                    CEItems.WEATHERED_COPPER_NUGGET,
                     Blocks.WEATHERED_COPPER,
                     Optional.of(Blocks.WAXED_WEATHERED_COPPER),
                     Blocks.WEATHERED_COPPER_DOOR,
-                    Blocks.WEATHERED_COPPER_TRAPDOOR
+                    Blocks.WEATHERED_COPPER_TRAPDOOR,
+                    CEItems.WEATHERED_COPPER_HELMET,
+                    CEItems.WEATHERED_COPPER_CHESTPLATE,
+                    CEItems.WEATHERED_COPPER_LEGGINGS,
+                    CEItems.WEATHERED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.OXIDIZED_COPPER_INGOT,
+                    CEItems.OXIDIZED_COPPER_NUGGET,
                     Blocks.OXIDIZED_COPPER,
                     Optional.of(Blocks.WAXED_OXIDIZED_COPPER),
                     Blocks.OXIDIZED_COPPER_DOOR,
-                    Blocks.OXIDIZED_COPPER_TRAPDOOR
+                    Blocks.OXIDIZED_COPPER_TRAPDOOR,
+                    CEItems.OXIDIZED_COPPER_HELMET,
+                    CEItems.OXIDIZED_COPPER_CHESTPLATE,
+                    CEItems.OXIDIZED_COPPER_LEGGINGS,
+                    CEItems.OXIDIZED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.WAXED_COPPER_INGOT,
+                    CEItems.WAXED_COPPER_NUGGET,
                     Blocks.WAXED_COPPER_BLOCK,
                     Optional.empty(),
                     Blocks.WAXED_COPPER_DOOR,
-                    Blocks.WAXED_COPPER_TRAPDOOR
+                    Blocks.WAXED_COPPER_TRAPDOOR,
+                    CEItems.WAXED_COPPER_HELMET,
+                    CEItems.WAXED_COPPER_CHESTPLATE,
+                    CEItems.WAXED_COPPER_LEGGINGS,
+                    CEItems.WAXED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.WAXED_EXPOSED_COPPER_INGOT,
+                    CEItems.WAXED_EXPOSED_COPPER_NUGGET,
                     Blocks.WAXED_EXPOSED_COPPER,
                     Optional.empty(),
                     Blocks.WAXED_EXPOSED_COPPER_DOOR,
-                    Blocks.WAXED_EXPOSED_COPPER_TRAPDOOR
+                    Blocks.WAXED_EXPOSED_COPPER_TRAPDOOR,
+                    CEItems.WAXED_EXPOSED_COPPER_HELMET,
+                    CEItems.WAXED_EXPOSED_COPPER_CHESTPLATE,
+                    CEItems.WAXED_EXPOSED_COPPER_LEGGINGS,
+                    CEItems.WAXED_EXPOSED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.WAXED_WEATHERED_COPPER_INGOT,
+                    CEItems.WAXED_WEATHERED_COPPER_NUGGET,
                     Blocks.WAXED_WEATHERED_COPPER,
                     Optional.empty(),
                     Blocks.WAXED_WEATHERED_COPPER_DOOR,
-                    Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR
+                    Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR,
+                    CEItems.WAXED_WEATHERED_COPPER_HELMET,
+                    CEItems.WAXED_WEATHERED_COPPER_CHESTPLATE,
+                    CEItems.WAXED_WEATHERED_COPPER_LEGGINGS,
+                    CEItems.WAXED_WEATHERED_COPPER_BOOTS
             );
 
             copperSet(
                     CEItems.WAXED_OXIDIZED_COPPER_INGOT,
+                    CEItems.WAXED_OXIDIZED_COPPER_NUGGET,
                     Blocks.WAXED_OXIDIZED_COPPER,
                     Optional.empty(),
                     Blocks.WAXED_OXIDIZED_COPPER_DOOR,
-                    Blocks.WAXED_OXIDIZED_COPPER_TRAPDOOR
+                    Blocks.WAXED_OXIDIZED_COPPER_TRAPDOOR,
+                    CEItems.WAXED_OXIDIZED_COPPER_HELMET,
+                    CEItems.WAXED_OXIDIZED_COPPER_CHESTPLATE,
+                    CEItems.WAXED_OXIDIZED_COPPER_LEGGINGS,
+                    CEItems.WAXED_OXIDIZED_COPPER_BOOTS
             );
         }
 
-        private void copperSet(ItemLike ingot, ItemLike block, Optional<ItemLike> waxedBlock, ItemLike door, ItemLike trapdoor) {
+        private void copperSet(
+                ItemLike ingot, ItemLike nugget, ItemLike block,
+                Optional<ItemLike> waxedBlock, ItemLike door, ItemLike trapdoor,
+                ItemLike helmet, ItemLike chestplate, ItemLike leggings, ItemLike boots) {
             this.nineBlockStorageRecipes(
                     RecipeCategory.MISC,
                     ingot,
@@ -108,6 +146,17 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     null,
                     getNameWithId(ingot, CEMod.MOD_ID),
                     getItemName(ingot)
+            );
+
+            this.nineBlockStorageRecipes(
+                    RecipeCategory.MISC,
+                    nugget,
+                    RecipeCategory.MISC,
+                    ingot,
+                    getNameWithId(ingot, CEMod.MOD_ID),
+                    null,
+                    getNameWithId(nugget, CEMod.MOD_ID),
+                    getItemName(nugget)
             );
 
             waxedBlock.ifPresent(itemLike -> this.shapeless(
@@ -129,6 +178,40 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     trapdoor,
                     Ingredient.of(ingot)
             ).unlockedBy(getHasName(ingot), this.has(ingot)).save(this.output, getNameWithId(trapdoor, CEMod.MOD_ID));
+
+            this.shaped(RecipeCategory.COMBAT, helmet)
+                    .define('#', ingot)
+                    .pattern("###")
+                    .pattern("# #")
+                    .group(getItemName(ingot))
+                    .unlockedBy(getHasName(ingot), this.has(ingot))
+                    .save(this.output, getNameWithId(helmet, CEMod.MOD_ID));
+
+            this.shaped(RecipeCategory.COMBAT, chestplate)
+                    .define('#', ingot)
+                    .pattern("# #")
+                    .pattern("###")
+                    .pattern("###")
+                    .group(getItemName(ingot))
+                    .unlockedBy(getHasName(ingot), this.has(ingot))
+                    .save(this.output, getNameWithId(chestplate, CEMod.MOD_ID));
+
+            this.shaped(RecipeCategory.COMBAT, leggings)
+                    .define('#', ingot)
+                    .pattern("###")
+                    .pattern("# #")
+                    .pattern("# #")
+                    .group(getItemName(ingot))
+                    .unlockedBy(getHasName(ingot), this.has(ingot))
+                    .save(this.output, getNameWithId(leggings, CEMod.MOD_ID));
+
+            this.shaped(RecipeCategory.COMBAT, boots)
+                    .define('#', ingot)
+                    .pattern("# #")
+                    .pattern("# #")
+                    .group(getItemName(ingot))
+                    .unlockedBy(getHasName(ingot), this.has(ingot))
+                    .save(this.output, getNameWithId(boots, CEMod.MOD_ID));
         }
 
         private static String getNameWithId(ItemLike itemLike, String id) {
