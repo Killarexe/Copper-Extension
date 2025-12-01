@@ -2,7 +2,7 @@ package github.killarexe.copper_extension.fabric.mixin;
 
 import github.killarexe.copper_extension.CEActions;
 import github.killarexe.copper_extension.CEMaps;
-import github.killarexe.copper_extension.fabric.CEFabric;
+import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -25,6 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import oshi.util.tuples.Pair;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem {
@@ -34,17 +35,19 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
     Item item = stack.getItem();
     if(entity instanceof LivingEntity livingEntity && CEMaps.OXIDATION_MAP_ITEMS.containsKey(item)) {
       int count = stack.getCount();
+      Pair<Item, Float> result = CEMaps.OXIDATION_MAP_ITEMS.get(item);
+
       float random = livingEntity.getRandom().nextFloat();
-      float chance = level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEActions.BASE_CHANCE / count;
+      float chance = (level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEActions.BASE_CHANCE * result.getB() ) / count;
       if(random < chance) {
         if (slot != null) {
-          livingEntity.setItemSlot(slot, new ItemStack(CEMaps.OXIDATION_MAP_ITEMS.get(item), count));
+          livingEntity.setItemSlot(slot, new ItemStack(result.getA(), count));
         } else if (entity instanceof Player player) {
           Inventory inventory = player.getInventory();
           int itemSlot = CEActions.findSlotFromStack(inventory, stack).orElse(-1);
-          inventory.setItem(itemSlot, new ItemStack(CEMaps.OXIDATION_MAP_ITEMS.get(item), count));
+          inventory.setItem(itemSlot, new ItemStack(result.getA(), count));
         } else {
-          CEFabric.LOGGER.debug("Failed to rust item {} for entity: {}", stack, entity);
+          CEMod.LOGGER.debug("Failed to rust item {} for entity: {}", stack, entity);
         }
       }
     }

@@ -16,6 +16,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import oshi.util.tuples.Pair;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity implements TraceableEntity {
@@ -28,9 +29,9 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
   public void tick(CallbackInfo callbackInfo) {
     ItemEntity itemEntity = ItemEntity.class.cast(this);
     ItemStack stack = itemEntity.getItem();
-    Item nextItem = CEMaps.OXIDATION_MAP_ITEMS.get(stack.getItem());
+    Pair<Item, Float> nextItem = CEMaps.OXIDATION_MAP_ITEMS.get(stack.getItem());
     if (nextItem != null && level() instanceof ServerLevel serverLevel) {
-      CEActions.rustEntityStack(nextItem, stack, serverLevel, itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
+      CEActions.rustEntityStack(nextItem.getA(), stack, serverLevel, nextItem.getB(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
     }
   }
 }

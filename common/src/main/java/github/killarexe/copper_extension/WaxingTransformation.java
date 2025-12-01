@@ -11,26 +11,18 @@ import net.minecraft.world.item.Item;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public record WaxingTransformation(Holder<Item> before, Holder<Item> after) {
+public record WaxingTransformation(Holder<Item> base, Holder<Item> waxed) {
 
   public static final Codec<WaxingTransformation> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-          Item.CODEC.fieldOf("before").forGetter(WaxingTransformation::before),
-          Item.CODEC.fieldOf("after").forGetter(WaxingTransformation::after)
+          Item.CODEC.fieldOf("base").forGetter(WaxingTransformation::base),
+          Item.CODEC.fieldOf("waxed").forGetter(WaxingTransformation::waxed)
   ).apply(instance, WaxingTransformation::new));
 
-  public static WaxingTransformation fromInputStream(InputStream stream) {
+  public static WaxingTransformation fromInputStream(InputStream stream) throws IllegalStateException {
     return fromJson(JsonParser.parseReader(new InputStreamReader(stream)).getAsJsonObject());
   }
 
-  public static WaxingTransformation fromJson(JsonObject json) {
+  public static WaxingTransformation fromJson(JsonObject json) throws IllegalStateException {
     return CODEC.decode(JsonOps.INSTANCE, json).getOrThrow().getFirst();
-  }
-
-  public Holder<Item> getBeforeItem() {
-    return before;
-  }
-
-  public Holder<Item> getAfterItem() {
-    return after;
   }
 }

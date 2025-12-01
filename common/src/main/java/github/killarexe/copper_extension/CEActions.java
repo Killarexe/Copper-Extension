@@ -49,8 +49,8 @@ public class CEActions {
     }
 
     private static Optional<Item> getScrapItem(Item item) {
-        for (Map.Entry<Item, Item> entry: CEMaps.OXIDATION_MAP_ITEMS.entrySet()) {
-            if (entry.getValue() == item) {
+        for (Map.Entry<Item, Pair<Item, Float>> entry: CEMaps.OXIDATION_MAP_ITEMS.entrySet()) {
+            if (entry.getValue().getA() == item) {
                 return Optional.of(entry.getKey());
             }
         }
@@ -76,11 +76,11 @@ public class CEActions {
     }
 
     public static <T extends Item> void rustEntityStack(
-            T nextItem, ItemStack stack, ServerLevel level,
+            T nextItem, ItemStack stack, ServerLevel level, float chanceMultiplier,
             ItemEntity entity, GameRules.Key<GameRules.IntegerValue> oxidationGameRule, RandomSource random)
     {
         int count = stack.getCount();
-        if(random.nextFloat() < level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE / count) {
+        if(random.nextFloat() < (level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE * chanceMultiplier) / count) {
             entity.setItem(new ItemStack(nextItem, count));
         }
     }
@@ -132,10 +132,10 @@ public class CEActions {
         if (instance.is(effect.getEffect())) {
           if (instance.getAmplifier() < effect.getAmplifier()) {
             list.set(i, effect);
-            return;
+            continue;
           }
           if (instance.getAmplifier() > effect.getAmplifier()) {
-            return;
+            continue;
           }
           list.set(i, new MobEffectInstance(instance.getEffect(), instance.getDuration() + effect.getDuration(), instance.getAmplifier()));
         }

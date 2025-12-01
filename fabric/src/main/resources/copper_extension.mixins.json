@@ -3,18 +3,17 @@
   "minVersion": "0.8",
   "package": "github.killarexe.copper_extension.fabric.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
   "client": [
+    "BlockItemMixin",
     "ItemEntityMixin",
     "ItemMixin",
-    "BlockItemMixin",
-    "PlayerMixin"
+    "LightningEffectApplyMixin"
   ],
   "server": [
+    "BlockItemMixin",
     "ItemEntityMixin",
     "ItemMixin",
-    "BlockItemMixin",
-    "PlayerMixin"
+    "LightningEffectApplyMixin"
   ],
   "injectors": {
     "defaultRequire": 1

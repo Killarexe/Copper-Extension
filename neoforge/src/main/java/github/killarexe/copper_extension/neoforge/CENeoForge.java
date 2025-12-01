@@ -13,8 +13,6 @@ import github.killarexe.copper_extension.neoforge.registry.CERegistries;
 
 @Mod(CEMod.MOD_ID)
 public class CENeoForge {
-  public static final Logger LOGGER = LogManager.getLogger();
-
   public CENeoForge(IEventBus bus, ModContainer container) {
     CERegistries.register(bus);
     CEEvents.registerEvents(bus);
