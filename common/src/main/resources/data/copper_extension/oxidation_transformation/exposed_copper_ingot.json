@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_ingot",
+  "oxidized": "copper_extension:exposed_copper_ingot"
+}

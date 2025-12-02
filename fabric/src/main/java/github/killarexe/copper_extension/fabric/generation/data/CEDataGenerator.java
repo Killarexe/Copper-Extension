@@ -9,6 +9,8 @@ public class CEDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
     FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
     pack.addProvider(CERecipeProvider::new);
+    pack.addProvider(CELightningEffectProvider::new);
+    pack.addProvider(CEOxidationProvider::new);
+    pack.addProvider(CEWaxingProvider::new);
   }
-
 }

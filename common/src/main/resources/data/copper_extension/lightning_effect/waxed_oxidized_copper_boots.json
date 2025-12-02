@@ -1,0 +1,8 @@
+{
+  "effect": {
+    "duration": 600,
+    "id": "minecraft:water_breathing",
+    "show_icon": true
+  },
+  "item": "copper_extension:waxed_oxidized_copper_boots"
+}

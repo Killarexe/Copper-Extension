@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:exposed_copper_bulb",
+  "oxidized": "minecraft:weathered_copper_bulb"
+}

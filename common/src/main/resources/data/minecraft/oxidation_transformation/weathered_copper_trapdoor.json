@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:exposed_copper_trapdoor",
+  "oxidized": "minecraft:weathered_copper_trapdoor"
+}

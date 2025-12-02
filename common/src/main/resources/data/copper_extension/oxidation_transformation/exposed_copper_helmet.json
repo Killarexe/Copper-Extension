@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_helmet",
+  "oxidized": "copper_extension:exposed_copper_helmet"
+}

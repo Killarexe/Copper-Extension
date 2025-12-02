@@ -1,0 +1,43 @@
+package github.killarexe.copper_extension.fabric.generation.data;
+
+import github.killarexe.copper_extension.fabric.generation.data.provider.OxidationTransformationProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import oshi.util.tuples.Pair;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
+
+import static github.killarexe.copper_extension.fabric.registry.CEItems.*;
+
+public class CEOxidationProvider extends OxidationTransformationProvider {
+  public CEOxidationProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    super(output, registriesFuture);
+  }
+
+  @Override
+  protected void generate(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer) {
+    addVanillaTransformations(consumer);
+
+    oxidation(consumer, Items.COPPER_INGOT, EXPOSED_COPPER_INGOT, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_INGOT, WEATHERED_COPPER_INGOT, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_INGOT, OXIDIZED_COPPER_INGOT, 1.0f);
+    oxidation(consumer, Items.COPPER_NUGGET, EXPOSED_COPPER_NUGGET, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_NUGGET, WEATHERED_COPPER_NUGGET, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_NUGGET, OXIDIZED_COPPER_NUGGET, 1.0f);
+    oxidation(consumer, Items.COPPER_HELMET, EXPOSED_COPPER_HELMET, 1.0f);
+    oxidation(consumer, Items.COPPER_CHESTPLATE, EXPOSED_COPPER_CHESTPLATE, 1.0f);
+    oxidation(consumer, Items.COPPER_LEGGINGS, EXPOSED_COPPER_LEGGINGS, 1.0f);
+    oxidation(consumer, Items.COPPER_BOOTS, EXPOSED_COPPER_BOOTS, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_HELMET, WEATHERED_COPPER_HELMET, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_CHESTPLATE, WEATHERED_COPPER_CHESTPLATE, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_LEGGINGS, WEATHERED_COPPER_LEGGINGS, 1.0f);
+    oxidation(consumer, EXPOSED_COPPER_BOOTS, WEATHERED_COPPER_BOOTS, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_HELMET, OXIDIZED_COPPER_HELMET, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_CHESTPLATE, OXIDIZED_COPPER_CHESTPLATE, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_LEGGINGS, OXIDIZED_COPPER_LEGGINGS, 1.0f);
+    oxidation(consumer, WEATHERED_COPPER_BOOTS, OXIDIZED_COPPER_BOOTS, 1.0f);
+  }
+}

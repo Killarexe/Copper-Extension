@@ -1,0 +1,9 @@
+{
+  "effect": {
+    "amplifier": 1,
+    "duration": 600,
+    "id": "minecraft:speed",
+    "show_icon": true
+  },
+  "item": "copper_extension:waxed_exposed_copper_leggings"
+}

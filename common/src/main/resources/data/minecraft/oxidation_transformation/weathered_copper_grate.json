@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:exposed_copper_grate",
+  "oxidized": "minecraft:weathered_copper_grate"
+}
