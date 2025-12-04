@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -298,6 +299,23 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .group(getItemName(ingot))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
+
+          SimpleCookingRecipeBuilder.smelting(
+                  Ingredient.of(
+                          pickaxe, shovel, axe, hoe,
+                          sword, helmet, chestplate, leggings,
+                          boots
+                  ), RecipeCategory.MISC, Items.COPPER_NUGGET, 0.1F, 200)
+                  .unlockedBy("has_" + getItemName(pickaxe), this.has(pickaxe))
+                  .unlockedBy("has_" + getItemName(shovel), this.has(shovel))
+                  .unlockedBy("has_" + getItemName(axe), this.has(axe))
+                  .unlockedBy("has_" + getItemName(hoe), this.has(hoe))
+                  .unlockedBy("has_" + getItemName(sword), this.has(sword))
+                  .unlockedBy("has_" + getItemName(helmet), this.has(helmet))
+                  .unlockedBy("has_" + getItemName(chestplate), this.has(chestplate))
+                  .unlockedBy("has_" + getItemName(leggings), this.has(leggings))
+                  .unlockedBy("has_" + getItemName(boots), this.has(boots))
+                  .save(this.output, getSmeltingRecipeName(nugget));
         }
 
         private static String getNameWithId(ItemLike itemLike, String id) {

@@ -3,7 +3,6 @@ package github.killarexe.copper_extension.fabric.registry;
 import java.util.HashMap;
 
 import github.killarexe.copper_extension.CEArmorMaterials;
-import github.killarexe.copper_extension.CEMaps;
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.CEToolMaterials;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -11,12 +10,9 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.equipment.ArmorType;
 import oshi.util.tuples.Pair;
 

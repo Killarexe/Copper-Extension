@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    "copper_extension:waxed_weathered_copper_axe",
+    "copper_extension:waxed_weathered_copper_shovel",
+    "copper_extension:waxed_weathered_copper_pickaxe",
+    "copper_extension:waxed_weathered_copper_hoe",
+    "copper_extension:waxed_weathered_copper_sword",
+    "copper_extension:waxed_weathered_copper_helmet",
+    "copper_extension:waxed_weathered_copper_chestplate",
+    "copper_extension:waxed_weathered_copper_leggings",
+    "copper_extension:waxed_weathered_copper_boots"
+  ],
+  "result": {
+    "id": "minecraft:copper_nugget"
+  }
+}

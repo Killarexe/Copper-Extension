@@ -8,6 +8,8 @@ public class CEDataGenerator implements DataGeneratorEntrypoint {
   @Override
   public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
     FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+    pack.addProvider(CEEnUsLangProvider::new);
+    pack.addProvider(CEModelProvider::new);
     pack.addProvider(CERecipeProvider::new);
     pack.addProvider(CELightningEffectProvider::new);
     pack.addProvider(CEOxidationProvider::new);
