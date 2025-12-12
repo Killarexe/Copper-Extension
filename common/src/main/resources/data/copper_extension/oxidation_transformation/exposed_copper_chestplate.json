@@ -1,4 +1,5 @@
 {
   "base": "minecraft:copper_chestplate",
+  "chanceMultiplier": 1.8,
   "oxidized": "copper_extension:exposed_copper_chestplate"
 }

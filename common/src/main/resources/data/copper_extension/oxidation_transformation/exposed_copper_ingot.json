@@ -1,4 +1,5 @@
 {
   "base": "minecraft:copper_ingot",
+  "chanceMultiplier": 2.0,
   "oxidized": "copper_extension:exposed_copper_ingot"
 }

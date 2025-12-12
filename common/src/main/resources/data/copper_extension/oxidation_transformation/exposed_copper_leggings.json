@@ -1,4 +1,5 @@
 {
   "base": "minecraft:copper_leggings",
+  "chanceMultiplier": 1.7,
   "oxidized": "copper_extension:exposed_copper_leggings"
 }

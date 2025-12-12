@@ -1,4 +1,5 @@
 {
   "base": "minecraft:weathered_copper_grate",
+  "chanceMultiplier": 1.25,
   "oxidized": "minecraft:oxidized_copper_grate"
 }

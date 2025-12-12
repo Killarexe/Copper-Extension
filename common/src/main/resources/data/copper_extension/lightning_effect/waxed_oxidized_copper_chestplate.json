@@ -1,6 +1,6 @@
 {
   "effect": {
-    "duration": 600,
+    "duration": 480,
     "id": "minecraft:water_breathing",
     "show_icon": true
   },

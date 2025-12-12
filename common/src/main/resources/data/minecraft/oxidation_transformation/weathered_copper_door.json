@@ -1,4 +1,5 @@
 {
   "base": "minecraft:exposed_copper_door",
+  "chanceMultiplier": 0.75,
   "oxidized": "minecraft:weathered_copper_door"
 }

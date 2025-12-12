@@ -7,7 +7,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -31,7 +30,7 @@ import java.util.Optional;
 
 public class CEActions {
 
-    public static final float BASE_CHANCE = 0.0001366F;
+    public static final float BASE_CHANCE = 0.000100F;
 
     private static void scrap(Item scarpItem, ItemStack currentStack, ItemStack otherStack, ServerPlayer serverPlayer, int count) {
         int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
@@ -93,7 +92,7 @@ public class CEActions {
         if(currentValue >= 1 && level instanceof ServerLevel serverLevel) {
             Player player = context.getPlayer();
             Vec3 playerPos = player.position();
-            int amount = player.isShiftKeyDown() ? currentValue : 1;
+            int amount = player.isShiftKeyDown() ? Math.min(currentValue, context.getItemInHand().getCount()) : 1;
             context.getItemInHand().shrink(amount);
             ItemEntity entity = new ItemEntity(
                     serverLevel,

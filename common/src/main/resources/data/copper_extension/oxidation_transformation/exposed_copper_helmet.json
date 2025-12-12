@@ -1,4 +1,5 @@
 {
   "base": "minecraft:copper_helmet",
+  "chanceMultiplier": 1.5,
   "oxidized": "copper_extension:exposed_copper_helmet"
 }

@@ -1,7 +1,7 @@
 {
   "effect": {
     "amplifier": 1,
-    "duration": 600,
+    "duration": 240,
     "id": "minecraft:resistance",
     "show_icon": true
   },

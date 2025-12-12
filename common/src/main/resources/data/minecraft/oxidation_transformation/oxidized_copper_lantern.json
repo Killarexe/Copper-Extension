@@ -1,4 +1,5 @@
 {
   "base": "minecraft:weathered_copper_lantern",
+  "chanceMultiplier": 1.125,
   "oxidized": "minecraft:oxidized_copper_lantern"
 }

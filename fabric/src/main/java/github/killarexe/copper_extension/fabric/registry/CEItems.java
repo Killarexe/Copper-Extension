@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.equipment.ArmorType;
 import oshi.util.tuples.Pair;
 
@@ -117,10 +118,19 @@ public class CEItems {
 	public static void register() {
 		ITEMS.forEach((id, pair) -> {
 			Registry.register(BuiltInRegistries.ITEM, CEMod.id(id), pair.getA());
-			ItemGroupEvents.modifyEntriesEvent(pair.getB()).register((group) -> {
-				group.accept(pair.getA());
-			});
 		});
+    ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register((group) -> {
+      group.addAfter(
+              Items.COPPER_INGOT,
+              EXPOSED_COPPER_INGOT, WEATHERED_COPPER_INGOT, OXIDIZED_COPPER_INGOT,
+              WAXED_COPPER_INGOT, WAXED_EXPOSED_COPPER_INGOT, WAXED_WEATHERED_COPPER_INGOT, WAXED_OXIDIZED_COPPER_INGOT
+      );
+      group.addAfter(
+              Items.COPPER_NUGGET,
+              EXPOSED_COPPER_NUGGET, WEATHERED_COPPER_NUGGET, OXIDIZED_COPPER_NUGGET,
+              WAXED_COPPER_NUGGET, WAXED_EXPOSED_COPPER_NUGGET, WAXED_WEATHERED_COPPER_NUGGET, WAXED_OXIDIZED_COPPER_NUGGET
+      );
+    });
 		ITEMS.clear();
 	}
 	

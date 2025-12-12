@@ -1,4 +1,5 @@
 {
   "base": "minecraft:weathered_copper_trapdoor",
+  "chanceMultiplier": 1.25,
   "oxidized": "minecraft:oxidized_copper_trapdoor"
 }

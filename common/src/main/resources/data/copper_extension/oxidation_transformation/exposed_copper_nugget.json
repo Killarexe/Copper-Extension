@@ -1,4 +1,5 @@
 {
   "base": "minecraft:copper_nugget",
+  "chanceMultiplier": 4.0,
   "oxidized": "copper_extension:exposed_copper_nugget"
 }

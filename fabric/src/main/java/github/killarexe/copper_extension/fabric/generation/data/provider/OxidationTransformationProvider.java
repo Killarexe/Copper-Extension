@@ -93,25 +93,25 @@ public abstract class OxidationTransformationProvider implements DataProvider {
     oxidation(consumer, Items.EXPOSED_COPPER_BULB, Items.WEATHERED_COPPER_BULB, 1.0f);
     oxidation(consumer, Items.WEATHERED_COPPER_BULB, Items.OXIDIZED_COPPER_BULB, 1.0f);
 
-    oxidation(consumer, Items.COPPER_DOOR, Items.EXPOSED_COPPER_DOOR, 1.0f);
-    oxidation(consumer, Items.EXPOSED_COPPER_DOOR, Items.WEATHERED_COPPER_DOOR, 1.0f);
-    oxidation(consumer, Items.WEATHERED_COPPER_DOOR, Items.OXIDIZED_COPPER_DOOR, 1.0f);
+    oxidation(consumer, Items.COPPER_DOOR, Items.EXPOSED_COPPER_DOOR, 0.75f);
+    oxidation(consumer, Items.EXPOSED_COPPER_DOOR, Items.WEATHERED_COPPER_DOOR, 0.75f);
+    oxidation(consumer, Items.WEATHERED_COPPER_DOOR, Items.OXIDIZED_COPPER_DOOR, 0.75f);
 
-    oxidation(consumer, Items.COPPER_GRATE, Items.EXPOSED_COPPER_GRATE, 1.0f);
-    oxidation(consumer, Items.EXPOSED_COPPER_GRATE, Items.WEATHERED_COPPER_GRATE, 1.0f);
-    oxidation(consumer, Items.WEATHERED_COPPER_GRATE, Items.OXIDIZED_COPPER_GRATE, 1.0f);
+    oxidation(consumer, Items.COPPER_GRATE, Items.EXPOSED_COPPER_GRATE, 1.25f);
+    oxidation(consumer, Items.EXPOSED_COPPER_GRATE, Items.WEATHERED_COPPER_GRATE, 1.25f);
+    oxidation(consumer, Items.WEATHERED_COPPER_GRATE, Items.OXIDIZED_COPPER_GRATE, 1.25f);
 
-    oxidation(consumer, Items.COPPER_TRAPDOOR, Items.EXPOSED_COPPER_TRAPDOOR, 1.0f);
-    oxidation(consumer, Items.EXPOSED_COPPER_TRAPDOOR, Items.WEATHERED_COPPER_TRAPDOOR, 1.0f);
-    oxidation(consumer, Items.WEATHERED_COPPER_TRAPDOOR, Items.OXIDIZED_COPPER_TRAPDOOR, 1.0f);
+    oxidation(consumer, Items.COPPER_TRAPDOOR, Items.EXPOSED_COPPER_TRAPDOOR, 1.25f);
+    oxidation(consumer, Items.EXPOSED_COPPER_TRAPDOOR, Items.WEATHERED_COPPER_TRAPDOOR, 1.25f);
+    oxidation(consumer, Items.WEATHERED_COPPER_TRAPDOOR, Items.OXIDIZED_COPPER_TRAPDOOR, 1.25f);
 
     oxidation(consumer, Items.CHISELED_COPPER, Items.EXPOSED_CHISELED_COPPER, 1.0f);
     oxidation(consumer, Items.EXPOSED_CHISELED_COPPER, Items.WEATHERED_CHISELED_COPPER, 1.0f);
     oxidation(consumer, Items.WEATHERED_CHISELED_COPPER, Items.OXIDIZED_CHISELED_COPPER, 1.0f);
 
-    oxidation(consumer, Items.COPPER_LANTERN.unaffected(), Items.COPPER_LANTERN.exposed(), 1.0f);
-    oxidation(consumer, Items.COPPER_LANTERN.exposed(), Items.COPPER_LANTERN.weathered(), 1.0f);
-    oxidation(consumer, Items.COPPER_LANTERN.weathered(), Items.COPPER_LANTERN.oxidized(), 1.0f);
+    oxidation(consumer, Items.COPPER_LANTERN.unaffected(), Items.COPPER_LANTERN.exposed(), 1.125f);
+    oxidation(consumer, Items.COPPER_LANTERN.exposed(), Items.COPPER_LANTERN.weathered(), 1.125f);
+    oxidation(consumer, Items.COPPER_LANTERN.weathered(), Items.COPPER_LANTERN.oxidized(), 1.125f);
 
     oxidation(consumer, Items.COPPER_CHEST, Items.EXPOSED_COPPER_CHEST, 1.0f);
     oxidation(consumer, Items.EXPOSED_COPPER_CHEST, Items.WEATHERED_COPPER_CHEST, 1.0f);

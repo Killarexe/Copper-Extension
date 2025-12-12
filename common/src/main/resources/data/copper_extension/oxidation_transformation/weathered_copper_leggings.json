@@ -1,4 +1,5 @@
 {
   "base": "copper_extension:exposed_copper_leggings",
+  "chanceMultiplier": 1.7,
   "oxidized": "copper_extension:weathered_copper_leggings"
 }
