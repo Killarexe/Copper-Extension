@@ -13,7 +13,7 @@ public class CEResourceListeners {
   public static class LightningEffectListener implements ResourceManagerReloadListener {
     @Override
     public void onResourceManagerReload(ResourceManager resourceManager) {
-      Set<ResourceLocation> locations = resourceManager.listResources("lightning_effects", path -> path.toString().endsWith(".json")).keySet();
+      Set<ResourceLocation> locations = resourceManager.listResources("lightning_effect", path -> path.toString().endsWith(".json")).keySet();
       for (ResourceLocation location : locations) {
         try (InputStream stream = resourceManager.open(location)) {
           LightningEffect effect = LightningEffect.fromInputStream(stream);

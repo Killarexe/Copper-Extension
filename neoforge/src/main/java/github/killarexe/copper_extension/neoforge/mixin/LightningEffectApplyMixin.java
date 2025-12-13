@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension.fabric.mixin;
+package github.killarexe.copper_extension.neoforge.mixin;
 
 import github.killarexe.copper_extension.CEActions;
 import net.minecraft.server.level.ServerLevel;
@@ -8,7 +8,10 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;

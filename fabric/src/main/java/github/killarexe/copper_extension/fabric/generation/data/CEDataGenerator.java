@@ -11,6 +11,7 @@ public class CEDataGenerator implements DataGeneratorEntrypoint {
     pack.addProvider(CEEnUsLangProvider::new);
     pack.addProvider(CEModelProvider::new);
     pack.addProvider(CERecipeProvider::new);
+    pack.addProvider(CETagsProvider::new);
     pack.addProvider(CELightningEffectProvider::new);
     pack.addProvider(CEOxidationProvider::new);
     pack.addProvider(CEWaxingProvider::new);

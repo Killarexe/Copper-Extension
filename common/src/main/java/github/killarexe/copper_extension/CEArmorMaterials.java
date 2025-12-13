@@ -3,7 +3,6 @@ package github.killarexe.copper_extension;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
@@ -34,7 +33,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.5f,
           0.0f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_WAXED_COPPER_ARMOR,
           WAXED_COPPER_ASSET
   );
 
@@ -51,7 +50,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.4f,
           0.0f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_WAXED_EXPOSED_COPPER_ARMOR,
           WAXED_EXPOSED_COPPER_ASSET
   );
 
@@ -68,7 +67,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.03f,
           0.04f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_WAXED_WEATHERED_COPPER_ARMOR,
           WAXED_WEATHERED_COPPER_ASSET
   );
 
@@ -85,7 +84,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.02f,
           0.08f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_WAXED_OXIDIZED_COPPER_ARMOR,
           WAXED_OXIDIZED_COPPER_ASSET
   );
 
@@ -102,7 +101,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.0f,
           0.0f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_EXPOSED_COPPER_ARMOR,
           EXPOSED_COPPER_ASSET
   );
 
@@ -119,7 +118,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.0f,
           0.02f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_WEATHERED_COPPER_ARMOR,
           WEATHERED_COPPER_ASSET
   );
 
@@ -136,7 +135,7 @@ public class CEArmorMaterials {
           SoundEvents.ARMOR_EQUIP_COPPER,
           0.0f,
           0.04f,
-          ItemTags.REPAIRS_COPPER_ARMOR,
+          CETags.REPAIRS_OXIDIZED_COPPER_ARMOR,
           OXIDIZED_COPPER_ASSET
   );
 }

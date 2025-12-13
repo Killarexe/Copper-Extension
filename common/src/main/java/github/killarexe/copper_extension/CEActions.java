@@ -3,6 +3,8 @@ package github.killarexe.copper_extension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -30,7 +32,8 @@ import java.util.Optional;
 
 public class CEActions {
 
-    public static final float BASE_CHANCE = 0.000100F;
+    // The base chance is based on the time that a Copper Golem takes to oxidize
+    public static final float BASE_CHANCE = 1.0F / 504000.0F;
 
     private static void scrap(Item scarpItem, ItemStack currentStack, ItemStack otherStack, ServerPlayer serverPlayer, int count) {
         int damage = otherStack.getMaxDamage() - otherStack.getDamageValue();
@@ -44,6 +47,8 @@ public class CEActions {
         ItemEntity itemEntity = new ItemEntity(level, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), result);
 
         level.addFreshEntity(itemEntity);
+        level.playSound(itemEntity, serverPlayer.blockPosition(), SoundEvents.AXE_SCRAPE, SoundSource.PLAYERS, 1.0f, 1.0f);
+
         serverPlayer.getCooldowns().addCooldown(otherStack, amount * 8);
     }
 
@@ -99,6 +104,9 @@ public class CEActions {
                     playerPos.x, playerPos.y, playerPos.z,
                     new ItemStack(CEMaps.WAXING_MAP_ITEMS.get(item), amount)
             );
+
+            level.playSound(context.getPlayer(), pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.PLAYERS, 1.0f, 1.0f);
+
             serverLevel.addFreshEntity(entity);
             serverLevel.setBlock(pos, state.setValue(BeehiveBlock.HONEY_LEVEL, currentValue - amount), Block.UPDATE_ALL_IMMEDIATE);
             callbackInfoReturnable.setReturnValue(InteractionResult.SUCCESS);
