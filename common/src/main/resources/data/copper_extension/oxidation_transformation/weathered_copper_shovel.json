@@ -1,0 +1,5 @@
+{
+  "base": "copper_extension:exposed_copper_shovel",
+  "chanceMultiplier": 1.1,
+  "oxidized": "copper_extension:weathered_copper_shovel"
+}

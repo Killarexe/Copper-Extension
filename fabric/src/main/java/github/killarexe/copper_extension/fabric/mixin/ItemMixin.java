@@ -1,8 +1,10 @@
 package github.killarexe.copper_extension.fabric.mixin;
 
-import github.killarexe.copper_extension.CEActions;
 import github.killarexe.copper_extension.CEMaps;
 import github.killarexe.copper_extension.CEMod;
+import github.killarexe.copper_extension.common_functions.CEOxidation;
+import github.killarexe.copper_extension.common_functions.CEScraping;
+import github.killarexe.copper_extension.common_functions.CEWaxing;
 import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -38,13 +40,13 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
       Pair<Item, Float> result = CEMaps.OXIDATION_MAP_ITEMS.get(item);
 
       float random = livingEntity.getRandom().nextFloat();
-      float chance = (level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEActions.BASE_CHANCE * result.getB() ) / count;
+      float chance = (level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEOxidation.BASE_CHANCE * result.getB() ) / count;
       if(random < chance) {
         if (slot != null) {
           livingEntity.setItemSlot(slot, new ItemStack(result.getA(), count));
         } else if (entity instanceof Player player) {
           Inventory inventory = player.getInventory();
-          int itemSlot = CEActions.findSlotFromStack(inventory, stack).orElse(-1);
+          int itemSlot = CEOxidation.findSlotFromStack(inventory, stack).orElse(-1);
           inventory.setItem(itemSlot, new ItemStack(result.getA(), count));
         } else {
           CEMod.LOGGER.debug("Failed to rust item {} for entity: {}", stack, entity);
@@ -55,11 +57,11 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
 
   @Inject(method = "use", at = @At("HEAD"), cancellable = true)
   public void use(Level level, Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResult> callbackInfo) {
-    CEActions.scrapUse(player, interactionHand, callbackInfo);
+    CEScraping.scrapUse(player, interactionHand, callbackInfo);
   }
 
   @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
   public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
-    CEActions.waxUseOn(context, callbackInfoReturnable);
+    CEWaxing.waxUseOn(context, callbackInfoReturnable);
   }
 }

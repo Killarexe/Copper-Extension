@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.resource;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -11,12 +11,13 @@ import net.minecraft.world.item.Item;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public record OxidationTransformation(Holder<Item> base, Holder<Item> oxidized, float chanceMultiplier) {
+public record OxidationTransformation(Holder<Item> base, Holder<Item> oxidized, float chanceMultiplier, boolean replace) {
 
   public static final Codec<OxidationTransformation> CODEC = RecordCodecBuilder.create(instance -> instance.group(
           Item.CODEC.fieldOf("base").forGetter(OxidationTransformation::base),
           Item.CODEC.fieldOf("oxidized").forGetter(OxidationTransformation::oxidized),
-          Codec.FLOAT.flatXmap(Codec.checkRange(0.0f, 100.0f), Codec.checkRange(0.0f, 100.0f)).optionalFieldOf("chanceMultiplier", 1.0f).forGetter(OxidationTransformation::chanceMultiplier)
+          Codec.FLOAT.flatXmap(Codec.checkRange(0.0f, 100.0f), Codec.checkRange(0.0f, 100.0f)).optionalFieldOf("chanceMultiplier", 1.0f).forGetter(OxidationTransformation::chanceMultiplier),
+          Codec.BOOL.optionalFieldOf("replace", false).forGetter(OxidationTransformation::replace)
   ).apply(instance, OxidationTransformation::new));
 
   public static OxidationTransformation fromInputStream(InputStream stream) throws IllegalStateException {

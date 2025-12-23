@@ -1,5 +1,6 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.resource;
 
+import github.killarexe.copper_extension.CEMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

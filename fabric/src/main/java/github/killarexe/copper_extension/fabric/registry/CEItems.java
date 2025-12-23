@@ -2,9 +2,9 @@ package github.killarexe.copper_extension.fabric.registry;
 
 import java.util.HashMap;
 
-import github.killarexe.copper_extension.CEArmorMaterials;
+import github.killarexe.copper_extension.materials.CEArmorMaterials;
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.CEToolMaterials;
+import github.killarexe.copper_extension.materials.CEToolMaterials;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

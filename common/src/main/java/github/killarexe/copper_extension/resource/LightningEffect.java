@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.resource;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -12,11 +12,12 @@ import net.minecraft.world.item.Item;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public record LightningEffect(Holder<Item> item, MobEffectInstance effect) {
+public record LightningEffect(Holder<Item> item, MobEffectInstance effect, boolean replace) {
 
   public static final Codec<LightningEffect> CODEC = RecordCodecBuilder.create(instance -> instance.group(
           Item.CODEC.fieldOf("item").forGetter(LightningEffect::item),
-          MobEffectInstance.CODEC.fieldOf("effect").forGetter(LightningEffect::effect)
+          MobEffectInstance.CODEC.fieldOf("effect").forGetter(LightningEffect::effect),
+          Codec.BOOL.optionalFieldOf("replace", false).forGetter(LightningEffect::replace)
   ).apply(instance, LightningEffect::new));
 
   public static LightningEffect fromInputStream(InputStream stream) throws IllegalStateException {

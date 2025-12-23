@@ -1,0 +1,5 @@
+{
+  "base": "copper_extension:exposed_copper_axe",
+  "chanceMultiplier": 1.3,
+  "oxidized": "copper_extension:weathered_copper_axe"
+}

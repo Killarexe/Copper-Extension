@@ -9,6 +9,7 @@ public class CEDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
     FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
     pack.addProvider(CEEnUsLangProvider::new);
+    pack.addProvider(CEFrFrLangProvider::new);
     pack.addProvider(CEModelProvider::new);
     pack.addProvider(CERecipeProvider::new);
     pack.addProvider(CETagsProvider::new);

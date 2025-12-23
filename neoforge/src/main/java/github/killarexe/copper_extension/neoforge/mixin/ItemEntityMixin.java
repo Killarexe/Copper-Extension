@@ -1,7 +1,7 @@
 package github.killarexe.copper_extension.neoforge.mixin;
 
-import github.killarexe.copper_extension.CEActions;
 import github.killarexe.copper_extension.CEMaps;
+import github.killarexe.copper_extension.common_functions.CEOxidation;
 import github.killarexe.copper_extension.neoforge.registry.CEGameRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -30,7 +30,7 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
     ItemStack stack = itemEntity.getItem();
     Pair<Item, Float> nextItem = CEMaps.OXIDATION_MAP_ITEMS.get(stack.getItem());
     if (nextItem != null && level() instanceof ServerLevel level) {
-      CEActions.rustEntityStack(nextItem.getA(), stack, level, nextItem.getB(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
+      CEOxidation.rustEntityStack(nextItem.getA(), stack, level, nextItem.getB(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
     }
   }
 }

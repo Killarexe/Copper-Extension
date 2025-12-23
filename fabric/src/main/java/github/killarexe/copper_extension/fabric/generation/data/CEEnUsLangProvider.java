@@ -1,5 +1,6 @@
 package github.killarexe.copper_extension.fabric.generation.data;
 
+import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -14,6 +15,8 @@ public class CEEnUsLangProvider extends FabricLanguageProvider {
 
   @Override
   public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+    translationBuilder.add(CEGameRules.COPPER_OXIDATION_CHANCE.getDescriptionId(), "Oxidation base chance multiplier for the copper items");
+
     translationBuilder.add(CEItems.WAXED_COPPER_INGOT, "Waxed Copper Ingot");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_INGOT, "Waxed Exposed Copper Ingot");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_INGOT, "Waxed Weathered Copper Ingot");

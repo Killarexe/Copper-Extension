@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.materials;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;

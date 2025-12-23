@@ -2,9 +2,9 @@ package github.killarexe.copper_extension.neoforge.registry;
 
 import java.util.function.Supplier;
 
-import github.killarexe.copper_extension.CEArmorMaterials;
+import github.killarexe.copper_extension.materials.CEArmorMaterials;
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.CEToolMaterials;
+import github.killarexe.copper_extension.materials.CEToolMaterials;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;

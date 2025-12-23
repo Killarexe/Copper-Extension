@@ -1,7 +1,7 @@
 package github.killarexe.copper_extension.fabric.registry;
 
 import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.CEResourceListeners;
+import github.killarexe.copper_extension.resource.CEResourceListeners;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.minecraft.server.packs.PackType;
 

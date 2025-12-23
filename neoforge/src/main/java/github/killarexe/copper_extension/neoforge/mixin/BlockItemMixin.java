@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension.neoforge.mixin;
 
-import github.killarexe.copper_extension.CEActions;
+import github.killarexe.copper_extension.common_functions.CEWaxing;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.UseOnContext;
@@ -13,6 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BlockItemMixin {
     @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
     public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
-        CEActions.waxUseOn(context, callbackInfoReturnable);
+        CEWaxing.waxUseOn(context, callbackInfoReturnable);
     }
 }

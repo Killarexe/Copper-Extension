@@ -1,4 +1,4 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.resource;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -11,11 +11,12 @@ import net.minecraft.world.item.Item;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public record WaxingTransformation(Holder<Item> base, Holder<Item> waxed) {
+public record WaxingTransformation(Holder<Item> base, Holder<Item> waxed, boolean replace) {
 
   public static final Codec<WaxingTransformation> CODEC = RecordCodecBuilder.create(instance -> instance.group(
           Item.CODEC.fieldOf("base").forGetter(WaxingTransformation::base),
-          Item.CODEC.fieldOf("waxed").forGetter(WaxingTransformation::waxed)
+          Item.CODEC.fieldOf("waxed").forGetter(WaxingTransformation::waxed),
+          Codec.BOOL.optionalFieldOf("replace", false).forGetter(WaxingTransformation::replace)
   ).apply(instance, WaxingTransformation::new));
 
   public static WaxingTransformation fromInputStream(InputStream stream) throws IllegalStateException {

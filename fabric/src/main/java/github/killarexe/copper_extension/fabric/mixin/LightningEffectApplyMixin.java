@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension.fabric.mixin;
 
-import github.killarexe.copper_extension.CEActions;
+import github.killarexe.copper_extension.common_functions.CELightningEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -40,7 +40,7 @@ public abstract class LightningEffectApplyMixin extends Entity {
       ItemStack leggings = getItemBySlot(EquipmentSlot.LEGS);
       ItemStack boots = getItemBySlot(EquipmentSlot.FEET);
 
-      ArrayList<MobEffectInstance> instances = CEActions.getEffectsFromArmor(head, chestplate, leggings, boots);
+      ArrayList<MobEffectInstance> instances = CELightningEffect.getEffectsFromArmor(head, chestplate, leggings, boots);
       for (MobEffectInstance instance : instances) {
         addEffect(instance);
       }

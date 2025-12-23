@@ -1,5 +1,7 @@
-package github.killarexe.copper_extension;
+package github.killarexe.copper_extension.materials;
 
+import github.killarexe.copper_extension.CEMod;
+import github.killarexe.copper_extension.resource.CETags;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;

@@ -2,8 +2,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
-import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.WaxingTransformation;
+import github.killarexe.copper_extension.resource.WaxingTransformation;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -147,7 +146,8 @@ public abstract class WaxingTransformationProvider implements DataProvider {
     private CompletableFuture<?> save(CachedOutput output, PackOutput.PathProvider pathProvider, HolderLookup.Provider registries) {
       WaxingTransformation transformation = new WaxingTransformation(
               BuiltInRegistries.ITEM.wrapAsHolder(base),
-              BuiltInRegistries.ITEM.wrapAsHolder(waxed)
+              BuiltInRegistries.ITEM.wrapAsHolder(waxed),
+              false
       );
 
       JsonElement json = WaxingTransformation.CODEC.encodeStart(JsonOps.INSTANCE, transformation).getOrThrow();

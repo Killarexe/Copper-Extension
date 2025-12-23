@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension.fabric.generation.data;
 
-import github.killarexe.copper_extension.CETags;
+import github.killarexe.copper_extension.resource.CETags;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;

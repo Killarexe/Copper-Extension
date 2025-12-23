@@ -2,8 +2,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
-import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.OxidationTransformation;
+import github.killarexe.copper_extension.resource.OxidationTransformation;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -139,7 +138,8 @@ public abstract class OxidationTransformationProvider implements DataProvider {
       OxidationTransformation transformation = new OxidationTransformation(
               BuiltInRegistries.ITEM.wrapAsHolder(base),
               BuiltInRegistries.ITEM.wrapAsHolder(oxidized),
-              chanceMultiplier
+              chanceMultiplier,
+              false
       );
 
       JsonElement json = OxidationTransformation.CODEC.encodeStart(JsonOps.INSTANCE, transformation).getOrThrow();

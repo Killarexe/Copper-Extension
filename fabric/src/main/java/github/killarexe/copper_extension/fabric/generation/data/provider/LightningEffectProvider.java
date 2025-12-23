@@ -2,8 +2,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
-import github.killarexe.copper_extension.CEMod;
-import github.killarexe.copper_extension.LightningEffect;
+import github.killarexe.copper_extension.resource.LightningEffect;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -98,7 +97,8 @@ public abstract class LightningEffectProvider implements DataProvider {
     private CompletableFuture<?> save(CachedOutput output, PackOutput.PathProvider pathProvider, HolderLookup.Provider registries) {
       LightningEffect transformation = new LightningEffect(
               BuiltInRegistries.ITEM.wrapAsHolder(item),
-              effect
+              effect,
+              false
       );
 
       JsonElement json = LightningEffect.CODEC.encodeStart(JsonOps.INSTANCE, transformation).getOrThrow();
