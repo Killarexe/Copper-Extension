@@ -42,12 +42,14 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, FabricItem 
       float random = livingEntity.getRandom().nextFloat();
       float chance = (level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEOxidation.BASE_CHANCE * result.getB() ) / count;
       if(random < chance) {
+        ItemStack resultStack = new ItemStack(result.getA(), count);
+        resultStack.applyComponents(stack.getComponentsPatch());
         if (slot != null) {
-          livingEntity.setItemSlot(slot, new ItemStack(result.getA(), count));
+          livingEntity.setItemSlot(slot, resultStack);
         } else if (entity instanceof Player player) {
           Inventory inventory = player.getInventory();
           int itemSlot = CEOxidation.findSlotFromStack(inventory, stack).orElse(-1);
-          inventory.setItem(itemSlot, new ItemStack(result.getA(), count));
+          inventory.setItem(itemSlot, resultStack);
         } else {
           CEMod.LOGGER.debug("Failed to rust item {} for entity: {}", stack, entity);
         }

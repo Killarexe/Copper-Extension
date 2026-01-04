@@ -12,7 +12,9 @@
 
 Copper Extension is a simple Minecraft Mod witch adds a few features to the copper set...
 
-The major feature is the rusty copper ingots. **Copper ingots can now be oxidixed in the inventory or even when you dropped it. And also they can be waxed** using beehives or honeycombs.
+The major feature is the rusty copper ingots. **Copper ingots can now be oxidized in the inventory or even when you dropped it. And also they can be waxed** using beehives or honeycombs.
+
+You can check mod's wiki [here](https://killarexe.github.io/Copper-Extension-wiki).
 
 ## Where ?
 

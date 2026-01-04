@@ -9,10 +9,6 @@ public class CEGameRules {
             "copperOxidationChance", GameRules.Category.UPDATES, GameRuleFactory.createIntRule(1)
     );
 
-    public static final GameRules.Key<GameRules.IntegerValue> COPPER_ARMOR_ELECTRIFICATION_CHANCE = GameRuleRegistry.register(
-            "copperArmorElectrifictaionChance", GameRules.Category.MISC, GameRuleFactory.createIntRule(1)
-    );
-
     public static void register() {
         //Just to init constants...
     }
