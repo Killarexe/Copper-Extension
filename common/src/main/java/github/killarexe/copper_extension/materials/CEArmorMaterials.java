@@ -2,25 +2,26 @@ package github.killarexe.copper_extension.materials;
 
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.resource.CETags;
-import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 
 public class CEArmorMaterials {
-  public static final ResourceKey<EquipmentAsset> WAXED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_copper"));
-  public static final ResourceKey<EquipmentAsset> WAXED_EXPOSED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_exposed_copper"));
-  public static final ResourceKey<EquipmentAsset> WAXED_WEATHERED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_weathered_copper"));
-  public static final ResourceKey<EquipmentAsset> WAXED_OXIDIZED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_oxidized_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> WAXED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> WAXED_EXPOSED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_exposed_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> WAXED_WEATHERED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_weathered_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> WAXED_OXIDIZED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("waxed_oxidized_copper"));
 
-  public static final ResourceKey<EquipmentAsset> EXPOSED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("exposed_copper"));
-  public static final ResourceKey<EquipmentAsset> WEATHERED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("weathered_copper"));
-  public static final ResourceKey<EquipmentAsset> OXIDIZED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("oxidized_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> EXPOSED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("exposed_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> WEATHERED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("weathered_copper"));
+  public static final ResourceKey<@NotNull EquipmentAsset> OXIDIZED_COPPER_ASSET = ResourceKey.create(EquipmentAssets.ROOT_ID, CEMod.id("oxidized_copper"));
 
   public static final ArmorMaterial WAXED_COPPER_ARMOR_MATERIAL = new ArmorMaterial(
           12,

@@ -3,7 +3,7 @@ package github.killarexe.copper_extension.fabric.generation.data;
 import github.killarexe.copper_extension.fabric.generation.data.provider.WaxingTransformationProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,7 +17,7 @@ public class CEWaxingProvider extends WaxingTransformationProvider {
   }
 
   @Override
-  protected void generate(BiConsumer<ResourceLocation, WaxingTransformationBuilder> consumer) {
+  protected void generate(BiConsumer<Identifier, WaxingTransformationBuilder> consumer) {
     addVanillaTransformations(consumer);
 
     waxing(consumer, Items.COPPER_INGOT, WAXED_COPPER_INGOT);

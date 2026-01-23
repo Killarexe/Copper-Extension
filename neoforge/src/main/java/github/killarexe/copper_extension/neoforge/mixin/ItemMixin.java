@@ -39,7 +39,7 @@ public abstract class ItemMixin implements FeatureElement, ItemLike, IItemExtens
       Pair<Item, Float> result = CEMaps.OXIDATION_MAP_ITEMS.get(item);
 
       float random = livingEntity.getRandom().nextFloat();
-      float chance = (level.getGameRules().getInt(CEGameRules.COPPER_OXIDATION_CHANCE) * CEOxidation.BASE_CHANCE * result.getB() ) / count;
+      float chance = (level.getGameRules().get(CEGameRules.COPPER_OXIDATION_CHANCE.get()) * CEOxidation.BASE_CHANCE * result.getB() ) / count;
       if(random < chance) {
         ItemStack resultStack = new ItemStack(result.getA(), count);
         resultStack.applyComponents(stack.getComponentsPatch());

@@ -1,5 +1,5 @@
 {
-  "gamerule.copperOxidationChance": "Oxidation base chance multiplier for the copper items",
+  "gamerule.copper_extension.copper_oxidation_chance": "Oxidation chance multiplier for the copper items",
   "item.copper_extension.exposed_copper_axe": "Exposed Copper Axe",
   "item.copper_extension.exposed_copper_boots": "Exposed Copper Boots",
   "item.copper_extension.exposed_copper_chestplate": "Exposed Copper Chestplate",

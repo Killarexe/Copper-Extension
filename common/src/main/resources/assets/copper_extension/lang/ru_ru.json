@@ -6,5 +6,5 @@
   "item.copper_extension.waxed_exposed_copper_ingot": "Вощёный потемневший медный слиток",
   "item.copper_extension.waxed_weathered_copper_ingot": "Вощёный состаренный медный слиток",
   "item.copper_extension.waxed_oxidized_copper_ingot": "Вощёный окисленный медный слиток",
-  "gamerule.copperOxidationChance": "Шанс окисления меди"
+  "gamerule.copper_extension.copper_oxidation_chance": "Шанс окисления меди"
 }

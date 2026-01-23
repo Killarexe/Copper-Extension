@@ -9,7 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
@@ -33,14 +33,14 @@ public abstract class LightningEffectProvider implements DataProvider {
     this.registriesFuture = registriesFuture;
   }
 
-  protected abstract void generate(BiConsumer<ResourceLocation, LightningEffectBuilder> consumer);
+  protected abstract void generate(BiConsumer<Identifier, LightningEffectBuilder> consumer);
 
   @Override
   public @NotNull CompletableFuture<?> run(CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
-      List<ResourceLocation> usedIds = new ArrayList<>();
+      List<Identifier> usedIds = new ArrayList<>();
 
       generate((id, builder) -> {
         builder.id = id;
@@ -64,15 +64,15 @@ public abstract class LightningEffectProvider implements DataProvider {
     return new LightningEffectBuilder(item, effect);
   }
 
-  protected void lightningEffect(BiConsumer<ResourceLocation, LightningEffectBuilder> consumer, Item item, MobEffectInstance effect, ResourceLocation location) {
+  protected void lightningEffect(BiConsumer<Identifier, LightningEffectBuilder> consumer, Item item, MobEffectInstance effect, Identifier location) {
     consumer.accept(location, createLightningEffect(item, effect));
   }
 
-  protected void lightningEffect(BiConsumer<ResourceLocation, LightningEffectBuilder> consumer, Item item, MobEffectInstance effect) {
+  protected void lightningEffect(BiConsumer<Identifier, LightningEffectBuilder> consumer, Item item, MobEffectInstance effect) {
     lightningEffect(consumer, item, effect, BuiltInRegistries.ITEM.getKey(item));
   }
 
-  protected void addVanillaLightningEffects(BiConsumer<ResourceLocation, LightningEffectBuilder> consumer) {
+  protected void addVanillaLightningEffects(BiConsumer<Identifier, LightningEffectBuilder> consumer) {
     lightningEffect(consumer, Items.COPPER_HELMET, new MobEffectInstance(MobEffects.HASTE, 600, 0));
     lightningEffect(consumer, Items.COPPER_CHESTPLATE, new MobEffectInstance(MobEffects.HASTE, 600, 0));
     lightningEffect(consumer, Items.COPPER_LEGGINGS, new MobEffectInstance(MobEffects.HASTE, 600, 0));
@@ -85,7 +85,7 @@ public abstract class LightningEffectProvider implements DataProvider {
   }
 
   public static class LightningEffectBuilder {
-    private ResourceLocation id;
+    private Identifier id;
     private final Item item;
     private final MobEffectInstance effect;
 

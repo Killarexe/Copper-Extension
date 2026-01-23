@@ -2,7 +2,7 @@ package github.killarexe.copper_extension.resource;
 
 import github.killarexe.copper_extension.CEMaps;
 import github.killarexe.copper_extension.CEMod;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import oshi.util.tuples.Pair;
@@ -30,8 +30,8 @@ public class CEResourceListeners {
     @Override
     public void onResourceManagerReload(ResourceManager resourceManager) {
       CEMaps.ARMOR_EFFECTS.clear();
-      Set<ResourceLocation> locations = resourceManager.listResources("lightning_effect", path -> path.toString().endsWith(".json")).keySet();
-      for (ResourceLocation location : locations) {
+      Set<Identifier> locations = resourceManager.listResources("lightning_effect", path -> path.toString().endsWith(".json")).keySet();
+      for (Identifier location : locations) {
         try (InputStream stream = resourceManager.open(location)) {
           LightningEffect effect = LightningEffect.fromInputStream(stream);
           appendLightningEffect(effect);
@@ -53,8 +53,8 @@ public class CEResourceListeners {
     @Override
     public void onResourceManagerReload(ResourceManager resourceManager) {
       CEMaps.OXIDATION_MAP_ITEMS.clear();
-      Set<ResourceLocation> locations = resourceManager.listResources("oxidation_transformation", path -> path.toString().endsWith(".json")).keySet();
-      for (ResourceLocation location : locations) {
+      Set<Identifier> locations = resourceManager.listResources("oxidation_transformation", path -> path.toString().endsWith(".json")).keySet();
+      for (Identifier location : locations) {
         try (InputStream stream = resourceManager.open(location)) {
           OxidationTransformation transformation = OxidationTransformation.fromInputStream(stream);
           appendOxidationTransformation(transformation);
@@ -77,8 +77,8 @@ public class CEResourceListeners {
     @Override
     public void onResourceManagerReload(ResourceManager resourceManager) {
       CEMaps.WAXING_MAP_ITEMS.clear();
-      Set<ResourceLocation> locations = resourceManager.listResources("waxing_transformation", path -> path.toString().endsWith(".json")).keySet();
-      for (ResourceLocation location : locations) {
+      Set<Identifier> locations = resourceManager.listResources("waxing_transformation", path -> path.toString().endsWith(".json")).keySet();
+      for (Identifier location : locations) {
         try (InputStream stream = resourceManager.open(location)) {
           WaxingTransformation transformation = WaxingTransformation.fromInputStream(stream);
           appendWaxingTransformation(transformation);
