@@ -2,12 +2,15 @@ package github.killarexe.copper_extension.neoforge.event;
 
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.neoforge.registry.CEItems;
+import github.killarexe.copper_extension.resource.CEResourceListeners;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import java.util.function.Supplier;
@@ -17,8 +20,16 @@ public class CEEvents {
 	public static void registerEvents(IEventBus bus) {
 		CEMod.LOGGER.debug("Initializing Copper Extension Events...");
 		bus.addListener(CEEvents::addItemsToCreativeTabsEvent);
+    NeoForge.EVENT_BUS.addListener(CEEvents::addReloadListeners);
 		CEMod.LOGGER.debug("Copper Extension Events Initialized!");
 	}
+
+  private static void addReloadListeners(AddServerReloadListenersEvent event) {
+    CEMod.LOGGER.debug("Initializing Copper Extension Data Listeners...");
+    event.addListener(CEMod.id("lightning_effects"), new CEResourceListeners.LightningEffectListener());
+    event.addListener(CEMod.id("oxidation_transformation"), new CEResourceListeners.OxidationTransformationListener());
+    event.addListener(CEMod.id("waxing_transformation"), new CEResourceListeners.WaxingTransformationListener());
+  }
 
   @SafeVarargs
   private static void addAfter(BuildCreativeModeTabContentsEvent event, ItemLike existing, Supplier<Item>... items) {

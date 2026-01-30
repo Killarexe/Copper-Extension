@@ -5,9 +5,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.neoforge.registry.CERegistries;
 
