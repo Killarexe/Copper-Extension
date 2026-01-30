@@ -4,7 +4,7 @@ import github.killarexe.copper_extension.fabric.generation.data.provider.Lightni
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
@@ -18,7 +18,7 @@ public class CELightningEffectProvider extends LightningEffectProvider {
   }
 
   @Override
-  protected void generate(BiConsumer<ResourceLocation, LightningEffectBuilder> consumer) {
+  protected void generate(BiConsumer<Identifier, LightningEffectBuilder> consumer) {
     addVanillaLightningEffects(consumer);
 
     lightningEffect(consumer, CEItems.EXPOSED_COPPER_HELMET, new MobEffectInstance(MobEffects.SPEED, 300, 0));

@@ -1,6 +1,6 @@
 package github.killarexe.copper_extension;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +9,7 @@ public class CEMod {
 
   public static final String MOD_ID = "copper_extension";
 
-  public static ResourceLocation id(String id) {
-    return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+  public static Identifier id(String id) {
+    return Identifier.fromNamespaceAndPath(MOD_ID, id);
   }
 }

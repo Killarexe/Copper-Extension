@@ -1,5 +1,5 @@
 {
-  "gamerule.copperOxidationChance": "Multiplicateur de chance d'oxidation des items en cuivre",
+  "gamerule.copper_extension.copper_oxidation_chance": "Multiplicateur de chance d'oxidation des items en cuivre",
   "item.copper_extension.exposed_copper_axe": "Hache en cuivre exposé",
   "item.copper_extension.exposed_copper_boots": "Bottes en cuivre exposé",
   "item.copper_extension.exposed_copper_chestplate": "Plastron en cuivre exposé",

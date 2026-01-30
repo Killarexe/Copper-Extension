@@ -9,7 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -32,14 +32,14 @@ public abstract class WaxingTransformationProvider implements DataProvider {
     this.registriesFuture = registriesFuture;
   }
 
-  protected abstract void generate(BiConsumer<ResourceLocation, WaxingTransformationBuilder> consumer);
+  protected abstract void generate(BiConsumer<Identifier, WaxingTransformationBuilder> consumer);
 
   @Override
   public @NotNull CompletableFuture<?> run(CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
-      List<ResourceLocation> usedIds = new ArrayList<>();
+      List<Identifier> usedIds = new ArrayList<>();
 
       generate((id, builder) -> {
         builder.id = id;
@@ -63,15 +63,15 @@ public abstract class WaxingTransformationProvider implements DataProvider {
     return new WaxingTransformationBuilder(base.asItem(), waxed.asItem());
   }
 
-  protected void waxing(BiConsumer<ResourceLocation, WaxingTransformationBuilder> consumer, ItemLike base, ItemLike waxed, ResourceLocation location) {
+  protected void waxing(BiConsumer<Identifier, WaxingTransformationBuilder> consumer, ItemLike base, ItemLike waxed, Identifier location) {
     consumer.accept(location, createWaxing(base, waxed));
   }
 
-  protected void waxing(BiConsumer<ResourceLocation, WaxingTransformationBuilder> consumer, ItemLike base, ItemLike waxed) {
+  protected void waxing(BiConsumer<Identifier, WaxingTransformationBuilder> consumer, ItemLike base, ItemLike waxed) {
     waxing(consumer, base, waxed, BuiltInRegistries.ITEM.getKey(waxed.asItem()));
   }
 
-  protected void addVanillaTransformations(BiConsumer<ResourceLocation, WaxingTransformationBuilder> consumer) {
+  protected void addVanillaTransformations(BiConsumer<Identifier, WaxingTransformationBuilder> consumer) {
     waxing(consumer, Items.COPPER_BLOCK, Items.WAXED_COPPER_BLOCK);
     waxing(consumer, Items.EXPOSED_COPPER, Items.WAXED_EXPOSED_COPPER);
     waxing(consumer, Items.WEATHERED_COPPER, Items.WAXED_WEATHERED_COPPER);
@@ -134,7 +134,7 @@ public abstract class WaxingTransformationProvider implements DataProvider {
   }
 
   public static class WaxingTransformationBuilder {
-    private ResourceLocation id;
+    private Identifier id;
     private final Item base;
     private final Item waxed;
 

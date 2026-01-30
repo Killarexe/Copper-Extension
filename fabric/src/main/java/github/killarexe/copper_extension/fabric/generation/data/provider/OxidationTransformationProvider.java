@@ -9,7 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -32,14 +32,14 @@ public abstract class OxidationTransformationProvider implements DataProvider {
     this.registriesFuture = registriesFuture;
   }
 
-  protected abstract void generate(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer);
+  protected abstract void generate(BiConsumer<Identifier, OxidationTransformationBuilder> consumer);
 
   @Override
   public @NotNull CompletableFuture<?> run(CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
-      List<ResourceLocation> usedIds = new ArrayList<>();
+      List<Identifier> usedIds = new ArrayList<>();
 
       generate((id, builder) -> {
         builder.id = id;
@@ -63,15 +63,15 @@ public abstract class OxidationTransformationProvider implements DataProvider {
     return new OxidationTransformationBuilder(base.asItem(), oxidized.asItem(), chanceMultiplier);
   }
 
-  protected void oxidation(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer, ItemLike base, ItemLike oxidized, float chanceMultiplier, ResourceLocation location) {
+  protected void oxidation(BiConsumer<Identifier, OxidationTransformationBuilder> consumer, ItemLike base, ItemLike oxidized, float chanceMultiplier, Identifier location) {
     consumer.accept(location, createOxidation(base, oxidized, chanceMultiplier));
   }
 
-  protected void oxidation(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer, ItemLike base, ItemLike oxidized, float chanceMultiplier) {
+  protected void oxidation(BiConsumer<Identifier, OxidationTransformationBuilder> consumer, ItemLike base, ItemLike oxidized, float chanceMultiplier) {
     oxidation(consumer, base, oxidized, chanceMultiplier, BuiltInRegistries.ITEM.getKey(oxidized.asItem()));
   }
 
-  protected void addVanillaTransformations(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer) {
+  protected void addVanillaTransformations(BiConsumer<Identifier, OxidationTransformationBuilder> consumer) {
     oxidation(consumer, Items.COPPER_BLOCK, Items.EXPOSED_COPPER, 1.0f);
     oxidation(consumer, Items.EXPOSED_COPPER, Items.WEATHERED_COPPER, 1.0f);
     oxidation(consumer, Items.WEATHERED_COPPER, Items.OXIDIZED_COPPER, 1.0f);
@@ -123,7 +123,7 @@ public abstract class OxidationTransformationProvider implements DataProvider {
   }
 
   public static class OxidationTransformationBuilder {
-    private ResourceLocation id;
+    private Identifier id;
     private final Item base;
     private final Item oxidized;
     private final float chanceMultiplier;

@@ -1,6 +1,7 @@
 package github.killarexe.copper_extension.neoforge;
 
 import github.killarexe.copper_extension.neoforge.event.CEEvents;
+import github.killarexe.copper_extension.neoforge.registry.CEGameRules;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;

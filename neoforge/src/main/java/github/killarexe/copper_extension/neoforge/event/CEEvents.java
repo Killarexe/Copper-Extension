@@ -3,6 +3,7 @@ package github.killarexe.copper_extension.neoforge.event;
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.neoforge.registry.CEItems;
 import github.killarexe.copper_extension.resource.CEResourceListeners;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;

@@ -7,7 +7,7 @@ import net.minecraft.server.packs.PackType;
 
 public class CERegistries {
   public static void register() {
-    CEMod.LOGGER.debug("Initializing Copper Extension Game Rules...");
+    CEMod.LOGGER.debug("Initializing Copper Extension GameRules...");
     CEGameRules.register();
     CEMod.LOGGER.debug("Initializing Copper Extension Items...");
     CEItems.register();
@@ -15,6 +15,6 @@ public class CERegistries {
     ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("lightning_effects"), new CEResourceListeners.LightningEffectListener());
     ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("oxidation_transformation"), new CEResourceListeners.OxidationTransformationListener());
     ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("waxing_transformation"), new CEResourceListeners.WaxingTransformationListener());
-    CEMod.LOGGER.debug("Copper Extension Items Initialized!");
+    CEMod.LOGGER.debug("Copper Extension Initialized!");
   }
 }

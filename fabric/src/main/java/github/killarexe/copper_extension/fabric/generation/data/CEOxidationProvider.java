@@ -3,7 +3,7 @@ package github.killarexe.copper_extension.fabric.generation.data;
 import github.killarexe.copper_extension.fabric.generation.data.provider.OxidationTransformationProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,7 +17,7 @@ public class CEOxidationProvider extends OxidationTransformationProvider {
   }
 
   @Override
-  protected void generate(BiConsumer<ResourceLocation, OxidationTransformationBuilder> consumer) {
+  protected void generate(BiConsumer<Identifier, OxidationTransformationBuilder> consumer) {
     addVanillaTransformations(consumer);
 
     oxidation(consumer, Items.COPPER_INGOT, EXPOSED_COPPER_INGOT, 2.0f);

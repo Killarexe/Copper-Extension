@@ -6,7 +6,8 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRule;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -16,10 +17,10 @@ public class CEOxidation {
 
   public static <T extends Item> void rustEntityStack(
           T nextItem, ItemStack stack, ServerLevel level, float chanceMultiplier,
-          ItemEntity entity, GameRules.Key<GameRules.IntegerValue> oxidationGameRule, RandomSource random)
+          ItemEntity entity, GameRule<@NotNull Integer> oxidationGameRule, RandomSource random)
   {
     int count = stack.getCount();
-    if(random.nextFloat() < (level.getGameRules().getInt(oxidationGameRule) * BASE_CHANCE * chanceMultiplier) / count) {
+    if(random.nextFloat() < (level.getGameRules().get(oxidationGameRule) * BASE_CHANCE * chanceMultiplier) / count) {
       ItemStack result = new ItemStack(nextItem, count);
       result.applyComponents(stack.getComponentsPatch());
       entity.setItem(result);

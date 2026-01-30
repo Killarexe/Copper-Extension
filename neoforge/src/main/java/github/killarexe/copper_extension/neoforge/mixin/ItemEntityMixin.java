@@ -30,7 +30,7 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
     ItemStack stack = itemEntity.getItem();
     Pair<Item, Float> nextItem = CEMaps.OXIDATION_MAP_ITEMS.get(stack.getItem());
     if (nextItem != null && level() instanceof ServerLevel level) {
-      CEOxidation.rustEntityStack(nextItem.getA(), stack, level, nextItem.getB(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE, random);
+      CEOxidation.rustEntityStack(nextItem.getA(), stack, level, nextItem.getB(), itemEntity, CEGameRules.COPPER_OXIDATION_CHANCE.get(), random);
     }
   }
 }
