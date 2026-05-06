@@ -2,21 +2,22 @@ package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.resource.CETags;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CETagsProvider extends FabricTagProvider.ItemTagProvider {
+public class CETagsProvider extends FabricTagsProvider.ItemTagsProvider {
 
-  public CETagsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public CETagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     super(output, registriesFuture);
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider wrapperLookup) {
+  protected void addTags(HolderLookup.@NotNull Provider wrapperLookup) {
     valueLookupBuilder(ItemTags.SWORDS)
             .add(CEItems.EXPOSED_COPPER_SWORD)
             .add(CEItems.WEATHERED_COPPER_SWORD)

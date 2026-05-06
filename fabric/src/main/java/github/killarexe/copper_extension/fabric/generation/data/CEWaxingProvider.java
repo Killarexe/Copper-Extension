@@ -1,7 +1,7 @@
 package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.fabric.generation.data.provider.WaxingTransformationProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
 import static github.killarexe.copper_extension.fabric.registry.CEItems.*;
 
 public class CEWaxingProvider extends WaxingTransformationProvider {
-  public CEWaxingProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public CEWaxingProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     super(output, registriesFuture);
   }
 

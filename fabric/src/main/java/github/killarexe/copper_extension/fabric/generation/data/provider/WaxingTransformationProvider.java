@@ -3,7 +3,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import github.killarexe.copper_extension.resource.WaxingTransformation;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -27,7 +27,7 @@ public abstract class WaxingTransformationProvider implements DataProvider {
   private final CompletableFuture<HolderLookup.Provider> registriesFuture;
   private final List<WaxingTransformationBuilder> builders = new ArrayList<>();
 
-  public WaxingTransformationProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public WaxingTransformationProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     this.pathProvider = output.createPathProvider(PackOutput.Target.DATA_PACK, "waxing_transformation");
     this.registriesFuture = registriesFuture;
   }
@@ -35,7 +35,7 @@ public abstract class WaxingTransformationProvider implements DataProvider {
   protected abstract void generate(BiConsumer<Identifier, WaxingTransformationBuilder> consumer);
 
   @Override
-  public @NotNull CompletableFuture<?> run(CachedOutput cache) {
+  public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
@@ -129,7 +129,7 @@ public abstract class WaxingTransformationProvider implements DataProvider {
   }
 
   @Override
-  public String getName() {
+  public @NotNull String getName() {
     return "Waxing Transformation";
   }
 

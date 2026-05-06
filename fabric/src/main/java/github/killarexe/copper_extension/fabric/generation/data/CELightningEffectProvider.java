@@ -2,7 +2,7 @@ package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.fabric.generation.data.provider.LightningEffectProvider;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
 
 public class CELightningEffectProvider extends LightningEffectProvider {
 
-  public CELightningEffectProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public CELightningEffectProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     super(output, registriesFuture);
   }
 

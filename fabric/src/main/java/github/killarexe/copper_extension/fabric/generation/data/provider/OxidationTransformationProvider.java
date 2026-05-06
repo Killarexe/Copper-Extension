@@ -3,7 +3,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import github.killarexe.copper_extension.resource.OxidationTransformation;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -27,7 +27,7 @@ public abstract class OxidationTransformationProvider implements DataProvider {
   private final CompletableFuture<HolderLookup.Provider> registriesFuture;
   private final List<OxidationTransformationBuilder> builders = new ArrayList<>();
 
-  public OxidationTransformationProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public OxidationTransformationProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     this.pathProvider = output.createPathProvider(PackOutput.Target.DATA_PACK, "oxidation_transformation");
     this.registriesFuture = registriesFuture;
   }
@@ -35,7 +35,7 @@ public abstract class OxidationTransformationProvider implements DataProvider {
   protected abstract void generate(BiConsumer<Identifier, OxidationTransformationBuilder> consumer);
 
   @Override
-  public @NotNull CompletableFuture<?> run(CachedOutput cache) {
+  public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
@@ -118,7 +118,7 @@ public abstract class OxidationTransformationProvider implements DataProvider {
   }
 
   @Override
-  public String getName() {
+  public @NotNull String getName() {
     return "Oxidation Transformation";
   }
 

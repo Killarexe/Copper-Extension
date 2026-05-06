@@ -2,18 +2,19 @@ package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import org.jetbrains.annotations.NotNull;
 
 public class CEModelProvider extends FabricModelProvider {
-  public CEModelProvider(FabricDataOutput output) {
+  public CEModelProvider(FabricPackOutput output) {
     super(output);
   }
 
   @Override
-  public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+  public void generateBlockStateModels(@NotNull BlockModelGenerators blockStateModelGenerator) {
 
   }
 
