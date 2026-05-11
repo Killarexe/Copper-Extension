@@ -12,9 +12,9 @@ public class CERegistries {
     CEMod.LOGGER.debug("Initializing Copper Extension Items...");
     CEItems.register();
     CEMod.LOGGER.debug("Initializing Copper Extension Data Listeners...");
-    ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(CEMod.id("lightning_effects"), new CEResourceListeners.LightningEffectListener());
-    ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(CEMod.id("oxidation_transformation"), new CEResourceListeners.OxidationTransformationListener());
-    ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(CEMod.id("waxing_transformation"), new CEResourceListeners.WaxingTransformationListener());
+    ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("lightning_effects"), new CEResourceListeners.LightningEffectListener());
+    ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("oxidation_transformation"), new CEResourceListeners.OxidationTransformationListener());
+    ResourceLoader.get(PackType.SERVER_DATA).registerReloader(CEMod.id("waxing_transformation"), new CEResourceListeners.WaxingTransformationListener());
     CEMod.LOGGER.debug("Copper Extension Initialized!");
   }
 }

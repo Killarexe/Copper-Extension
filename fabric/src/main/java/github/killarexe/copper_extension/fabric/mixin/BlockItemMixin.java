@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockItem.class)
 public class BlockItemMixin {
     @Inject(method = "useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;", at = @At("HEAD"), cancellable = true)
-    public void onUse(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
-      CEWaxing.waxUseOn(context, callbackInfoReturnable);
+    public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfoReturnable) {
+        CEWaxing.waxUseOn(context, callbackInfoReturnable);
     }
 }

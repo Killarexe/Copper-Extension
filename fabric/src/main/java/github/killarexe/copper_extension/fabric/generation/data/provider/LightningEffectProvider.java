@@ -3,7 +3,7 @@ package github.killarexe.copper_extension.fabric.generation.data.provider;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import github.killarexe.copper_extension.resource.LightningEffect;
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -28,7 +28,7 @@ public abstract class LightningEffectProvider implements DataProvider {
   private final CompletableFuture<HolderLookup.Provider> registriesFuture;
   private final List<LightningEffectBuilder> builders = new ArrayList<>();
 
-  public LightningEffectProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+  public LightningEffectProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
     this.pathProvider = output.createPathProvider(PackOutput.Target.DATA_PACK, "lightning_effect");
     this.registriesFuture = registriesFuture;
   }
@@ -36,7 +36,7 @@ public abstract class LightningEffectProvider implements DataProvider {
   protected abstract void generate(BiConsumer<Identifier, LightningEffectBuilder> consumer);
 
   @Override
-  public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cache) {
+  public @NotNull CompletableFuture<?> run(CachedOutput cache) {
     return this.registriesFuture.thenCompose(provider -> {
       builders.clear();
 
@@ -80,7 +80,7 @@ public abstract class LightningEffectProvider implements DataProvider {
   }
 
   @Override
-  public @NotNull String getName() {
+  public String getName() {
     return "Lightning Effect";
   }
 
