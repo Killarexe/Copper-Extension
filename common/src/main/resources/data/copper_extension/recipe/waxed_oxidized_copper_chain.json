@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "waxed_oxidized_copper_ingot",
+  "key": {
+    "#": "copper_extension:waxed_oxidized_copper_ingot",
+    ".": "copper_extension:waxed_oxidized_copper_nugget"
+  },
+  "pattern": [
+    " . ",
+    " # ",
+    " . "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:waxed_oxidized_copper_chain"
+  }
+}

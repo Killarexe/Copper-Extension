@@ -101,9 +101,9 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_waxed_oxidized_copper_axe",
-      "has_waxed_oxidized_copper_shovel",
       "has_waxed_oxidized_copper_pickaxe",
+      "has_waxed_oxidized_copper_shovel",
+      "has_waxed_oxidized_copper_axe",
       "has_waxed_oxidized_copper_hoe",
       "has_waxed_oxidized_copper_sword",
       "has_waxed_oxidized_copper_helmet",

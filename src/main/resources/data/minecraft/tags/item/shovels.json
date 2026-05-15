@@ -1,0 +1,11 @@
+{
+  "values": [
+    "copper_extension:exposed_copper_shovel",
+    "copper_extension:weathered_copper_shovel",
+    "copper_extension:oxidized_copper_shovel",
+    "copper_extension:waxed_copper_shovel",
+    "copper_extension:waxed_exposed_copper_shovel",
+    "copper_extension:waxed_weathered_copper_shovel",
+    "copper_extension:waxed_oxidized_copper_shovel"
+  ]
+}

@@ -7,8 +7,8 @@
     "/": "minecraft:stick"
   },
   "pattern": [
-    "###",
-    " / ",
+    " ##",
+    " /#",
     " / "
   ],
   "result": {

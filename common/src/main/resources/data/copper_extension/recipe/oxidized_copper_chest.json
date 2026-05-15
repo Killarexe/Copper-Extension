@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "oxidized_copper_ingot",
+  "key": {
+    "#": "copper_extension:oxidized_copper_ingot"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:oxidized_copper_chest"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "oxidized_copper_nugget",
+  "ingredients": [
+    "copper_extension:oxidized_copper_ingot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "copper_extension:oxidized_copper_nugget"
+  }
+}

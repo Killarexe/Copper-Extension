@@ -4,9 +4,9 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": [
-    "copper_extension:weathered_copper_axe",
-    "copper_extension:weathered_copper_shovel",
     "copper_extension:weathered_copper_pickaxe",
+    "copper_extension:weathered_copper_shovel",
+    "copper_extension:weathered_copper_axe",
     "copper_extension:weathered_copper_hoe",
     "copper_extension:weathered_copper_sword",
     "copper_extension:weathered_copper_helmet",

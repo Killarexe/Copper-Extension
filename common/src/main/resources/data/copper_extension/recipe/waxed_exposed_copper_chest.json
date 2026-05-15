@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "waxed_exposed_copper_ingot",
+  "key": {
+    "#": "copper_extension:waxed_exposed_copper_ingot"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:waxed_exposed_copper_chest"
+  }
+}

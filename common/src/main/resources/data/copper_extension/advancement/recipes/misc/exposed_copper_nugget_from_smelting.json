@@ -101,9 +101,9 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_exposed_copper_axe",
-      "has_exposed_copper_shovel",
       "has_exposed_copper_pickaxe",
+      "has_exposed_copper_shovel",
+      "has_exposed_copper_axe",
       "has_exposed_copper_hoe",
       "has_exposed_copper_sword",
       "has_exposed_copper_helmet",

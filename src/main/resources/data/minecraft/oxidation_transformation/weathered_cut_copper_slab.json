@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:exposed_cut_copper_slab",
+  "oxidized": "minecraft:weathered_cut_copper_slab"
+}

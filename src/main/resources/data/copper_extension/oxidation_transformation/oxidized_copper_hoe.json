@@ -1,0 +1,5 @@
+{
+  "base": "copper_extension:weathered_copper_hoe",
+  "chanceMultiplier": 1.2,
+  "oxidized": "copper_extension:oxidized_copper_hoe"
+}

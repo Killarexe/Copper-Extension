@@ -1,0 +1,5 @@
+{
+  "base": "minecraft:copper_pickaxe",
+  "chanceMultiplier": 1.3,
+  "oxidized": "copper_extension:exposed_copper_pickaxe"
+}

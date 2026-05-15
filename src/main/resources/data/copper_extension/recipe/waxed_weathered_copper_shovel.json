@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "waxed_weathered_copper_ingot",
+  "key": {
+    "#": "copper_extension:waxed_weathered_copper_ingot",
+    "/": "minecraft:stick"
+  },
+  "pattern": [
+    " # ",
+    " / ",
+    " / "
+  ],
+  "result": {
+    "count": 1,
+    "id": "copper_extension:waxed_weathered_copper_shovel"
+  }
+}

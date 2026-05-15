@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_chestplate",
+  "waxed": "copper_extension:waxed_copper_chestplate"
+}

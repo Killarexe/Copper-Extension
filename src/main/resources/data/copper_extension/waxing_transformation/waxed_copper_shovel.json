@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_shovel",
+  "waxed": "copper_extension:waxed_copper_shovel"
+}

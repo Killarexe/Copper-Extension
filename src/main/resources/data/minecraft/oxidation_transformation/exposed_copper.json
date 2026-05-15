@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_block",
+  "oxidized": "minecraft:exposed_copper"
+}

@@ -1,0 +1,4 @@
+{
+  "base": "minecraft:copper_ingot",
+  "waxed": "copper_extension:waxed_copper_ingot"
+}
