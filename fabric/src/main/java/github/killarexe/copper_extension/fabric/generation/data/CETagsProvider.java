@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,7 +17,7 @@ public class CETagsProvider extends FabricTagProvider.ItemTagProvider {
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider wrapperLookup) {
+  protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
     valueLookupBuilder(ItemTags.SWORDS)
             .add(CEItems.EXPOSED_COPPER_SWORD)
             .add(CEItems.WEATHERED_COPPER_SWORD)

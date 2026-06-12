@@ -2,12 +2,12 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "copper_extension:waxed_copper"
+        "texture": "minecraft:copper"
       }
     ],
     "humanoid_leggings": [
       {
-        "texture": "copper_extension:waxed_copper"
+        "texture": "minecraft:copper"
       }
     ]
   }

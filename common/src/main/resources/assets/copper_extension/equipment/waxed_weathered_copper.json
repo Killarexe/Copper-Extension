@@ -2,12 +2,12 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "copper_extension:waxed_weathered_copper"
+        "texture": "copper_extension:weathered_copper"
       }
     ],
     "humanoid_leggings": [
       {
-        "texture": "copper_extension:waxed_weathered_copper"
+        "texture": "copper_extension:weathered_copper"
       }
     ]
   }
