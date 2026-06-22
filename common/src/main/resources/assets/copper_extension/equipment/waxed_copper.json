@@ -9,6 +9,16 @@
       {
         "texture": "minecraft:copper"
       }
+    ],
+    "horse_body": [
+      {
+        "texture": "minecraft:copper"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "minecraft:copper"
+      }
     ]
   }
 }

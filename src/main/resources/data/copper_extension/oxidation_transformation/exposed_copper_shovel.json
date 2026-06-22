@@ -1,5 +1,0 @@
-{
-  "base": "minecraft:copper_shovel",
-  "chanceMultiplier": 1.1,
-  "oxidized": "copper_extension:exposed_copper_shovel"
-}

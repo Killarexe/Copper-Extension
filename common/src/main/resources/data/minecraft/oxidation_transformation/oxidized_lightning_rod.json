@@ -1,0 +1,5 @@
+{
+  "base": "minecraft:weathered_lightning_rod",
+  "chanceMultiplier": 1.2,
+  "oxidized": "minecraft:oxidized_lightning_rod"
+}

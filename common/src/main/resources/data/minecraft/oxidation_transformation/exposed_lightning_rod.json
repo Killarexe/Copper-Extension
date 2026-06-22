@@ -1,0 +1,5 @@
+{
+  "base": "minecraft:lightning_rod",
+  "chanceMultiplier": 1.2,
+  "oxidized": "minecraft:exposed_lightning_rod"
+}

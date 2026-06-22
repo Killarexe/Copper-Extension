@@ -1,0 +1,5 @@
+{
+  "base": "minecraft:copper_chain",
+  "chanceMultiplier": 1.3,
+  "oxidized": "minecraft:exposed_copper_chain"
+}

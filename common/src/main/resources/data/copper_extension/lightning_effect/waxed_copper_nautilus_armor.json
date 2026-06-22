@@ -1,0 +1,9 @@
+{
+  "effect": {
+    "amplifier": 1,
+    "duration": 480,
+    "id": "minecraft:haste",
+    "show_icon": true
+  },
+  "item": "copper_extension:waxed_copper_nautilus_armor"
+}

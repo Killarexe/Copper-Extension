@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "oxidized_copper_ingot",
+  "group": "oxidized_copper_lantern",
   "key": {
     ".": "copper_extension:oxidized_copper_ingot",
     "/": "minecraft:soul_torch"

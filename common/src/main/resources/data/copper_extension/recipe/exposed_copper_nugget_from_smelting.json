@@ -3,6 +3,7 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.1,
+  "group": "exposed_copper_nugget",
   "ingredient": [
     "copper_extension:exposed_copper_pickaxe",
     "copper_extension:exposed_copper_shovel",

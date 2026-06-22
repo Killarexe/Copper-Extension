@@ -1,0 +1,5 @@
+{
+  "base": "minecraft:copper_nautilus_armor",
+  "chanceMultiplier": 1.4,
+  "oxidized": "copper_extension:exposed_copper_nautilus_armor"
+}

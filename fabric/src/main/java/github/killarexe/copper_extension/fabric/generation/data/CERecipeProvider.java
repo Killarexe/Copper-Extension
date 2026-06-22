@@ -243,7 +243,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .pattern("###")
                     .pattern("# #")
                     .pattern("###")
-                    .group(getItemName(ingot))
+                    .group(getItemName(chest))
                     .unlockedBy(getHasName(ingot), this.has(ingot))
                     .save(this.output);
 
@@ -253,7 +253,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .pattern("...")
                     .pattern("./.")
                     .pattern("...")
-                    .group(getItemName(ingot))
+                    .group(getItemName(lantern))
                     .unlockedBy(getHasName(nugget), this.has(nugget))
                     .save(this.output);
 
@@ -263,7 +263,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .pattern(" . ")
                     .pattern(" # ")
                     .pattern(" . ")
-                    .group(getItemName(ingot))
+                    .group(getItemName(chain))
                     .unlockedBy(getHasName(nugget), this.has(nugget))
                     .save(this.output);
 
@@ -271,7 +271,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .define('#', ingot)
                     .pattern("###")
                     .pattern("# #")
-                    .group(getItemName(ingot))
+                    .group(getItemName(helmet))
                     .unlockedBy(getHasName(ingot), this.has(ingot))
                     .save(this.output);
 
@@ -280,7 +280,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .pattern("# #")
                     .pattern("###")
                     .pattern("###")
-                    .group(getItemName(ingot))
+                    .group(getItemName(chestplate))
                     .unlockedBy(getHasName(ingot), this.has(ingot))
                     .save(this.output);
 
@@ -289,7 +289,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .pattern("###")
                     .pattern("# #")
                     .pattern("# #")
-                    .group(getItemName(ingot))
+                    .group(getItemName(leggings))
                     .unlockedBy(getHasName(ingot), this.has(ingot))
                     .save(this.output);
 
@@ -297,7 +297,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .define('#', ingot)
                     .pattern("# #")
                     .pattern("# #")
-                    .group(getItemName(ingot))
+                    .group(getItemName(boots))
                     .unlockedBy(getHasName(ingot), this.has(ingot))
                     .save(this.output);
 
@@ -307,7 +307,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .pattern(" # ")
                   .pattern(" # ")
                   .pattern(" / ")
-                  .group(getItemName(ingot))
+                  .group(getItemName(sword))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
 
@@ -317,7 +317,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .pattern(" ##")
                   .pattern(" /#")
                   .pattern(" / ")
-                  .group(getItemName(ingot))
+                  .group(getItemName(axe))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
 
@@ -327,7 +327,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .pattern("###")
                   .pattern(" / ")
                   .pattern(" / ")
-                  .group(getItemName(ingot))
+                  .group(getItemName(pickaxe))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
 
@@ -337,7 +337,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .pattern(" # ")
                   .pattern(" / ")
                   .pattern(" / ")
-                  .group(getItemName(ingot))
+                  .group(getItemName(shovel))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
 
@@ -347,7 +347,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .pattern(" ##")
                   .pattern(" / ")
                   .pattern(" / ")
-                  .group(getItemName(ingot))
+                  .group(getItemName(hoe))
                   .unlockedBy(getHasName(ingot), this.has(ingot))
                   .save(this.output);
 
@@ -366,6 +366,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                   .unlockedBy("has_" + getItemName(chestplate), this.has(chestplate))
                   .unlockedBy("has_" + getItemName(leggings), this.has(leggings))
                   .unlockedBy("has_" + getItemName(boots), this.has(boots))
+                  .group(getItemName(nugget))
                   .save(this.output, getSmeltingRecipeName(nugget));
         }
 

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "waxed_exposed_copper_ingot",
+  "group": "waxed_exposed_copper_hoe",
   "key": {
     "#": "copper_extension:waxed_exposed_copper_ingot",
     "/": "minecraft:stick"

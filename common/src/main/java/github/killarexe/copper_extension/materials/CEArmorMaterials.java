@@ -51,7 +51,7 @@ public class CEArmorMaterials {
           }),
           14,
           SoundEvents.ARMOR_EQUIP_COPPER,
-          0.4f,
+          0.2f,
           0.0f,
           CETags.REPAIRS_WAXED_EXPOSED_COPPER_ARMOR,
           WAXED_EXPOSED_COPPER_ASSET

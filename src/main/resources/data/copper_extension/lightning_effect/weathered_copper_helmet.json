@@ -1,8 +1,0 @@
-{
-  "effect": {
-    "duration": 300,
-    "id": "minecraft:resistance",
-    "show_icon": true
-  },
-  "item": "copper_extension:weathered_copper_helmet"
-}

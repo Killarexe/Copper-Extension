@@ -1,8 +1,0 @@
-{
-  "effect": {
-    "duration": 420,
-    "id": "minecraft:speed",
-    "show_icon": true
-  },
-  "item": "copper_extension:exposed_copper_leggings"
-}

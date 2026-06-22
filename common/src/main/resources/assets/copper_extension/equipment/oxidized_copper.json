@@ -9,6 +9,16 @@
       {
         "texture": "copper_extension:oxidized_copper"
       }
+    ],
+    "horse_body": [
+      {
+        "texture": "copper_extension:oxidized_copper"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "copper_extension:oxidized_copper"
+      }
     ]
   }
 }

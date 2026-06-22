@@ -1,0 +1,8 @@
+{
+  "effect": {
+    "duration": 480,
+    "id": "minecraft:resistance",
+    "show_icon": true
+  },
+  "item": "copper_extension:weathered_copper_horse_armor"
+}

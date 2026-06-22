@@ -1,5 +1,0 @@
-{
-  "base": "copper_extension:weathered_copper_ingot",
-  "chanceMultiplier": 2.0,
-  "oxidized": "copper_extension:oxidized_copper_ingot"
-}

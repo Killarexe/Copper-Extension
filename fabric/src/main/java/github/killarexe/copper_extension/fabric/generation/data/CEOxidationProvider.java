@@ -32,14 +32,20 @@ public class CEOxidationProvider extends OxidationTransformationProvider {
     oxidation(consumer, Items.COPPER_CHESTPLATE, EXPOSED_COPPER_CHESTPLATE, 1.8f);
     oxidation(consumer, Items.COPPER_LEGGINGS, EXPOSED_COPPER_LEGGINGS, 1.7f);
     oxidation(consumer, Items.COPPER_BOOTS, EXPOSED_COPPER_BOOTS, 1.4f);
+    oxidation(consumer, Items.COPPER_HORSE_ARMOR, EXPOSED_COPPER_HORSE_ARMOR, 1.4f);
+    oxidation(consumer, Items.COPPER_NAUTILUS_ARMOR, EXPOSED_COPPER_NAUTILUS_ARMOR, 1.4f);
     oxidation(consumer, EXPOSED_COPPER_HELMET, WEATHERED_COPPER_HELMET, 1.5f);
     oxidation(consumer, EXPOSED_COPPER_CHESTPLATE, WEATHERED_COPPER_CHESTPLATE, 1.8f);
     oxidation(consumer, EXPOSED_COPPER_LEGGINGS, WEATHERED_COPPER_LEGGINGS, 1.7f);
     oxidation(consumer, EXPOSED_COPPER_BOOTS, WEATHERED_COPPER_BOOTS, 1.4f);
+    oxidation(consumer, EXPOSED_COPPER_HORSE_ARMOR, WEATHERED_COPPER_HORSE_ARMOR, 1.4f);
+    oxidation(consumer, EXPOSED_COPPER_NAUTILUS_ARMOR, WEATHERED_COPPER_NAUTILUS_ARMOR, 1.4f);
     oxidation(consumer, WEATHERED_COPPER_HELMET, OXIDIZED_COPPER_HELMET, 1.5f);
     oxidation(consumer, WEATHERED_COPPER_CHESTPLATE, OXIDIZED_COPPER_CHESTPLATE, 1.8f);
     oxidation(consumer, WEATHERED_COPPER_LEGGINGS, OXIDIZED_COPPER_LEGGINGS, 1.7f);
     oxidation(consumer, WEATHERED_COPPER_BOOTS, OXIDIZED_COPPER_BOOTS, 1.4f);
+    oxidation(consumer, WEATHERED_COPPER_HORSE_ARMOR, OXIDIZED_COPPER_HORSE_ARMOR, 1.4f);
+    oxidation(consumer, WEATHERED_COPPER_NAUTILUS_ARMOR, OXIDIZED_COPPER_NAUTILUS_ARMOR, 1.4f);
 
     oxidation(consumer, Items.COPPER_SWORD, EXPOSED_COPPER_SWORD, 1.2f);
     oxidation(consumer, EXPOSED_COPPER_SWORD, WEATHERED_COPPER_SWORD, 1.2f);
@@ -56,5 +62,8 @@ public class CEOxidationProvider extends OxidationTransformationProvider {
     oxidation(consumer, Items.COPPER_HOE, EXPOSED_COPPER_HOE, 1.2f);
     oxidation(consumer, EXPOSED_COPPER_HOE, WEATHERED_COPPER_HOE, 1.2f);
     oxidation(consumer, WEATHERED_COPPER_HOE, OXIDIZED_COPPER_HOE, 1.2f);
+    oxidation(consumer, Items.COPPER_SPEAR, EXPOSED_COPPER_SPEAR, 1.1f);
+    oxidation(consumer, EXPOSED_COPPER_SPEAR, WEATHERED_COPPER_SPEAR, 1.1f);
+    oxidation(consumer, WEATHERED_COPPER_SPEAR, OXIDIZED_COPPER_SPEAR, 1.1f);
   }
 }

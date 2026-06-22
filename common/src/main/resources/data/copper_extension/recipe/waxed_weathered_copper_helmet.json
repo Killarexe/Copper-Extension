@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "waxed_weathered_copper_ingot",
+  "group": "waxed_weathered_copper_helmet",
   "key": {
     "#": "copper_extension:waxed_weathered_copper_ingot"
   },

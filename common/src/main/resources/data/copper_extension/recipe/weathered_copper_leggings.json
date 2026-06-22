@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "weathered_copper_ingot",
+  "group": "weathered_copper_leggings",
   "key": {
     "#": "copper_extension:weathered_copper_ingot"
   },

@@ -37,77 +37,98 @@ public class CEFrFrLangProvider extends FabricLanguageProvider {
     translationBuilder.add(CEItems.WAXED_COPPER_CHESTPLATE, "Plastron en cuivre ciré");
     translationBuilder.add(CEItems.WAXED_COPPER_LEGGINGS, "Pantalon en cuivre ciré");
     translationBuilder.add(CEItems.WAXED_COPPER_BOOTS, "Bottes en cuivre ciré");
+    translationBuilder.add(CEItems.WAXED_COPPER_HORSE_ARMOR, "Armure en cuivre ciré pour cheval");
+    translationBuilder.add(CEItems.WAXED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre ciré pour nautile");
 
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HELMET, "Casque en cuivre exposé ciré");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_CHESTPLATE, "Plastron en cuivre exposé ciré");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_LEGGINGS, "Pantalon en cuivre exposé ciré");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_BOOTS, "Bottes en cuivre exposé ciré");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HORSE_ARMOR, "Armure en cuivre exposé ciré pour cheval");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre exposé ciré pour nautile");
 
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HELMET, "Casque en cuivre érodé ciré");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_CHESTPLATE, "Plastron en cuivre érodé ciré");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_LEGGINGS, "Pantalon en cuivre érodé ciré");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_BOOTS, "Bottes en cuivre érodé ciré");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HORSE_ARMOR, "Armure en cuivre érodé ciré pour cheval");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre érodé ciré pour nautile");
 
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HELMET, "Casque en cuivre oxydé ciré");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_CHESTPLATE, "Plastron en cuivre oxydé ciré");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_LEGGINGS, "Pantalon en cuivre oxydé ciré");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_BOOTS, "Bottes en cuivre oxidé ciré");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HORSE_ARMOR, "Armure en cuivre oxidé ciré pour cheval");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre oxidé ciré pour nautile");
 
     translationBuilder.add(CEItems.EXPOSED_COPPER_HELMET, "Casque en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_CHESTPLATE, "Plastron en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_LEGGINGS, "Pantalon en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_BOOTS, "Bottes en cuivre exposé");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_HORSE_ARMOR, "Armure en cuivre exposé pour cheval");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre exposé pour nautile");
 
     translationBuilder.add(CEItems.WEATHERED_COPPER_HELMET, "Casque en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_CHESTPLATE, "Plastron en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_LEGGINGS, "Pantalon en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_BOOTS, "Bottes en cuivre érodé");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_HORSE_ARMOR, "Armure en cuivre érodé pour cheval");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre érodé pour nautile");
 
     translationBuilder.add(CEItems.OXIDIZED_COPPER_HELMET, "Casque en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_CHESTPLATE, "Plastron en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_LEGGINGS, "Pantalon en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_BOOTS, "Bottes en cuivre oxydé");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_HORSE_ARMOR, "Armure en cuivre oxidé pour cheval");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_NAUTILUS_ARMOR, "Armure en cuivre oxidé pour nautile");
 
     translationBuilder.add(CEItems.WAXED_COPPER_SWORD, "Épée en cuivre cirée");
     translationBuilder.add(CEItems.WAXED_COPPER_PICKAXE, "Pioche en cuivre cirée");
     translationBuilder.add(CEItems.WAXED_COPPER_AXE, "Hache en cuivre cirée");
     translationBuilder.add(CEItems.WAXED_COPPER_SHOVEL, "Pelle en cuivre cirée");
     translationBuilder.add(CEItems.WAXED_COPPER_HOE, "Houe en cuivre cirée");
+    translationBuilder.add(CEItems.WAXED_COPPER_SPEAR, "Lance en cuivre cirée");
 
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SWORD, "Épée en cuivre exposé cirée");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_PICKAXE, "Pioche en cuivre exposé cirée");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_AXE, "Hache en cuivre exposé cirée");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SHOVEL, "Pelle en cuivre exposé cirée");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HOE, "Houe en cuivre exposé cirée");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SPEAR, "Lance en cuivre exposé cirée");
 
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SWORD, "Épée en cuivre érodé cirée");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_PICKAXE, "Pioche en cuivre érodé cirée");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_AXE, "Hache en cuivre érodé cirée");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SHOVEL, "Pelle en cuivre érodé cirée");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HOE, "Houe en cuivre érodé cirée");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SPEAR, "Lance en cuivre érodé cirée");
 
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SWORD, "Épée en cuivre oxydé cirée");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_PICKAXE, "Pioche en cuivre oxydé cirée");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_AXE, "Hache en cuivre oxydé cirée");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SHOVEL, "Pelle en cuivre oxydé cirée");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HOE, "Houe en cuivre oxydé cirée");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SPEAR, "Lance en cuivre oxydé cirée");
 
     translationBuilder.add(CEItems.EXPOSED_COPPER_SWORD, "Épée en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_PICKAXE, "Pioche en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_AXE, "Hache en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_SHOVEL, "Pelle en cuivre exposé");
     translationBuilder.add(CEItems.EXPOSED_COPPER_HOE, "Houe en cuivre exposé");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_SPEAR, "Lance en cuivre exposé");
 
     translationBuilder.add(CEItems.WEATHERED_COPPER_SWORD, "Épée en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_PICKAXE, "Pioche en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_AXE, "Hache en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_SHOVEL, "Pelle en cuivre érodé");
     translationBuilder.add(CEItems.WEATHERED_COPPER_HOE, "Houe en cuivre érodé");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_SPEAR, "Lance en cuivre érodé");
 
     translationBuilder.add(CEItems.OXIDIZED_COPPER_SWORD, "Épée en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_PICKAXE, "Pioche en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_AXE, "Hache en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_SHOVEL, "Pelle en cuivre oxydé");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_HOE, "Houe en cuivre oxydé");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_SPEAR, "Lance en cuivre oxydé");
   }
 }

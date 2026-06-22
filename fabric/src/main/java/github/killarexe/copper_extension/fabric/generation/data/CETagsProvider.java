@@ -63,6 +63,15 @@ public class CETagsProvider extends FabricTagProvider.ItemTagProvider {
             .add(CEItems.WAXED_WEATHERED_COPPER_HOE)
             .add(CEItems.WAXED_OXIDIZED_COPPER_HOE);
 
+    valueLookupBuilder(ItemTags.SPEARS)
+            .add(CEItems.EXPOSED_COPPER_SPEAR)
+            .add(CEItems.WEATHERED_COPPER_SPEAR)
+            .add(CEItems.OXIDIZED_COPPER_SPEAR)
+            .add(CEItems.WAXED_COPPER_SPEAR)
+            .add(CEItems.WAXED_EXPOSED_COPPER_SPEAR)
+            .add(CEItems.WAXED_WEATHERED_COPPER_SPEAR)
+            .add(CEItems.WAXED_OXIDIZED_COPPER_SPEAR);
+
     valueLookupBuilder(ItemTags.HEAD_ARMOR)
             .add(CEItems.EXPOSED_COPPER_HELMET)
             .add(CEItems.WEATHERED_COPPER_HELMET)

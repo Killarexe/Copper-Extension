@@ -37,77 +37,98 @@ public class CEEnUsLangProvider extends FabricLanguageProvider {
     translationBuilder.add(CEItems.WAXED_COPPER_CHESTPLATE, "Waxed Copper Chestplate");
     translationBuilder.add(CEItems.WAXED_COPPER_LEGGINGS, "Waxed Copper Leggings");
     translationBuilder.add(CEItems.WAXED_COPPER_BOOTS, "Waxed Copper Boots");
+    translationBuilder.add(CEItems.WAXED_COPPER_HORSE_ARMOR, "Waxed Copper Horse Armor");
+    translationBuilder.add(CEItems.WAXED_COPPER_NAUTILUS_ARMOR, "Waxed Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HELMET, "Waxed Exposed Copper Helmet");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_CHESTPLATE, "Waxed Exposed Copper Chestplate");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_LEGGINGS, "Waxed Exposed Copper Leggings");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_BOOTS, "Waxed Exposed Copper Boots");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HORSE_ARMOR, "Waxed Exposed Copper Horse Armor");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_NAUTILUS_ARMOR, "Waxed Exposed Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HELMET, "Waxed Weathered Copper Helmet");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_CHESTPLATE, "Waxed Weathered Copper Chestplate");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_LEGGINGS, "Waxed Weathered Copper Leggings");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_BOOTS, "Waxed Weathered Copper Boots");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HORSE_ARMOR, "Waxed Weathered Copper Horse Armor");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_NAUTILUS_ARMOR, "Waxed Weathered Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HELMET, "Waxed Oxidized Copper Helmet");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_CHESTPLATE, "Waxed Oxidized Copper Chestplate");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_LEGGINGS, "Waxed Oxidized Copper Leggings");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_BOOTS, "Waxed Oxidized Copper Boots");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HORSE_ARMOR, "Waxed Oxidized Copper Horse Armor");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_NAUTILUS_ARMOR, "Waxed Oxidized Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.EXPOSED_COPPER_HELMET, "Exposed Copper Helmet");
     translationBuilder.add(CEItems.EXPOSED_COPPER_CHESTPLATE, "Exposed Copper Chestplate");
     translationBuilder.add(CEItems.EXPOSED_COPPER_LEGGINGS, "Exposed Copper Leggings");
     translationBuilder.add(CEItems.EXPOSED_COPPER_BOOTS, "Exposed Copper Boots");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_HORSE_ARMOR, "Exposed Copper Horse Armor");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_NAUTILUS_ARMOR, "Exposed Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.WEATHERED_COPPER_HELMET, "Weathered Copper Helmet");
     translationBuilder.add(CEItems.WEATHERED_COPPER_CHESTPLATE, "Weathered Copper Chestplate");
     translationBuilder.add(CEItems.WEATHERED_COPPER_LEGGINGS, "Weathered Copper Leggings");
     translationBuilder.add(CEItems.WEATHERED_COPPER_BOOTS, "Weathered Copper Boots");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_HORSE_ARMOR, "Weathered Copper Horse Armor");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_NAUTILUS_ARMOR, "Weathered Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.OXIDIZED_COPPER_HELMET, "Oxidized Copper Helmet");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_CHESTPLATE, "Oxidized Copper Chestplate");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_LEGGINGS, "Oxidized Copper Leggings");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_BOOTS, "Oxidized Copper Boots");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_HORSE_ARMOR, "Oxidized Copper Horse Armor");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_NAUTILUS_ARMOR, "Oxidized Copper Nautilus Armor");
 
     translationBuilder.add(CEItems.WAXED_COPPER_SWORD, "Waxed Copper Sword");
     translationBuilder.add(CEItems.WAXED_COPPER_PICKAXE, "Waxed Copper Pickaxe");
     translationBuilder.add(CEItems.WAXED_COPPER_AXE, "Waxed Copper Axe");
     translationBuilder.add(CEItems.WAXED_COPPER_SHOVEL, "Waxed Copper Shovel");
     translationBuilder.add(CEItems.WAXED_COPPER_HOE, "Waxed Copper Hoe");
+    translationBuilder.add(CEItems.WAXED_COPPER_SPEAR, "Waxed Copper Spear");
 
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SWORD, "Waxed Exposed Copper Sword");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_PICKAXE, "Waxed Exposed Copper Pickaxe");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_AXE, "Waxed Exposed Copper Axe");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SHOVEL, "Waxed Exposed Copper Shovel");
     translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_HOE, "Waxed Exposed Copper Hoe");
+    translationBuilder.add(CEItems.WAXED_EXPOSED_COPPER_SPEAR, "Waxed Exposed Copper Spear");
 
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SWORD, "Waxed Weathered Copper Sword");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_PICKAXE, "Waxed Weathered Copper Pickaxe");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_AXE, "Waxed Weathered Copper Axe");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SHOVEL, "Waxed Weathered Copper Shovel");
     translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_HOE, "Waxed Weathered Copper Hoe");
+    translationBuilder.add(CEItems.WAXED_WEATHERED_COPPER_SPEAR, "Waxed Weathered Copper Spear");
 
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SWORD, "Waxed Oxidized Copper Sword");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_PICKAXE, "Waxed Oxidized Copper Pickaxe");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_AXE, "Waxed Oxidized Copper Axe");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SHOVEL, "Waxed Oxidized Copper Shovel");
     translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_HOE, "Waxed Oxidized Copper Hoe");
+    translationBuilder.add(CEItems.WAXED_OXIDIZED_COPPER_SPEAR, "Waxed Oxidized Copper Spear");
 
     translationBuilder.add(CEItems.EXPOSED_COPPER_SWORD, "Exposed Copper Sword");
     translationBuilder.add(CEItems.EXPOSED_COPPER_PICKAXE, "Exposed Copper Pickaxe");
     translationBuilder.add(CEItems.EXPOSED_COPPER_AXE, "Exposed Copper Axe");
     translationBuilder.add(CEItems.EXPOSED_COPPER_SHOVEL, "Exposed Copper Shovel");
     translationBuilder.add(CEItems.EXPOSED_COPPER_HOE, "Exposed Copper Hoe");
+    translationBuilder.add(CEItems.EXPOSED_COPPER_SPEAR, "Exposed Copper Spear");
 
     translationBuilder.add(CEItems.WEATHERED_COPPER_SWORD, "Weathered Copper Sword");
     translationBuilder.add(CEItems.WEATHERED_COPPER_PICKAXE, "Weathered Copper Pickaxe");
     translationBuilder.add(CEItems.WEATHERED_COPPER_AXE, "Weathered Copper Axe");
     translationBuilder.add(CEItems.WEATHERED_COPPER_SHOVEL, "Weathered Copper Shovel");
     translationBuilder.add(CEItems.WEATHERED_COPPER_HOE, "Weathered Copper Hoe");
+    translationBuilder.add(CEItems.WEATHERED_COPPER_SPEAR, "Weathered Copper Spear");
 
     translationBuilder.add(CEItems.OXIDIZED_COPPER_SWORD, "Oxidized Copper Sword");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_PICKAXE, "Oxidized Copper Pickaxe");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_AXE, "Oxidized Copper Axe");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_SHOVEL, "Oxidized Copper Shovel");
     translationBuilder.add(CEItems.OXIDIZED_COPPER_HOE, "Oxidized Copper Hoe");
+    translationBuilder.add(CEItems.OXIDIZED_COPPER_SPEAR, "Oxidized Copper Spear");
   }
 }

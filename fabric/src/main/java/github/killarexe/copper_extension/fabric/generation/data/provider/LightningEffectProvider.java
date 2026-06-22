@@ -73,10 +73,12 @@ public abstract class LightningEffectProvider implements DataProvider {
   }
 
   protected void addVanillaLightningEffects(BiConsumer<Identifier, LightningEffectBuilder> consumer) {
-    lightningEffect(consumer, Items.COPPER_HELMET, new MobEffectInstance(MobEffects.HASTE, 600, 0));
-    lightningEffect(consumer, Items.COPPER_CHESTPLATE, new MobEffectInstance(MobEffects.HASTE, 600, 0));
-    lightningEffect(consumer, Items.COPPER_LEGGINGS, new MobEffectInstance(MobEffects.HASTE, 600, 0));
-    lightningEffect(consumer, Items.COPPER_BOOTS, new MobEffectInstance(MobEffects.HASTE, 600, 0));
+    lightningEffect(consumer, Items.COPPER_HELMET, new MobEffectInstance(MobEffects.HASTE, 300, 0));
+    lightningEffect(consumer, Items.COPPER_CHESTPLATE, new MobEffectInstance(MobEffects.HASTE, 480, 0));
+    lightningEffect(consumer, Items.COPPER_LEGGINGS, new MobEffectInstance(MobEffects.HASTE, 420, 0));
+    lightningEffect(consumer, Items.COPPER_BOOTS, new MobEffectInstance(MobEffects.HASTE, 240, 0));
+    lightningEffect(consumer, Items.COPPER_HORSE_ARMOR, new MobEffectInstance(MobEffects.HASTE, 480, 0));
+    lightningEffect(consumer, Items.COPPER_NAUTILUS_ARMOR, new MobEffectInstance(MobEffects.HASTE, 480, 0));
   }
 
   @Override

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "oxidized_copper_ingot",
+  "group": "oxidized_copper_sword",
   "key": {
     "#": "copper_extension:oxidized_copper_ingot",
     "/": "minecraft:stick"

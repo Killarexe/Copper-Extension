@@ -1,8 +1,0 @@
-{
-  "effect": {
-    "duration": 600,
-    "id": "minecraft:haste",
-    "show_icon": true
-  },
-  "item": "minecraft:copper_chestplate"
-}
