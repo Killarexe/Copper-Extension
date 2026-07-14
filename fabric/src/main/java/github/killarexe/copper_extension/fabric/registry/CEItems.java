@@ -5,7 +5,7 @@ import java.util.HashMap;
 import github.killarexe.copper_extension.materials.CEArmorMaterials;
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.materials.CEToolMaterials;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -140,30 +140,30 @@ public class CEItems {
 		});
     ITEMS.clear();
 
-    ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register((group) -> {
-      group.addAfter(
+    CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register((group) -> {
+      group.insertAfter(
               Items.COPPER_INGOT,
               EXPOSED_COPPER_INGOT, WEATHERED_COPPER_INGOT, OXIDIZED_COPPER_INGOT,
               WAXED_COPPER_INGOT, WAXED_EXPOSED_COPPER_INGOT, WAXED_WEATHERED_COPPER_INGOT, WAXED_OXIDIZED_COPPER_INGOT
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_NUGGET,
               EXPOSED_COPPER_NUGGET, WEATHERED_COPPER_NUGGET, OXIDIZED_COPPER_NUGGET,
               WAXED_COPPER_NUGGET, WAXED_EXPOSED_COPPER_NUGGET, WAXED_WEATHERED_COPPER_NUGGET, WAXED_OXIDIZED_COPPER_NUGGET
       );
     });
-    ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((group) -> {
-      group.addAfter(
+    CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register((group) -> {
+      group.insertAfter(
               Items.COPPER_SWORD,
               EXPOSED_COPPER_SWORD, WEATHERED_COPPER_SWORD, OXIDIZED_COPPER_SWORD,
               WAXED_COPPER_SWORD, WAXED_EXPOSED_COPPER_SWORD, WAXED_WEATHERED_COPPER_SWORD, WAXED_OXIDIZED_COPPER_SWORD
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_AXE,
               EXPOSED_COPPER_AXE, WEATHERED_COPPER_AXE, OXIDIZED_COPPER_AXE,
               WAXED_COPPER_AXE, WAXED_EXPOSED_COPPER_AXE, WAXED_WEATHERED_COPPER_AXE, WAXED_OXIDIZED_COPPER_AXE
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_BOOTS,
               EXPOSED_COPPER_HELMET, EXPOSED_COPPER_CHESTPLATE, EXPOSED_COPPER_LEGGINGS, EXPOSED_COPPER_BOOTS,
               WEATHERED_COPPER_HELMET, WEATHERED_COPPER_CHESTPLATE, WEATHERED_COPPER_LEGGINGS, WEATHERED_COPPER_BOOTS,
@@ -173,24 +173,24 @@ public class CEItems {
               WAXED_WEATHERED_COPPER_HELMET, WAXED_WEATHERED_COPPER_CHESTPLATE, WAXED_WEATHERED_COPPER_LEGGINGS, WAXED_WEATHERED_COPPER_BOOTS,
               WAXED_OXIDIZED_COPPER_HELMET, WAXED_OXIDIZED_COPPER_CHESTPLATE, WAXED_OXIDIZED_COPPER_LEGGINGS, WAXED_OXIDIZED_COPPER_BOOTS
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_HORSE_ARMOR,
               EXPOSED_COPPER_HORSE_ARMOR, WEATHERED_COPPER_HORSE_ARMOR, OXIDIZED_COPPER_HORSE_ARMOR,
               WAXED_COPPER_HORSE_ARMOR, WAXED_EXPOSED_COPPER_HORSE_ARMOR, WAXED_WEATHERED_COPPER_HORSE_ARMOR, WAXED_OXIDIZED_COPPER_HORSE_ARMOR
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_NAUTILUS_ARMOR,
               EXPOSED_COPPER_NAUTILUS_ARMOR, WEATHERED_COPPER_NAUTILUS_ARMOR, OXIDIZED_COPPER_NAUTILUS_ARMOR,
               WAXED_COPPER_NAUTILUS_ARMOR, WAXED_EXPOSED_COPPER_NAUTILUS_ARMOR, WAXED_WEATHERED_COPPER_NAUTILUS_ARMOR, WAXED_OXIDIZED_COPPER_NAUTILUS_ARMOR
       );
-      group.addAfter(
+      group.insertAfter(
               Items.COPPER_SPEAR,
               EXPOSED_COPPER_SPEAR, WEATHERED_COPPER_SPEAR, OXIDIZED_COPPER_SPEAR,
               WAXED_COPPER_SPEAR, WAXED_EXPOSED_COPPER_SPEAR, WAXED_WEATHERED_COPPER_SPEAR, WAXED_OXIDIZED_COPPER_SPEAR
       );
     });
-    ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((group) -> {
-      group.addAfter(
+    CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((group) -> {
+      group.insertAfter(
               Items.COPPER_HOE,
               EXPOSED_COPPER_SHOVEL, EXPOSED_COPPER_PICKAXE, EXPOSED_COPPER_AXE, EXPOSED_COPPER_HOE,
               WEATHERED_COPPER_SHOVEL, WEATHERED_COPPER_PICKAXE, WEATHERED_COPPER_AXE, WEATHERED_COPPER_HOE,

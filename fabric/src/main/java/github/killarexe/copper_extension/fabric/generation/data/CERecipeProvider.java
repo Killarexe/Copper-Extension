@@ -2,7 +2,7 @@ package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -10,22 +10,24 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class CERecipeProvider extends FabricRecipeProvider {
 
-    public CERecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public CERecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
         return new Provider(provider, recipeOutput);
     }
 
@@ -356,7 +358,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                           pickaxe, shovel, axe, hoe,
                           sword, helmet, chestplate, leggings,
                           boots
-                  ), RecipeCategory.MISC, Items.COPPER_NUGGET, 0.1F, 200)
+                  ), RecipeCategory.MISC, CookingBookCategory.MISC, Items.COPPER_NUGGET, 0.1F, 200)
                   .unlockedBy("has_" + getItemName(pickaxe), this.has(pickaxe))
                   .unlockedBy("has_" + getItemName(shovel), this.has(shovel))
                   .unlockedBy("has_" + getItemName(axe), this.has(axe))

@@ -2,14 +2,14 @@ package github.killarexe.copper_extension.fabric.generation.data;
 
 import github.killarexe.copper_extension.fabric.registry.CEGameRules;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
 public class CEEnUsLangProvider extends FabricLanguageProvider {
-  protected CEEnUsLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+  protected CEEnUsLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
     super(dataOutput, "en_us", registryLookup);
   }
 
