@@ -128,6 +128,10 @@ public abstract class OxidationTransformationProvider implements DataProvider {
     oxidation(consumer, Items.COPPER_CHAIN.unaffected(), Items.COPPER_CHAIN.exposed(), 1.3f);
     oxidation(consumer, Items.COPPER_CHAIN.exposed(), Items.COPPER_CHAIN.weathered(), 1.3f);
     oxidation(consumer, Items.COPPER_CHAIN.weathered(), Items.COPPER_CHAIN.oxidized(), 1.3f);
+
+    oxidation(consumer, Items.COPPER_BARS.unaffected(), Items.COPPER_BARS.exposed(), 1.0f);
+    oxidation(consumer, Items.COPPER_BARS.exposed(), Items.COPPER_BARS.weathered(), 1.0f);
+    oxidation(consumer, Items.COPPER_BARS.weathered(), Items.COPPER_BARS.oxidized(), 1.0f);
   }
 
   @Override

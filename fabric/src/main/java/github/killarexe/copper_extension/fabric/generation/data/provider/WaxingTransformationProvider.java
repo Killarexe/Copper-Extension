@@ -137,6 +137,11 @@ public abstract class WaxingTransformationProvider implements DataProvider {
     waxing(consumer, Items.COPPER_CHAIN.exposed(), Items.COPPER_CHAIN.waxedExposed());
     waxing(consumer, Items.COPPER_CHAIN.weathered(), Items.COPPER_CHAIN.waxedWeathered());
     waxing(consumer, Items.COPPER_CHAIN.oxidized(), Items.COPPER_CHAIN.waxedOxidized());
+
+    waxing(consumer, Items.COPPER_BARS.unaffected(), Items.COPPER_BARS.waxed());
+    waxing(consumer, Items.COPPER_BARS.exposed(), Items.COPPER_BARS.waxedExposed());
+    waxing(consumer, Items.COPPER_BARS.weathered(), Items.COPPER_BARS.waxedWeathered());
+    waxing(consumer, Items.COPPER_BARS.oxidized(), Items.COPPER_BARS.waxedOxidized());
   }
 
   @Override

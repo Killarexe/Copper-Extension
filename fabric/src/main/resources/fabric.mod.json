@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "github.killarexe.copper_extension.fabric.CEFabric"
+        ],
+        "fabric-datagen": [
+            "github.killarexe.copper_extension.fabric.generation.data.CEDataGenerator"
         ]
     },
     "mixins": [
@@ -26,7 +29,7 @@
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",
-        "minecraft": "~${minecraft_version}",
+        "minecraft": ">26",
         "java": ">=${java_version}"
     },
     "suggests": {

@@ -42,8 +42,11 @@
     "1.5.0": "Add oxidized copper tools armors and other things"
   },
   "1.21.11": {
-    "1.5.1": "Updated to Minecraft 1.21.11.",
-    "1.5.2": "Added copper spear, horse armor and nautilus armor oxidation stages. Improve textures. Implement oxidation for other items/blocks."
+    "1.5.1": "Update to Minecraft 1.21.11.",
+    "1.5.2": "Add copper spear, horse armor and nautilus armor oxidation stages. Improve textures. Implement oxidation for other items/blocks."
+  },
+  "26.1" : {
+    "1.5.3": "Update to Minecraft 26.1"
   },
   "promos": {
     "1.20.6-lastest": "1.3.0",
@@ -71,6 +74,10 @@
     "1.21.10-lastest": "1.5.0",
     "1.21.10-recommended": "1.5.0",
     "1.21.11-lastest": "1.5.2",
-    "1.21.11-recommended": "1.5.2"
+    "1.21.11-recommended": "1.5.2",
+    "26.1-lastest": "1.5.3",
+    "26.1-recommended": "1.5.3",
+    "26.2-lastest": "1.5.3",
+    "26.2-recommended": "1.5.3"
   }
 }

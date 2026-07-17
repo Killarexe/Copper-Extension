@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "category": "building",
   "group": "exposed_copper_chain",
   "key": {
     "#": "copper_extension:exposed_copper_ingot",
@@ -12,7 +12,6 @@
     " . "
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:exposed_copper_chain"
   }
 }

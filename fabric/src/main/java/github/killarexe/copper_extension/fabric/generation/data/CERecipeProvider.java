@@ -54,6 +54,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.EXPOSED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.exposed(),
                     Blocks.COPPER_CHAIN.exposed(),
+                    Blocks.COPPER_BARS.exposed(),
                     CEItems.EXPOSED_COPPER_HELMET,
                     CEItems.EXPOSED_COPPER_CHESTPLATE,
                     CEItems.EXPOSED_COPPER_LEGGINGS,
@@ -75,6 +76,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.WEATHERED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.weathered(),
                     Blocks.COPPER_CHAIN.weathered(),
+                    Blocks.COPPER_BARS.weathered(),
                     CEItems.WEATHERED_COPPER_HELMET,
                     CEItems.WEATHERED_COPPER_CHESTPLATE,
                     CEItems.WEATHERED_COPPER_LEGGINGS,
@@ -96,6 +98,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.OXIDIZED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.oxidized(),
                     Blocks.COPPER_CHAIN.oxidized(),
+                    Blocks.COPPER_BARS.oxidized(),
                     CEItems.OXIDIZED_COPPER_HELMET,
                     CEItems.OXIDIZED_COPPER_CHESTPLATE,
                     CEItems.OXIDIZED_COPPER_LEGGINGS,
@@ -117,6 +120,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.WAXED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.waxed(),
                     Blocks.COPPER_CHAIN.waxed(),
+                    Blocks.COPPER_BARS.waxed(),
                     CEItems.WAXED_COPPER_HELMET,
                     CEItems.WAXED_COPPER_CHESTPLATE,
                     CEItems.WAXED_COPPER_LEGGINGS,
@@ -138,6 +142,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.WAXED_EXPOSED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.waxedExposed(),
                     Blocks.COPPER_CHAIN.waxedExposed(),
+                    Blocks.COPPER_BARS.waxedExposed(),
                     CEItems.WAXED_EXPOSED_COPPER_HELMET,
                     CEItems.WAXED_EXPOSED_COPPER_CHESTPLATE,
                     CEItems.WAXED_EXPOSED_COPPER_LEGGINGS,
@@ -159,6 +164,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.WAXED_WEATHERED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.waxedWeathered(),
                     Blocks.COPPER_CHAIN.waxedWeathered(),
+                    Blocks.COPPER_BARS.waxedWeathered(),
                     CEItems.WAXED_WEATHERED_COPPER_HELMET,
                     CEItems.WAXED_WEATHERED_COPPER_CHESTPLATE,
                     CEItems.WAXED_WEATHERED_COPPER_LEGGINGS,
@@ -180,6 +186,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     Blocks.WAXED_OXIDIZED_COPPER_CHEST,
                     Blocks.COPPER_LANTERN.waxedOxidized(),
                     Blocks.COPPER_CHAIN.waxedOxidized(),
+                    Blocks.COPPER_BARS.waxedOxidized(),
                     CEItems.WAXED_OXIDIZED_COPPER_HELMET,
                     CEItems.WAXED_OXIDIZED_COPPER_CHESTPLATE,
                     CEItems.WAXED_OXIDIZED_COPPER_LEGGINGS,
@@ -195,7 +202,7 @@ public class CERecipeProvider extends FabricRecipeProvider {
         private void copperSet(
                 ItemLike ingot, ItemLike nugget, ItemLike block,
                 Optional<ItemLike> waxedBlock, ItemLike door, ItemLike trapdoor,
-                ItemLike chest, ItemLike lantern, ItemLike chain,
+                ItemLike chest, ItemLike lantern, ItemLike chain, ItemLike bars,
                 ItemLike helmet, ItemLike chestplate, ItemLike leggings, ItemLike boots,
                 ItemLike sword, ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike hoe) {
             this.nineBlockStorageRecipes(
@@ -259,7 +266,15 @@ public class CERecipeProvider extends FabricRecipeProvider {
                     .unlockedBy(getHasName(nugget), this.has(nugget))
                     .save(this.output);
 
-            this.shaped(RecipeCategory.COMBAT, chain)
+            this.shaped(RecipeCategory.BUILDING_BLOCKS, bars)
+                    .define('#', ingot)
+                    .pattern("###")
+                    .pattern("###")
+                    .group(getItemName(bars))
+                    .unlockedBy(getHasName(ingot), this.has(ingot))
+                    .save(this.output);
+
+            this.shaped(RecipeCategory.BUILDING_BLOCKS, chain)
                     .define('#', ingot)
                     .define('.', nugget)
                     .pattern(" . ")
