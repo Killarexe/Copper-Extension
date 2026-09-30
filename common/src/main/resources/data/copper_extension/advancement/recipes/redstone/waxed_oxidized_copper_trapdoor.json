@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:waxed_oxidized_copper_trapdoor"
+        "recipes": "copper_extension:waxed_oxidized_copper_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

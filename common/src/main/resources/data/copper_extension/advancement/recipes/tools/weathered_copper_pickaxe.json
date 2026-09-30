@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:weathered_copper_pickaxe"
+        "recipes": "copper_extension:weathered_copper_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

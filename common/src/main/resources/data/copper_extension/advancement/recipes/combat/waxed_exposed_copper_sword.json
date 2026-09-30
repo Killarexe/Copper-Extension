@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:waxed_exposed_copper_sword"
+        "recipes": "copper_extension:waxed_exposed_copper_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

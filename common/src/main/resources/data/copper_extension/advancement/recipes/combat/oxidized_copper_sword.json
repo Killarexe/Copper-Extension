@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:oxidized_copper_sword"
+        "recipes": "copper_extension:oxidized_copper_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

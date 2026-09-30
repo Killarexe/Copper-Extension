@@ -8,8 +8,8 @@ on:
 
 env:
   mod_name: copper-extension
-  mod_version: 1.5.3
-  minecraft_version: 26.1
+  mod_version: 1.5.4
+  minecraft_version: 26.3
 
 jobs:
   build:

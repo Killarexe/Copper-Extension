@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:weathered_copper_ingot_from_waxed_weathered_copper"
+        "recipes": "copper_extension:weathered_copper_ingot_from_waxed_weathered_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

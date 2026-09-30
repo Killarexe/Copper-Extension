@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:exposed_copper_chestplate"
+        "recipes": "copper_extension:exposed_copper_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "oxidized_copper_ingot",
   "ingredients": [
     "minecraft:oxidized_copper"

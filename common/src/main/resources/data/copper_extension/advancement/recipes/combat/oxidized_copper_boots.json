@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:oxidized_copper_boots"
+        "recipes": "copper_extension:oxidized_copper_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -4,14 +4,16 @@ import github.killarexe.copper_extension.CEMod;
 import github.killarexe.copper_extension.fabric.registry.CEItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
@@ -27,8 +29,12 @@ public class CERecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
-        return new Provider(provider, recipeOutput);
+    protected @NonNull RecipeProvider createRecipeProvider(
+        HolderLookup.@NonNull Provider registries,
+        @NonNull BootstrapContext<Recipe<?>> recipes,
+        @NonNull BootstrapContext<Advancement> advancements
+    ) {
+        return new Provider(recipes, advancements);
     }
 
     @Override
@@ -38,8 +44,8 @@ public class CERecipeProvider extends FabricRecipeProvider {
 
     public static class Provider extends RecipeProvider {
 
-        protected Provider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-            super(provider, recipeOutput);
+        protected Provider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+            super(recipeOutput, advancementOutput);
         }
 
         @Override
@@ -47,14 +53,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.EXPOSED_COPPER_INGOT,
                     CEItems.EXPOSED_COPPER_NUGGET,
-                    Blocks.EXPOSED_COPPER,
-                    Optional.of(Blocks.WAXED_EXPOSED_COPPER),
-                    Blocks.EXPOSED_COPPER_DOOR,
-                    Blocks.EXPOSED_COPPER_TRAPDOOR,
-                    Blocks.EXPOSED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.exposed(),
-                    Blocks.COPPER_CHAIN.exposed(),
-                    Blocks.COPPER_BARS.exposed(),
+                    Blocks.COPPER_BLOCK.weathering().exposed(),
+                    Optional.of(Blocks.COPPER_BLOCK.waxed().exposed()),
+                    Blocks.COPPER_DOOR.weathering().exposed(),
+                    Blocks.COPPER_TRAPDOOR.weathering().exposed(),
+                    Blocks.COPPER_CHEST.weathering().exposed(),
+                    Blocks.COPPER_LANTERN.weathering().exposed(),
+                    Blocks.COPPER_CHAIN.weathering().exposed(),
+                    Blocks.COPPER_BARS.weathering().exposed(),
                     CEItems.EXPOSED_COPPER_HELMET,
                     CEItems.EXPOSED_COPPER_CHESTPLATE,
                     CEItems.EXPOSED_COPPER_LEGGINGS,
@@ -69,14 +75,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.WEATHERED_COPPER_INGOT,
                     CEItems.WEATHERED_COPPER_NUGGET,
-                    Blocks.WEATHERED_COPPER,
-                    Optional.of(Blocks.WAXED_WEATHERED_COPPER),
-                    Blocks.WEATHERED_COPPER_DOOR,
-                    Blocks.WEATHERED_COPPER_TRAPDOOR,
-                    Blocks.WEATHERED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.weathered(),
-                    Blocks.COPPER_CHAIN.weathered(),
-                    Blocks.COPPER_BARS.weathered(),
+                    Blocks.COPPER_BLOCK.weathering().weathered(),
+                    Optional.of(Blocks.COPPER_BLOCK.waxed().weathered()),
+                    Blocks.COPPER_DOOR.weathering().weathered(),
+                    Blocks.COPPER_TRAPDOOR.weathering().weathered(),
+                    Blocks.COPPER_CHEST.weathering().weathered(),
+                    Blocks.COPPER_LANTERN.weathering().weathered(),
+                    Blocks.COPPER_CHAIN.weathering().weathered(),
+                    Blocks.COPPER_BARS.weathering().weathered(),
                     CEItems.WEATHERED_COPPER_HELMET,
                     CEItems.WEATHERED_COPPER_CHESTPLATE,
                     CEItems.WEATHERED_COPPER_LEGGINGS,
@@ -91,14 +97,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.OXIDIZED_COPPER_INGOT,
                     CEItems.OXIDIZED_COPPER_NUGGET,
-                    Blocks.OXIDIZED_COPPER,
-                    Optional.of(Blocks.WAXED_OXIDIZED_COPPER),
-                    Blocks.OXIDIZED_COPPER_DOOR,
-                    Blocks.OXIDIZED_COPPER_TRAPDOOR,
-                    Blocks.OXIDIZED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.oxidized(),
-                    Blocks.COPPER_CHAIN.oxidized(),
-                    Blocks.COPPER_BARS.oxidized(),
+                    Blocks.COPPER_BLOCK.weathering().oxidized(),
+                    Optional.of(Blocks.COPPER_BLOCK.waxed().oxidized()),
+                    Blocks.COPPER_DOOR.weathering().oxidized(),
+                    Blocks.COPPER_TRAPDOOR.weathering().oxidized(),
+                    Blocks.COPPER_CHEST.weathering().oxidized(),
+                    Blocks.COPPER_LANTERN.weathering().oxidized(),
+                    Blocks.COPPER_CHAIN.weathering().oxidized(),
+                    Blocks.COPPER_BARS.weathering().oxidized(),
                     CEItems.OXIDIZED_COPPER_HELMET,
                     CEItems.OXIDIZED_COPPER_CHESTPLATE,
                     CEItems.OXIDIZED_COPPER_LEGGINGS,
@@ -113,14 +119,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.WAXED_COPPER_INGOT,
                     CEItems.WAXED_COPPER_NUGGET,
-                    Blocks.WAXED_COPPER_BLOCK,
+                    Blocks.COPPER_BLOCK.waxed().unaffected(),
                     Optional.empty(),
-                    Blocks.WAXED_COPPER_DOOR,
-                    Blocks.WAXED_COPPER_TRAPDOOR,
-                    Blocks.WAXED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.waxed(),
-                    Blocks.COPPER_CHAIN.waxed(),
-                    Blocks.COPPER_BARS.waxed(),
+                    Blocks.COPPER_DOOR.waxed().unaffected(),
+                    Blocks.COPPER_TRAPDOOR.waxed().unaffected(),
+                    Blocks.COPPER_CHEST.waxed().unaffected(),
+                    Blocks.COPPER_LANTERN.waxed().unaffected(),
+                    Blocks.COPPER_CHAIN.waxed().unaffected(),
+                    Blocks.COPPER_BARS.waxed().unaffected(),
                     CEItems.WAXED_COPPER_HELMET,
                     CEItems.WAXED_COPPER_CHESTPLATE,
                     CEItems.WAXED_COPPER_LEGGINGS,
@@ -135,14 +141,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.WAXED_EXPOSED_COPPER_INGOT,
                     CEItems.WAXED_EXPOSED_COPPER_NUGGET,
-                    Blocks.WAXED_EXPOSED_COPPER,
+                    Blocks.COPPER_BLOCK.waxed().exposed(),
                     Optional.empty(),
-                    Blocks.WAXED_EXPOSED_COPPER_DOOR,
-                    Blocks.WAXED_EXPOSED_COPPER_TRAPDOOR,
-                    Blocks.WAXED_EXPOSED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.waxedExposed(),
-                    Blocks.COPPER_CHAIN.waxedExposed(),
-                    Blocks.COPPER_BARS.waxedExposed(),
+                    Blocks.COPPER_DOOR.waxed().exposed(),
+                    Blocks.COPPER_TRAPDOOR.waxed().exposed(),
+                    Blocks.COPPER_CHEST.waxed().exposed(),
+                    Blocks.COPPER_LANTERN.waxed().exposed(),
+                    Blocks.COPPER_CHAIN.waxed().exposed(),
+                    Blocks.COPPER_BARS.waxed().exposed(),
                     CEItems.WAXED_EXPOSED_COPPER_HELMET,
                     CEItems.WAXED_EXPOSED_COPPER_CHESTPLATE,
                     CEItems.WAXED_EXPOSED_COPPER_LEGGINGS,
@@ -157,14 +163,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.WAXED_WEATHERED_COPPER_INGOT,
                     CEItems.WAXED_WEATHERED_COPPER_NUGGET,
-                    Blocks.WAXED_WEATHERED_COPPER,
+                    Blocks.COPPER_BLOCK.waxed().weathered(),
                     Optional.empty(),
-                    Blocks.WAXED_WEATHERED_COPPER_DOOR,
-                    Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR,
-                    Blocks.WAXED_WEATHERED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.waxedWeathered(),
-                    Blocks.COPPER_CHAIN.waxedWeathered(),
-                    Blocks.COPPER_BARS.waxedWeathered(),
+                    Blocks.COPPER_DOOR.waxed().weathered(),
+                    Blocks.COPPER_TRAPDOOR.waxed().weathered(),
+                    Blocks.COPPER_CHEST.waxed().weathered(),
+                    Blocks.COPPER_LANTERN.waxed().weathered(),
+                    Blocks.COPPER_CHAIN.waxed().weathered(),
+                    Blocks.COPPER_BARS.waxed().weathered(),
                     CEItems.WAXED_WEATHERED_COPPER_HELMET,
                     CEItems.WAXED_WEATHERED_COPPER_CHESTPLATE,
                     CEItems.WAXED_WEATHERED_COPPER_LEGGINGS,
@@ -179,14 +185,14 @@ public class CERecipeProvider extends FabricRecipeProvider {
             copperSet(
                     CEItems.WAXED_OXIDIZED_COPPER_INGOT,
                     CEItems.WAXED_OXIDIZED_COPPER_NUGGET,
-                    Blocks.WAXED_OXIDIZED_COPPER,
+                    Blocks.COPPER_BLOCK.waxed().oxidized(),
                     Optional.empty(),
-                    Blocks.WAXED_OXIDIZED_COPPER_DOOR,
-                    Blocks.WAXED_OXIDIZED_COPPER_TRAPDOOR,
-                    Blocks.WAXED_OXIDIZED_COPPER_CHEST,
-                    Blocks.COPPER_LANTERN.waxedOxidized(),
-                    Blocks.COPPER_CHAIN.waxedOxidized(),
-                    Blocks.COPPER_BARS.waxedOxidized(),
+                    Blocks.COPPER_DOOR.waxed().oxidized(),
+                    Blocks.COPPER_TRAPDOOR.waxed().oxidized(),
+                    Blocks.COPPER_CHEST.waxed().oxidized(),
+                    Blocks.COPPER_LANTERN.waxed().oxidized(),
+                    Blocks.COPPER_CHAIN.waxed().oxidized(),
+                    Blocks.COPPER_BARS.waxed().oxidized(),
                     CEItems.WAXED_OXIDIZED_COPPER_HELMET,
                     CEItems.WAXED_OXIDIZED_COPPER_CHESTPLATE,
                     CEItems.WAXED_OXIDIZED_COPPER_LEGGINGS,

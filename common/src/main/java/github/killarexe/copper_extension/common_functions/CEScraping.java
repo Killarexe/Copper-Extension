@@ -34,7 +34,7 @@ public class CEScraping {
     ItemEntity itemEntity = new ItemEntity(level, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), result);
 
     level.addFreshEntity(itemEntity);
-    level.playSound(itemEntity, serverPlayer.blockPosition(), SoundEvents.AXE_SCRAPE, SoundSource.PLAYERS, 1.0f, 1.0f);
+    level.playSound(null, serverPlayer.blockPosition(), SoundEvents.AXE_SCRAPE.value(), SoundSource.PLAYERS, 1.0f, 1.0f);
 
     serverPlayer.getCooldowns().addCooldown(otherStack, amount * 8);
   }

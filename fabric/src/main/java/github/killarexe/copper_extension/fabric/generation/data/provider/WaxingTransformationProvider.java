@@ -73,75 +73,75 @@ public abstract class WaxingTransformationProvider implements DataProvider {
   }
 
   protected void addVanillaTransformations(BiConsumer<Identifier, WaxingTransformationBuilder> consumer) {
-    waxing(consumer, Items.COPPER_BLOCK, Items.WAXED_COPPER_BLOCK);
-    waxing(consumer, Items.EXPOSED_COPPER, Items.WAXED_EXPOSED_COPPER);
-    waxing(consumer, Items.WEATHERED_COPPER, Items.WAXED_WEATHERED_COPPER);
-    waxing(consumer, Items.OXIDIZED_COPPER, Items.WAXED_OXIDIZED_COPPER);
+    waxing(consumer, Items.COPPER_BLOCK.weathering().unaffected(), Items.COPPER_BLOCK.waxed().unaffected());
+    waxing(consumer, Items.COPPER_BLOCK.weathering().exposed(), Items.COPPER_BLOCK.waxed().exposed());
+    waxing(consumer, Items.COPPER_BLOCK.weathering().weathered(), Items.COPPER_BLOCK.waxed().weathered());
+    waxing(consumer, Items.COPPER_BLOCK.weathering().oxidized(), Items.COPPER_BLOCK.waxed().oxidized());
 
-    waxing(consumer, Items.CUT_COPPER, Items.WAXED_CUT_COPPER);
-    waxing(consumer, Items.EXPOSED_CUT_COPPER, Items.WAXED_EXPOSED_CUT_COPPER);
-    waxing(consumer, Items.WEATHERED_CUT_COPPER, Items.WAXED_WEATHERED_CUT_COPPER);
-    waxing(consumer, Items.OXIDIZED_CUT_COPPER, Items.WAXED_OXIDIZED_CUT_COPPER);
+    waxing(consumer, Items.CUT_COPPER.weathering().unaffected(), Items.CUT_COPPER.waxed().unaffected());
+    waxing(consumer, Items.CUT_COPPER.weathering().exposed(), Items.CUT_COPPER.waxed().exposed());
+    waxing(consumer, Items.CUT_COPPER.weathering().weathered(), Items.CUT_COPPER.waxed().weathered());
+    waxing(consumer, Items.CUT_COPPER.weathering().oxidized(), Items.CUT_COPPER.waxed().oxidized());
 
-    waxing(consumer, Items.CUT_COPPER_SLAB, Items.WAXED_CUT_COPPER_SLAB);
-    waxing(consumer, Items.EXPOSED_CUT_COPPER_SLAB, Items.WAXED_EXPOSED_CUT_COPPER_SLAB);
-    waxing(consumer, Items.WEATHERED_CUT_COPPER_SLAB, Items.WAXED_WEATHERED_CUT_COPPER_SLAB);
-    waxing(consumer, Items.OXIDIZED_CUT_COPPER_SLAB, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB);
+    waxing(consumer, Items.CUT_COPPER_SLAB.weathering().unaffected(), Items.CUT_COPPER_SLAB.waxed().unaffected());
+    waxing(consumer, Items.CUT_COPPER_SLAB.weathering().exposed(), Items.CUT_COPPER_SLAB.waxed().exposed());
+    waxing(consumer, Items.CUT_COPPER_SLAB.weathering().weathered(), Items.CUT_COPPER_SLAB.waxed().weathered());
+    waxing(consumer, Items.CUT_COPPER_SLAB.weathering().oxidized(), Items.CUT_COPPER_SLAB.waxed().oxidized());
 
-    waxing(consumer, Items.CUT_COPPER_STAIRS, Items.WAXED_CUT_COPPER_STAIRS);
-    waxing(consumer, Items.EXPOSED_CUT_COPPER_STAIRS, Items.WAXED_EXPOSED_CUT_COPPER_STAIRS);
-    waxing(consumer, Items.WEATHERED_CUT_COPPER_STAIRS, Items.WAXED_WEATHERED_CUT_COPPER_STAIRS);
-    waxing(consumer, Items.OXIDIZED_CUT_COPPER_STAIRS, Items.WAXED_OXIDIZED_CUT_COPPER_STAIRS);
+    waxing(consumer, Items.CUT_COPPER_STAIRS.weathering().unaffected(), Items.CUT_COPPER_STAIRS.waxed().unaffected());
+    waxing(consumer, Items.CUT_COPPER_STAIRS.weathering().exposed(), Items.CUT_COPPER_STAIRS.waxed().exposed());
+    waxing(consumer, Items.CUT_COPPER_STAIRS.weathering().weathered(), Items.CUT_COPPER_STAIRS.waxed().weathered());
+    waxing(consumer, Items.CUT_COPPER_STAIRS.weathering().oxidized(), Items.CUT_COPPER_STAIRS.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_BULB, Items.WAXED_COPPER_BULB);
-    waxing(consumer, Items.EXPOSED_COPPER_BULB, Items.WAXED_EXPOSED_COPPER_BULB);
-    waxing(consumer, Items.WEATHERED_COPPER_BULB, Items.WAXED_WEATHERED_COPPER_BULB);
-    waxing(consumer, Items.OXIDIZED_COPPER_BULB, Items.WAXED_OXIDIZED_COPPER_BULB);
+    waxing(consumer, Items.COPPER_BULB.weathering().unaffected(), Items.COPPER_BULB.waxed().unaffected());
+    waxing(consumer, Items.COPPER_BULB.weathering().exposed(), Items.COPPER_BULB.waxed().exposed());
+    waxing(consumer, Items.COPPER_BULB.weathering().weathered(), Items.COPPER_BULB.waxed().weathered());
+    waxing(consumer, Items.COPPER_BULB.weathering().oxidized(), Items.COPPER_BULB.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_DOOR, Items.WAXED_COPPER_DOOR);
-    waxing(consumer, Items.EXPOSED_COPPER_DOOR, Items.WAXED_EXPOSED_COPPER_DOOR);
-    waxing(consumer, Items.WEATHERED_COPPER_DOOR, Items.WAXED_WEATHERED_COPPER_DOOR);
-    waxing(consumer, Items.OXIDIZED_COPPER_DOOR, Items.WAXED_OXIDIZED_COPPER_DOOR);
+    waxing(consumer, Items.COPPER_DOOR.weathering().unaffected(), Items.COPPER_DOOR.waxed().unaffected());
+    waxing(consumer, Items.COPPER_DOOR.weathering().exposed(), Items.COPPER_DOOR.waxed().exposed());
+    waxing(consumer, Items.COPPER_DOOR.weathering().weathered(), Items.COPPER_DOOR.waxed().weathered());
+    waxing(consumer, Items.COPPER_DOOR.weathering().oxidized(), Items.COPPER_DOOR.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_GRATE, Items.WAXED_COPPER_GRATE);
-    waxing(consumer, Items.EXPOSED_COPPER_GRATE, Items.WAXED_EXPOSED_COPPER_GRATE);
-    waxing(consumer, Items.WEATHERED_COPPER_GRATE, Items.WAXED_WEATHERED_COPPER_GRATE);
-    waxing(consumer, Items.OXIDIZED_COPPER_GRATE, Items.WAXED_OXIDIZED_COPPER_GRATE);
+    waxing(consumer, Items.COPPER_GRATE.weathering().unaffected(), Items.COPPER_GRATE.waxed().unaffected());
+    waxing(consumer, Items.COPPER_GRATE.weathering().exposed(), Items.COPPER_GRATE.waxed().exposed());
+    waxing(consumer, Items.COPPER_GRATE.weathering().weathered(), Items.COPPER_GRATE.waxed().weathered());
+    waxing(consumer, Items.COPPER_GRATE.weathering().oxidized(), Items.COPPER_GRATE.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_TRAPDOOR, Items.WAXED_COPPER_TRAPDOOR);
-    waxing(consumer, Items.EXPOSED_COPPER_TRAPDOOR, Items.WAXED_EXPOSED_COPPER_TRAPDOOR);
-    waxing(consumer, Items.WEATHERED_COPPER_TRAPDOOR, Items.WAXED_WEATHERED_COPPER_TRAPDOOR);
-    waxing(consumer, Items.OXIDIZED_COPPER_TRAPDOOR, Items.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+    waxing(consumer, Items.COPPER_TRAPDOOR.weathering().unaffected(), Items.COPPER_TRAPDOOR.waxed().unaffected());
+    waxing(consumer, Items.COPPER_TRAPDOOR.weathering().exposed(), Items.COPPER_TRAPDOOR.waxed().exposed());
+    waxing(consumer, Items.COPPER_TRAPDOOR.weathering().weathered(), Items.COPPER_TRAPDOOR.waxed().weathered());
+    waxing(consumer, Items.COPPER_TRAPDOOR.weathering().oxidized(), Items.COPPER_TRAPDOOR.waxed().oxidized());
 
-    waxing(consumer, Items.CHISELED_COPPER, Items.WAXED_CHISELED_COPPER);
-    waxing(consumer, Items.EXPOSED_CHISELED_COPPER, Items.WAXED_EXPOSED_CHISELED_COPPER);
-    waxing(consumer, Items.WEATHERED_CHISELED_COPPER, Items.WAXED_WEATHERED_CHISELED_COPPER);
-    waxing(consumer, Items.OXIDIZED_CHISELED_COPPER, Items.WAXED_OXIDIZED_CHISELED_COPPER);
+    waxing(consumer, Items.CHISELED_COPPER.weathering().unaffected(), Items.CHISELED_COPPER.waxed().unaffected());
+    waxing(consumer, Items.CHISELED_COPPER.weathering().exposed(), Items.CHISELED_COPPER.waxed().exposed());
+    waxing(consumer, Items.CHISELED_COPPER.weathering().weathered(), Items.CHISELED_COPPER.waxed().weathered());
+    waxing(consumer, Items.CHISELED_COPPER.weathering().oxidized(), Items.CHISELED_COPPER.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_LANTERN.unaffected(), Items.COPPER_LANTERN.waxed());
-    waxing(consumer, Items.COPPER_LANTERN.exposed(), Items.COPPER_LANTERN.waxedExposed());
-    waxing(consumer, Items.COPPER_LANTERN.weathered(), Items.COPPER_LANTERN.waxedWeathered());
-    waxing(consumer, Items.COPPER_LANTERN.oxidized(), Items.COPPER_LANTERN.waxedOxidized());
+    waxing(consumer, Items.COPPER_LANTERN.weathering().unaffected(), Items.COPPER_LANTERN.waxed().unaffected());
+    waxing(consumer, Items.COPPER_LANTERN.weathering().exposed(), Items.COPPER_LANTERN.waxed().exposed());
+    waxing(consumer, Items.COPPER_LANTERN.weathering().weathered(), Items.COPPER_LANTERN.waxed().weathered());
+    waxing(consumer, Items.COPPER_LANTERN.weathering().oxidized(), Items.COPPER_LANTERN.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_CHEST, Items.WAXED_COPPER_CHEST);
-    waxing(consumer, Items.EXPOSED_COPPER_CHEST, Items.WAXED_EXPOSED_COPPER_CHEST);
-    waxing(consumer, Items.WEATHERED_COPPER_CHEST, Items.WAXED_WEATHERED_COPPER_CHEST);
-    waxing(consumer, Items.OXIDIZED_COPPER_CHEST, Items.WAXED_OXIDIZED_COPPER_CHEST);
+    waxing(consumer, Items.COPPER_CHEST.weathering().unaffected(), Items.COPPER_CHEST.waxed().unaffected());
+    waxing(consumer, Items.COPPER_CHEST.weathering().exposed(), Items.COPPER_CHEST.waxed().exposed());
+    waxing(consumer, Items.COPPER_CHEST.weathering().weathered(), Items.COPPER_CHEST.waxed().weathered());
+    waxing(consumer, Items.COPPER_CHEST.weathering().oxidized(), Items.COPPER_CHEST.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_GOLEM_STATUE, Items.WAXED_COPPER_GOLEM_STATUE);
-    waxing(consumer, Items.EXPOSED_COPPER_GOLEM_STATUE, Items.WAXED_EXPOSED_COPPER_GOLEM_STATUE);
-    waxing(consumer, Items.WEATHERED_COPPER_GOLEM_STATUE, Items.WAXED_WEATHERED_COPPER_GOLEM_STATUE);
-    waxing(consumer, Items.OXIDIZED_COPPER_GOLEM_STATUE, Items.WAXED_OXIDIZED_COPPER_GOLEM_STATUE);
+    waxing(consumer, Items.COPPER_GOLEM_STATUE.weathering().unaffected(), Items.COPPER_GOLEM_STATUE.waxed().unaffected());
+    waxing(consumer, Items.COPPER_GOLEM_STATUE.weathering().exposed(), Items.COPPER_GOLEM_STATUE.waxed().exposed());
+    waxing(consumer, Items.COPPER_GOLEM_STATUE.weathering().weathered(), Items.COPPER_GOLEM_STATUE.waxed().weathered());
+    waxing(consumer, Items.COPPER_GOLEM_STATUE.weathering().oxidized(), Items.COPPER_GOLEM_STATUE.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_CHAIN.unaffected(), Items.COPPER_CHAIN.waxed());
-    waxing(consumer, Items.COPPER_CHAIN.exposed(), Items.COPPER_CHAIN.waxedExposed());
-    waxing(consumer, Items.COPPER_CHAIN.weathered(), Items.COPPER_CHAIN.waxedWeathered());
-    waxing(consumer, Items.COPPER_CHAIN.oxidized(), Items.COPPER_CHAIN.waxedOxidized());
+    waxing(consumer, Items.COPPER_CHAIN.weathering().unaffected(), Items.COPPER_CHAIN.waxed().unaffected());
+    waxing(consumer, Items.COPPER_CHAIN.weathering().exposed(), Items.COPPER_CHAIN.waxed().exposed());
+    waxing(consumer, Items.COPPER_CHAIN.weathering().weathered(), Items.COPPER_CHAIN.waxed().weathered());
+    waxing(consumer, Items.COPPER_CHAIN.weathering().oxidized(), Items.COPPER_CHAIN.waxed().oxidized());
 
-    waxing(consumer, Items.COPPER_BARS.unaffected(), Items.COPPER_BARS.waxed());
-    waxing(consumer, Items.COPPER_BARS.exposed(), Items.COPPER_BARS.waxedExposed());
-    waxing(consumer, Items.COPPER_BARS.weathered(), Items.COPPER_BARS.waxedWeathered());
-    waxing(consumer, Items.COPPER_BARS.oxidized(), Items.COPPER_BARS.waxedOxidized());
+    waxing(consumer, Items.COPPER_BARS.weathering().unaffected(), Items.COPPER_BARS.waxed().unaffected());
+    waxing(consumer, Items.COPPER_BARS.weathering().exposed(), Items.COPPER_BARS.waxed().exposed());
+    waxing(consumer, Items.COPPER_BARS.weathering().weathered(), Items.COPPER_BARS.waxed().weathered());
+    waxing(consumer, Items.COPPER_BARS.weathering().oxidized(), Items.COPPER_BARS.waxed().oxidized());
   }
 
   @Override

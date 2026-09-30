@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "exposed_copper_nugget",
   "ingredients": [
     "copper_extension:exposed_copper_ingot"

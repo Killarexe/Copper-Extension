@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "copper_extension:waxed_copper_ingot_from_nuggets"
+        "recipes": "copper_extension:waxed_copper_ingot_from_nuggets"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
