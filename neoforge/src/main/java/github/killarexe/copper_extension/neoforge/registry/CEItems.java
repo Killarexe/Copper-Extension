@@ -10,16 +10,15 @@ import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class CEItems {
-	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CEMod.MOD_ID);
+  public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CEMod.MOD_ID);
 
-  
-	public static final Supplier<Item> WAXED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_copper_ingot");
-	public static final Supplier<Item> WAXED_EXPOSED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_exposed_copper_ingot");
-	public static final Supplier<Item> WAXED_WEATHERED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_weathered_copper_ingot");
-	public static final Supplier<Item> WAXED_OXIDIZED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_oxidized_copper_ingot");
-	public static final Supplier<Item> EXPOSED_COPPER_INGOT = ITEMS.registerSimpleItem("exposed_copper_ingot");
-	public static final Supplier<Item> WEATHERED_COPPER_INGOT = ITEMS.registerSimpleItem("weathered_copper_ingot");
-	public static final Supplier<Item> OXIDIZED_COPPER_INGOT = ITEMS.registerSimpleItem("oxidized_copper_ingot");
+  public static final Supplier<Item> WAXED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_copper_ingot");
+  public static final Supplier<Item> WAXED_EXPOSED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_exposed_copper_ingot");
+  public static final Supplier<Item> WAXED_WEATHERED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_weathered_copper_ingot");
+  public static final Supplier<Item> WAXED_OXIDIZED_COPPER_INGOT = ITEMS.registerSimpleItem("waxed_oxidized_copper_ingot");
+  public static final Supplier<Item> EXPOSED_COPPER_INGOT = ITEMS.registerSimpleItem("exposed_copper_ingot");
+  public static final Supplier<Item> WEATHERED_COPPER_INGOT = ITEMS.registerSimpleItem("weathered_copper_ingot");
+  public static final Supplier<Item> OXIDIZED_COPPER_INGOT = ITEMS.registerSimpleItem("oxidized_copper_ingot");
 
   public static final Supplier<Item> WAXED_COPPER_NUGGET = ITEMS.registerSimpleItem("waxed_copper_nugget");
   public static final Supplier<Item> WAXED_EXPOSED_COPPER_NUGGET = ITEMS.registerSimpleItem("waxed_exposed_copper_nugget");

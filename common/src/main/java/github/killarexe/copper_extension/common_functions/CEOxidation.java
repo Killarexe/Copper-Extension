@@ -13,14 +13,15 @@ import java.util.Optional;
 
 public class CEOxidation {
   // The base chance is based on the time that a Copper Golem takes to oxidize
-  public static final float BASE_CHANCE = 1.0F / 504000.0F;
+  public static final float BASE_CHANCE = 1.0F / 144000.0F;
 
   public static <T extends Item> void rustEntityStack(
           T nextItem, ItemStack stack, ServerLevel level, float chanceMultiplier,
           ItemEntity entity, GameRule<@NotNull Integer> oxidationGameRule, RandomSource random)
   {
     int count = stack.getCount();
-    if(random.nextFloat() < (level.getGameRules().get(oxidationGameRule) * BASE_CHANCE * chanceMultiplier) / count) {
+    float countMultiplier = (128.0f - count) / 128.0f;
+    if(random.nextFloat() < level.getGameRules().get(oxidationGameRule) * BASE_CHANCE * chanceMultiplier * countMultiplier) {
       ItemStack result = new ItemStack(nextItem, count);
       result.applyComponents(stack.getComponentsPatch());
       entity.setItem(result);
